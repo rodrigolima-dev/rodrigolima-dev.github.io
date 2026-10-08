@@ -48,7 +48,7 @@ export const projects: Project[] = [
       'Give each branch an explicit outcome and keep the examples inactive, local, and free of external integrations.',
     evidence:
       'Four synthetic workflows · imported and executed offline · no Agent node or credentials',
-    technologies: ['n8n', 'JavaScript', 'Python'],
+    technologies: ['n8n', 'JavaScript'],
     href: 'https://github.com/rodrigolima-dev/n8n-patterns',
     visual: 'workflow',
   },

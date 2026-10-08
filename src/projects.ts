@@ -35,22 +35,23 @@ export const projectCopy = {
     {
       category: 'Full stack · Product',
       description:
-        'A public, runnable V1 dashboard with fictional data for exploring reports, permissions, and APIs.',
-      decision: 'Session, tenant access, and route permissions are checked on the server.',
+        'A runnable public V1 dashboard with fictional data, reports, permissions, and APIs.',
+      decision:
+        'The server checks the session, organization, and route permissions before returning data.',
       visualAlt: 'Screenshot of the public V1 dashboard demonstration with fictional data',
       visualCaption: 'PUBLIC V1 DEMO / SYNTHETIC DATA',
     },
     {
       category: 'Applied AI · Architecture',
-      description: 'An offline LangGraph example with access checks before retrieval.',
-      decision: 'Denied requests stop early. A bounded retry stays within the same tenant.',
+      description: 'An offline LangGraph retrieval flow that checks access before using context.',
+      decision: 'Denied requests stop there. Retries remain limited to the same organization.',
       visualAlt: 'LangGraph flow: access, retrieval, answer; denied requests stop',
       visualCaption: 'OFFLINE EXAMPLE / NO LLM CALL',
     },
     {
       category: 'Automation · Reliability',
-      description: 'Four offline n8n patterns for validation, retry, health, and lookup.',
-      decision: 'Each branch has an explicit outcome and no external calls.',
+      description: 'Four offline n8n flows for validation, retries, health checks, and lookup.',
+      decision: 'Each path has an explicit outcome and makes no external calls.',
       visualAlt: 'Four n8n patterns branching from one input: validation, retry, health, lookup',
       visualCaption: 'FOUR OFFLINE FLOWS / NO AGENT NODE OR CREDENTIALS',
     },
@@ -59,22 +60,24 @@ export const projectCopy = {
     {
       category: 'Full stack · Produto',
       description:
-        'Primeira versão pública e executável do dashboard, com dados fictícios para explorar relatórios, permissões e APIs.',
-      decision: 'Sessão, acesso à organização e permissão da rota são conferidos no servidor.',
+        'V1 pública e executável do dashboard, com dados fictícios, relatórios, permissões e APIs.',
+      decision:
+        'O servidor confere sessão, organização e permissão da rota antes de devolver os dados.',
       visualAlt: 'Captura do dashboard público V1 com dados fictícios',
       visualCaption: 'DEMO PÚBLICA V1 / DADOS FICTÍCIOS',
     },
     {
       category: 'IA aplicada · Arquitetura',
-      description: 'Exemplo offline em LangGraph: o acesso é conferido antes da busca.',
-      decision: 'Sem permissão, o fluxo para. A nova tentativa fica na mesma organização.',
+      description: 'Fluxo offline em LangGraph que confere o acesso antes de buscar contexto.',
+      decision: 'Sem permissão, o fluxo para. As novas tentativas ficam na mesma organização.',
       visualAlt: 'Fluxo LangGraph: acesso, busca e resposta; sem permissão, o fluxo para',
       visualCaption: 'EXEMPLO OFFLINE / SEM CHAMADA A LLM',
     },
     {
       category: 'Automação · Confiabilidade',
-      description: 'Quatro padrões offline em n8n: validação, nova tentativa, saúde e busca.',
-      decision: 'Cada caminho tem um resultado definido, sem chamar serviços externos.',
+      description:
+        'Quatro fluxos offline em n8n para validação, novas tentativas, checagem de disponibilidade e consulta.',
+      decision: 'Cada caminho tem um resultado explícito e não chama serviços externos.',
       visualAlt:
         'Quatro padrões n8n a partir de uma entrada: validação, nova tentativa, saúde e busca',
       visualCaption: 'QUATRO FLUXOS OFFLINE / SEM AGENT NEM CREDENCIAIS',

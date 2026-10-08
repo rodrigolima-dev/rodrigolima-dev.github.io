@@ -243,7 +243,7 @@ h2 em {
 h1 {
   margin: 28px 0 24px;
   font-size: clamp(65px, 6.25vw, 100px);
-  line-height: 0.99;
+  line-height: 1.09;
 }
 .period {
   color: var(--orange);
@@ -1563,7 +1563,7 @@ h1 {
     flex-direction: column;
   }
   .contact-section h2 {
-    font-size: 51px;
+    font-size: clamp(39px, 11vw, 44px);
   }
   .footer-inner {
     align-items: start;

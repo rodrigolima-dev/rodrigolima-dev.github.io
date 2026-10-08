@@ -296,9 +296,7 @@ export function App() {
               <h1 id="hero-title">
                 {t.heroTitleStart}
                 <br />
-                {t.heroTitleMiddle} <em>{t.heroTitleEmphasis}</em>
-                <br />
-                {t.heroTitleEnd}
+                <em>{t.heroTitleEmphasis}</em>
                 <span className="period">.</span>
               </h1>
               <p className="hero-lead">{t.heroLead}</p>

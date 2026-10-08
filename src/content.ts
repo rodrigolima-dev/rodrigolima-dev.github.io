@@ -102,9 +102,9 @@ export const content = {
       'My current focus is JavaScript/TypeScript and Python, with LangChain, LangGraph, and n8n for applied AI and automation.',
     aboutInfraTitle: 'Infrastructure & security',
     aboutInfraOperations:
-      'At OpportunusAI, I managed Docker Swarm services hosting n8n and other applications. I used Grafana and Prometheus to track health, traffic, and alerts. I corrected webhook routing so unready tasks stopped receiving traffic.',
+      'At OpportunusAI, I worked hands-on with production infrastructure: Docker Swarm and Traefik, Prometheus/Grafana observability, health checks, and watchdogs.',
     aboutInfraSecurity:
-      'I configured Grafana access through Cloudflare Tunnel and Access (Zero Trust), without exposing a public Grafana port. I also narrowed administrative SSH access in the firewall.',
+      'I also worked with Cloudflare Tunnel and Access, Zero Trust controls, and rate limiting to protect platform access and traffic.',
     practiceAreas: 'Areas of practice',
     practiceWeb: 'Web applications',
     practiceAi: 'Applied AI',
@@ -225,9 +225,9 @@ export const content = {
       'Meu foco hoje é JavaScript/TypeScript e Python, com LangChain, LangGraph e n8n em IA aplicada e automação.',
     aboutInfraTitle: 'Infraestrutura e segurança',
     aboutInfraOperations:
-      'Na OpportunusAI, gerenciei serviços em Docker Swarm que hospedavam n8n e outras aplicações. Usei Grafana e Prometheus para acompanhar saúde, tráfego e alertas. Corrigi o roteamento dos webhooks para que tarefas sem prontidão não recebessem tráfego.',
+      'Na OpportunusAI, atuei diretamente na infraestrutura de produção: Docker Swarm e Traefik, observabilidade com Prometheus/Grafana, health checks e watchdogs.',
     aboutInfraSecurity:
-      'Configurei acesso ao Grafana por Cloudflare Tunnel e Access (Zero Trust), sem abrir porta pública para o painel. Também restringi o acesso SSH administrativo no firewall.',
+      'Também trabalhei com Cloudflare Tunnel e Access, controles Zero Trust e rate limiting para proteger o acesso e o tráfego da plataforma.',
     practiceAreas: 'Áreas de atuação',
     practiceWeb: 'Aplicações web',
     practiceAi: 'IA aplicada',

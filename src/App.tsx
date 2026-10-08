@@ -171,9 +171,9 @@ export function App() {
   const [slideIndex, setSlideIndex] = useState(0)
   const t = content[locale]
   const companyImages = [
-    '/media/v2-conversation-sanitized.jpg',
-    '/media/v2-learning-sanitized.jpg',
-    '/media/v2-campaigns-sanitized.jpg',
+    '/media/v2-overview-rich-sanitized.jpg',
+    '/media/v2-conversation-rich-sanitized.jpg',
+    '/media/v2-learning-rich-sanitized.jpg',
   ]
 
   useEffect(() => {
@@ -386,41 +386,58 @@ export function App() {
           id="company"
           aria-labelledby="company-title"
         >
-          <div className="container company-grid">
-            <div className="company-copy">
-              <p className="section-kicker">{t.companyKicker}</p>
-              <h2 id="company-title">
-                {t.companyTitleStart}
-                <br />
-                <em>{t.companyTitleEnd}</em>
-              </h2>
-              <p>{t.companyIntro}</p>
-              <p className="company-privacy">{t.companyPrivacy}</p>
-              <a
-                className="company-site-link"
-                href={links.company}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.companySiteLink} <ArrowIcon diagonal />
-              </a>
+          <div className="container company-layout">
+            <div className="company-intro">
+              <div className="company-heading">
+                <p className="section-kicker">{t.companyKicker}</p>
+                <h2 id="company-title">
+                  {t.companyTitleStart}
+                  <br />
+                  <em>{t.companyTitleEnd}</em>
+                </h2>
+              </div>
+              <div className="company-copy">
+                <p>{t.companyIntro}</p>
+                <p className="company-privacy">{t.companyPrivacy}</p>
+                <a
+                  className="company-site-link"
+                  href={links.company}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.companySiteLink} <ArrowIcon diagonal />
+                </a>
+              </div>
             </div>
             <div className="company-feature" aria-label={t.companyCarousel}>
               <div className={`company-feature-image company-feature-image-${slideIndex + 1}`}>
                 <span className="company-image-index" aria-hidden="true">
                   V2 / {String(slideIndex + 1).padStart(2, '0')}
                 </span>
-                <img
-                  src={companyImages[slideIndex]}
-                  alt={t.companySlideAlt[slideIndex]}
-                  loading="lazy"
-                />
-                <span className="company-image-origin">{t.companyImageOrigin}</span>
+                <div className="mac-window">
+                  <div className="mac-toolbar" aria-hidden="true">
+                    <span className="mac-dots">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    <span>OpportunusAI</span>
+                    <span className="mac-version">V2</span>
+                  </div>
+                  <img
+                    src={companyImages[slideIndex]}
+                    alt={t.companySlideAlt[slideIndex]}
+                    loading="lazy"
+                  />
+                </div>
               </div>
               <div className="company-feature-copy" aria-live="polite">
                 <span>{t.companySlideLabel}</span>
                 <h3>{t.companySlideTitles[slideIndex]}</h3>
                 <p>{t.companySlideBodies[slideIndex]}</p>
+                <a href={companyImages[slideIndex]} target="_blank" rel="noopener noreferrer">
+                  {t.companyViewImage} <ArrowIcon diagonal />
+                </a>
               </div>
               <div className="carousel-controls">
                 <button

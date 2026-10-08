@@ -80,15 +80,16 @@ describe('portfolio presentation', () => {
     expect(menu.getAttribute('aria-expanded')).toBe('false')
 
     expect(screen.getByText('1 of 3')).toBeTruthy()
-    expect(
-      screen.getByRole('img', { name: /sanitized capture of the V2 conversation/i }),
-    ).toBeTruthy()
+    expect(screen.getByRole('img', { name: /V2 overview interface with navigation/i })).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'View full image' }).getAttribute('href')).toBe(
+      '/media/v2-overview-rich-sanitized.jpg',
+    )
     await user.click(screen.getByRole('button', { name: 'Next example' }))
     expect(screen.getByText('2 of 3')).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Knowledge with a review step' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Conversations with AI' })).toBeTruthy()
     await user.click(screen.getByRole('button', { name: 'Next example' }))
     expect(screen.getByText('3 of 3')).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Campaign planning' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Knowledge under review' })).toBeTruthy()
     await user.click(screen.getByRole('button', { name: 'Previous example' }))
     expect(screen.getByText('2 of 3')).toBeTruthy()
   })

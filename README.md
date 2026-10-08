@@ -26,7 +26,7 @@ The static output is written to `dist/`.
 ## What is shown
 
 - The featured dashboard is a **public V1 demonstration** with fictional data. The operational OpportunusAI V2 is private; its code and production data are not part of this site.
-- The V1 images are captures of the public demonstration. The V2 images are cropped captures of the private product interface. Customer details, operational figures, and private rules were removed or replaced with synthetic examples before publication. The conversation is a test view; the campaigns capture shows a blank planning form with example text, not an executed campaign.
+- The V1 images are captures of the public demonstration. The V2 gallery shows the product's overview, conversation, and AI knowledge review interfaces. Customer content, identifiers, operational figures, chart data, and knowledge cards were replaced with synthetic examples. Each image is labeled as demo data; no V2 code or production data is included.
 - The LangGraph and n8n visuals explain the linked public examples. Their repositories define what those examples actually implement and test.
 - The hero portrait was derived from a photo supplied by the site owner. Other site graphics were made for this site.
 

@@ -1,17 +1,17 @@
-# Rodrigo Lima — personal website
+# Rodrigo Lima — personal site
 
-A lightweight React and TypeScript site introducing selected software engineering work. It focuses on the engineering decisions visible in three public repositories: a runnable dashboard, a deterministic LangGraph example, and offline n8n workflows.
+A small, static portfolio built with React, TypeScript, and Vite. It presents selected public code alongside a short account of the work behind OpportunusAI.
 
 ## Run locally
 
-Requires Node.js 24 and npm 11. No account, environment variable, API key, database, or external service is needed.
+Requires Node.js 24 and npm 11. No account, API key, database, or environment file is needed.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. To verify the source:
+Run the release checks with:
 
 ```bash
 npm run lint
@@ -21,19 +21,27 @@ npm test
 npm run build
 ```
 
-The build produces static files in `dist/`. The page has no backend and does not collect visitor data. It loads no third-party scripts, analytics, or remote fonts.
+The static output is written to `dist/`.
 
-## Content and structure
+## What is shown
 
-- `src/projects.ts` is the single list of featured projects, source links, engineering decisions, and stated evidence.
-- `src/App.tsx` renders the page and the illustrated project diagrams. The illustrations are original conceptual visuals, not screenshots or production data.
-- `src/styles.css` contains the responsive layout, focus treatment, and reduced-motion handling.
-- `src/App.test.tsx` checks the public project links, disclosures, navigation behavior, and basic document access points.
+- The featured dashboard is a **public V1 demonstration** with fictional data. The operational OpportunusAI V2 is private; its code and production data are not part of this site.
+- The V1 images are captures of the public demonstration. The V2 illustrations are conceptual, use synthetic content, and are labeled as such. They are not production screenshots.
+- The LangGraph and n8n visuals explain the linked public examples. Their repositories define what those examples actually implement and test.
+- The portrait is supplied by the site owner. Other site graphics were made for this site.
 
-Project descriptions are intentionally bounded by what the linked repositories demonstrate. The dashboard uses fictional data and a local demo sign-in. The LangGraph example has no model-provider call. The n8n workflows run manually and offline, with no Agent node or external integration. Follow each repository's README for its exact setup, tests, and limitations.
+Content is available in English and Brazilian Portuguese. The language and light/dark theme controls remember the visitor's choice locally. The site has no backend, analytics, third-party scripts, remote fonts, or visitor data collection.
 
-## Accessibility and deployment
+## Structure
 
-The page uses semantic landmarks, descriptive links, visible keyboard focus, a skip link, a responsive navigation button, and `prefers-reduced-motion`. Review contrast and navigation in a real browser before release. To serve the static build, host the contents of `dist/` on any static host with HTTPS. No runtime secrets or server routes are required.
+- `src/content.ts` — interface copy in both languages.
+- `src/projects.ts` — featured repositories and their public claims.
+- `src/App.tsx` and `src/styles.css` — page structure, controls, and responsive design.
+- `public/media/` — the portrait, public V1 captures, and labeled diagrams.
+- `src/App.test.tsx` — interaction and disclosure checks.
 
-No license is included; reuse rights have not been specified.
+## Publishing
+
+The GitHub Pages workflow runs only when manually started on `main`. It installs dependencies and runs lint, formatting, type checks, tests, and build before deployment. The site needs no runtime secrets. Review the final images, links, and repository visibility before each release.
+
+No license is included because reuse rights have not been specified.

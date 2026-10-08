@@ -519,6 +519,9 @@ export function App() {
             <div className="about-copy">
               <p>{t.aboutOne}</p>
               <p>{t.aboutTwo}</p>
+              <h3 className="about-infra-title">{t.aboutInfraTitle}</h3>
+              <p>{t.aboutInfraOperations}</p>
+              <p>{t.aboutInfraSecurity}</p>
               <div className="about-tags" aria-label={t.practiceAreas}>
                 <span>{t.practiceWeb}</span>
                 <span>{t.practiceAi}</span>

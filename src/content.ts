@@ -97,9 +97,14 @@ export const content = {
     aboutTitleStart: 'Engineering across',
     aboutTitleEnd: 'the whole system.',
     aboutOne:
-      'I work across interfaces, APIs, automations, and architecture. I care about how those parts work together for the people using the product.',
+      'I work across interfaces, APIs, automations, and architecture. I make those parts work together for the people using the product.',
     aboutTwo:
-      'My current focus is JavaScript/TypeScript and Python, with LangChain, LangGraph, and n8n for applied AI and automation. I also work with Docker Swarm and Zero Trust access controls.',
+      'My current focus is JavaScript/TypeScript and Python, with LangChain, LangGraph, and n8n for applied AI and automation.',
+    aboutInfraTitle: 'Infrastructure & security',
+    aboutInfraOperations:
+      'At OpportunusAI, I managed Docker Swarm services hosting n8n and other applications. I used Grafana and Prometheus to track health, traffic, and alerts. I corrected webhook routing so unready tasks stopped receiving traffic.',
+    aboutInfraSecurity:
+      'I configured Grafana access through Cloudflare Tunnel and Access (Zero Trust), without exposing a public Grafana port. I also narrowed administrative SSH access in the firewall.',
     practiceAreas: 'Areas of practice',
     practiceWeb: 'Web applications',
     practiceAi: 'Applied AI',
@@ -108,7 +113,7 @@ export const content = {
     summaryLabel: 'HOW I WORK',
     summaryAria: 'How I work',
     summary:
-      'I like seeing the full cycle through: understand the problem, build, launch, and stay accountable for what I shipped.',
+      'I own the full cycle: understand the problem, build, launch, and stay accountable for what I ship.',
     contactKicker: '05 / CONTACT',
     contactTitleStart: 'Have an engineering challenge?',
     contactTitleEnd: 'Let’s talk.',
@@ -215,9 +220,14 @@ export const content = {
     aboutTitleStart: 'Do produto',
     aboutTitleEnd: 'à infraestrutura.',
     aboutOne:
-      'Trabalho em interfaces, APIs, automações e arquitetura. Gosto de fazer essas partes funcionarem juntas para quem usa o produto.',
+      'Trabalho em interfaces, APIs, automações e arquitetura. Faço essas partes funcionarem juntas para quem usa o produto.',
     aboutTwo:
-      'Meu foco hoje é JavaScript/TypeScript e Python, com LangChain, LangGraph e n8n em IA aplicada e automação. Também trabalho com Docker Swarm e controles de acesso Zero Trust.',
+      'Meu foco hoje é JavaScript/TypeScript e Python, com LangChain, LangGraph e n8n em IA aplicada e automação.',
+    aboutInfraTitle: 'Infraestrutura e segurança',
+    aboutInfraOperations:
+      'Na OpportunusAI, gerenciei serviços em Docker Swarm que hospedavam n8n e outras aplicações. Usei Grafana e Prometheus para acompanhar saúde, tráfego e alertas. Corrigi o roteamento dos webhooks para que tarefas sem prontidão não recebessem tráfego.',
+    aboutInfraSecurity:
+      'Configurei acesso ao Grafana por Cloudflare Tunnel e Access (Zero Trust), sem abrir porta pública para o painel. Também restringi o acesso SSH administrativo no firewall.',
     practiceAreas: 'Áreas de atuação',
     practiceWeb: 'Aplicações web',
     practiceAi: 'IA aplicada',
@@ -226,7 +236,7 @@ export const content = {
     summaryLabel: 'COMO TRABALHO',
     summaryAria: 'Como trabalho',
     summary:
-      'Gosto de acompanhar o ciclo inteiro: entender o problema, construir, colocar em uso e continuar responsável pelo que entreguei.',
+      'Acompanho o ciclo inteiro: entendo o problema, construo, coloco em uso e continuo responsável pelo que entreguei.',
     contactKicker: '05 / CONTATO',
     contactTitleStart: 'Tem um desafio técnico?',
     contactTitleEnd: 'Vamos conversar.',

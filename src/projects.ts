@@ -51,7 +51,7 @@ export const projectCopy = {
     {
       category: 'Automation · Reliability',
       description:
-        'Four reusable n8n workflows to validate input, handle failures, and route each case.',
+        'Four offline n8n examples for validation, retry decisions, health signals, and scoped lookup.',
       decision: 'Every branch has a clear outcome, with no external service calls.',
       visualAlt: 'Simple animated diagram of an offline n8n automation flow',
       visualCaption: 'FOUR OFFLINE FLOWS / NO AGENT NODE OR CREDENTIALS',
@@ -77,7 +77,7 @@ export const projectCopy = {
     {
       category: 'Automação · Confiabilidade',
       description:
-        'Quatro automações reutilizáveis para validar entradas, lidar com falhas e encaminhar cada caso.',
+        'Quatro exemplos offline em n8n: validação, decisão de nova tentativa, sinal de saúde e busca com escopo definido.',
       decision: 'Cada caminho tem um resultado claro, sem chamadas a serviços externos.',
       visualAlt: 'Diagrama animado e simples de uma automação n8n offline',
       visualCaption: 'QUATRO FLUXOS OFFLINE / SEM AGENT NEM CREDENCIAIS',

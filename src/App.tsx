@@ -1,9 +1,11 @@
-import { useState } from 'react'
-import { projects, type Project } from './projects'
+import { useEffect, useState } from 'react'
+import { content, type Locale, type Theme } from './content'
+import { projectCopy, projects, type Project } from './projects'
 
 const links = {
   github: 'https://github.com/rodrigolima-dev',
   linkedin: 'https://www.linkedin.com/in/rodrigo-lima-95a548242/',
+  company: 'https://opportunusai.com/',
 }
 
 function ArrowIcon({ diagonal = false }: { diagonal?: boolean }) {
@@ -22,150 +24,77 @@ function ArrowIcon({ diagonal = false }: { diagonal?: boolean }) {
   )
 }
 
-function ProjectVisual({ kind }: { kind: Project['visual'] }) {
-  if (kind === 'dashboard') {
-    return (
-      <div
-        className="project-visual dashboard-visual"
-        aria-label="Illustration of a fictional dashboard interface"
-        role="img"
-      >
-        <div className="window-top">
-          <span />
-          <span />
-          <span />
-          <i>synthetic interface</i>
-        </div>
-        <div className="dashboard-shell">
-          <div className="dashboard-rail">
-            <b>O.</b>
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-          <div className="dashboard-content">
-            <div className="dashboard-heading">
-              <span>Overview</span>
-              <small>Sample workspace</small>
-            </div>
-            <div className="dashboard-metrics">
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="dashboard-panels">
-              <div className="mini-chart">
-                <span style={{ height: '35%' }} />
-                <span style={{ height: '66%' }} />
-                <span style={{ height: '52%' }} />
-                <span style={{ height: '84%' }} />
-                <span style={{ height: '59%' }} />
-                <span style={{ height: '74%' }} />
-              </div>
-              <div className="mini-list">
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="visual-caption">UI sketch · fictional information</div>
-      </div>
-    )
-  }
-
-  if (kind === 'graph') {
-    return (
-      <div
-        className="project-visual graph-visual"
-        aria-label="Diagram of validation, authorization, scoped retrieval, evaluation, and offline response. Denied requests stop; an empty result may retry once inside the same tenant."
-        role="img"
-      >
-        <div className="graph-step">
-          <span className="node-index">01</span>
-          <strong>Validate</strong>
-          <small>input</small>
-        </div>
-        <div className="graph-line" />
-        <div className="graph-step accent-node">
-          <span className="node-index">02</span>
-          <strong>Authorize</strong>
-          <small>membership</small>
-        </div>
-        <div className="graph-line" />
-        <div className="graph-step">
-          <span className="node-index">03</span>
-          <strong>Retrieve</strong>
-          <small>scoped</small>
-        </div>
-        <div className="graph-line" />
-        <div className="graph-step">
-          <span className="node-index">04</span>
-          <strong>Evaluate</strong>
-          <small>evidence</small>
-        </div>
-        <div className="graph-line" />
-        <div className="graph-step">
-          <span className="node-index">05</span>
-          <strong>Respond</strong>
-          <small>offline</small>
-        </div>
-        <div className="graph-notes">
-          <span className="graph-rejected">denied → stop</span>
-          <span className="graph-retry">no match ↶ one scoped retry</span>
-        </div>
-      </div>
-    )
-  }
+function ProjectVisual({
+  kind,
+  alt,
+  caption,
+  locale,
+}: {
+  kind: Project['visual']
+  alt: string
+  caption: string
+  locale: Locale
+}) {
+  const asset = {
+    dashboard:
+      locale === 'pt-BR' ? '/media/dashboard-showcase-pt.webp' : '/media/dashboard-showcase.webp',
+    graph:
+      locale === 'pt-BR'
+        ? '/media/langgraph-retrieval-flow-pt.svg'
+        : '/media/langgraph-retrieval-flow.svg',
+    workflow:
+      locale === 'pt-BR' ? '/media/n8n-automation-flow-pt.svg' : '/media/n8n-automation-flow.svg',
+  }[kind]
 
   return (
-    <div
-      className="project-visual workflow-visual"
-      aria-label="Diagram of an automation decision that routes to allowed or review"
-      role="img"
-    >
-      <div className="workflow-entry">
-        <span className="workflow-kicker">MANUAL INPUT</span>
-        <strong>Event envelope</strong>
+    <figure className={`project-visual ${kind}-visual visual-media`}>
+      <div className={kind === 'dashboard' ? 'showcase-window' : 'diagram-frame'}>
+        {kind === 'dashboard' && (
+          <div className="window-top" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <i>OPPORTUNUSAI / V1</i>
+          </div>
+        )}
+        <img src={asset} alt={alt} loading="lazy" decoding="async" />
       </div>
-      <div className="workflow-stem" />
-      <div className="workflow-rule">VALIDATE</div>
-      <div className="workflow-branches">
-        <div>
-          <span className="branch-dot positive" /> Accepted
-        </div>
-        <div>
-          <span className="branch-dot caution" /> Review
-        </div>
-      </div>
-      <div className="workflow-label">Explicit paths. Bounded effects.</div>
-    </div>
+      <figcaption className="visual-caption">{caption}</figcaption>
+    </figure>
   )
 }
 
-function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+function ProjectCard({
+  project,
+  index,
+  locale,
+  featured = false,
+}: {
+  project: Project
+  index: number
+  locale: Locale
+  featured?: boolean
+}) {
+  const t = content[locale]
+  const copy = projectCopy[locale][index]
+
   return (
     <article className={`project-card ${featured ? 'featured-card' : ''}`}>
       <div className="project-copy">
         <div className="project-card-top">
-          <span className="project-number">{project.number} / SELECTED WORK</span>
-          <span className="project-category">{project.category}</span>
+          <span className="project-number">
+            {project.number} / {t.selectedWork}
+          </span>
+          <span className="project-category">{copy.category}</span>
         </div>
         <h3>{project.title}</h3>
-        <p className="project-description">{project.description}</p>
+        <p className="project-description">{copy.description}</p>
         <div className="project-detail">
-          <span>ENGINEERING DECISION</span>
-          <p>{project.decision}</p>
-        </div>
-        <div className="project-proof">
-          <span className="proof-dot" />
-          <span>{project.evidence}</span>
+          <span>{t.engineeringDecision}</span>
+          <p>{copy.decision}</p>
         </div>
         <div className="project-bottom">
-          <ul aria-label={`${project.title} technologies`}>
+          <ul aria-label={`${project.title}: ${t.technologies}`}>
             {project.technologies.map((technology) => (
               <li key={technology}>{technology}</li>
             ))}
@@ -175,44 +104,135 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
             href={project.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`View ${project.title} source code on GitHub (opens in a new tab)`}
+            aria-label={t.repositoryAria(project.title)}
           >
-            Explore repository <ArrowIcon diagonal />
+            {t.repositoryAction} <ArrowIcon diagonal />
           </a>
         </div>
       </div>
-      <ProjectVisual kind={project.visual} />
+      <ProjectVisual
+        kind={project.visual}
+        alt={copy.visualAlt}
+        caption={copy.visualCaption}
+        locale={locale}
+      />
     </article>
   )
 }
 
 export function App() {
+  const [locale, setLocale] = useState<Locale>(() =>
+    document.documentElement.lang === 'pt-BR' ? 'pt-BR' : 'en',
+  )
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
+  )
   const [menuOpen, setMenuOpen] = useState(false)
+  const [slideIndex, setSlideIndex] = useState(0)
+  const t = content[locale]
+  const companyImages = ['v2-operations-concept', 'v2-knowledge-concept'].map(
+    (name) => `/media/${name}${locale === 'pt-BR' ? '-pt' : ''}.svg`,
+  )
+
+  useEffect(() => {
+    document.documentElement.lang = locale
+    document.title = t.metaTitle
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t.metaDescription)
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t.metaTitle)
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute('content', t.metaDescription)
+    try {
+      localStorage.setItem('portfolio-locale', locale)
+    } catch {
+      /* Browsing can disable storage. */
+    }
+  }, [locale, t.metaTitle, t.metaDescription])
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', theme === 'dark' ? '#111d1a' : '#f4f1eb')
+    try {
+      localStorage.setItem('portfolio-theme', theme)
+    } catch {
+      /* Browsing can disable storage. */
+    }
+  }, [theme])
 
   const closeMenu = () => setMenuOpen(false)
 
   return (
     <>
       <a className="skip-link" href="#main">
-        Skip to content
+        {t.skip}
       </a>
       <header className="site-header">
         <div className="container header-inner">
-          <a
-            className="brand"
-            href="#top"
-            aria-label="Rodrigo Lima, back to top"
-            onClick={closeMenu}
-          >
+          <a className="brand" href="#top" aria-label={t.backToTop} onClick={closeMenu}>
             <span className="brand-mark">
               RL<span>.</span>
             </span>
             <span className="brand-name">Rodrigo Lima</span>
           </a>
+          <nav
+            id="main-navigation"
+            className={menuOpen ? 'nav-open' : ''}
+            aria-label={t.navigation}
+          >
+            <a href="#work" onClick={closeMenu}>
+              {t.menuWork}
+            </a>
+            <a href="#company" onClick={closeMenu}>
+              {t.menuCompany}
+            </a>
+            <a href="#approach" onClick={closeMenu}>
+              {t.menuApproach}
+            </a>
+            <a href="#about" onClick={closeMenu}>
+              {t.menuAbout}
+            </a>
+            <a className="nav-contact" href="#contact" onClick={closeMenu}>
+              {t.menuContact} <ArrowIcon diagonal />
+            </a>
+          </nav>
+          <div className="header-controls">
+            <div className="locale-control" role="group" aria-label={t.languageControl}>
+              <button
+                type="button"
+                lang="en"
+                aria-label={t.english}
+                aria-pressed={locale === 'en'}
+                onClick={() => setLocale('en')}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                lang="pt-BR"
+                aria-label={t.portuguese}
+                aria-pressed={locale === 'pt-BR'}
+                onClick={() => setLocale('pt-BR')}
+              >
+                PT
+              </button>
+            </div>
+            <button
+              className="theme-toggle"
+              type="button"
+              aria-label={theme === 'light' ? t.darkMode : t.lightMode}
+              aria-pressed={theme === 'dark'}
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            >
+              <span aria-hidden="true">{theme === 'light' ? '◐' : '☼'}</span>
+              <span>{theme === 'light' ? t.dark : t.light}</span>
+            </button>
+          </div>
           <button
             className="menu-button"
             type="button"
-            aria-label="Toggle navigation"
+            aria-label={menuOpen ? t.closeMenu : t.openMenu}
             aria-expanded={menuOpen}
             aria-controls="main-navigation"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -220,24 +240,6 @@ export function App() {
             <span />
             <span />
           </button>
-          <nav
-            id="main-navigation"
-            className={menuOpen ? 'nav-open' : ''}
-            aria-label="Primary navigation"
-          >
-            <a href="#work" onClick={closeMenu}>
-              Work
-            </a>
-            <a href="#approach" onClick={closeMenu}>
-              Approach
-            </a>
-            <a href="#about" onClick={closeMenu}>
-              About
-            </a>
-            <a className="nav-contact" href="#contact" onClick={closeMenu}>
-              Let’s connect <ArrowIcon diagonal />
-            </a>
-          </nav>
         </div>
       </header>
 
@@ -246,23 +248,22 @@ export function App() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">
-                <span className="eyebrow-line" /> FULL STACK SOFTWARE ENGINEER{' '}
-                <span className="eyebrow-plus">+</span> APPLIED AI
+                <span className="eyebrow-line" /> {t.heroRole}{' '}
+                <span className="eyebrow-plus">+</span> {t.heroAi}
               </p>
+              <p className="hero-cto">{t.heroCto}</p>
               <h1 id="hero-title">
-                From complex
+                {t.heroTitleStart}
                 <br />
-                systems to <em>clear</em>
+                {t.heroTitleMiddle} <em>{t.heroTitleEmphasis}</em>
                 <br />
-                experiences<span className="period">.</span>
+                {t.heroTitleEnd}
+                <span className="period">.</span>
               </h1>
-              <p className="hero-lead">
-                I’m Rodrigo Lima. I build web products and AI-enabled workflows with explicit
-                boundaries, thoughtful interfaces, and code that can be tested.
-              </p>
+              <p className="hero-lead">{t.heroLead}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#work">
-                  Explore my work <ArrowIcon />
+                  {t.heroAction} <ArrowIcon />
                 </a>
                 <a
                   className="text-link"
@@ -270,48 +271,42 @@ export function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  GitHub profile <ArrowIcon diagonal />
+                  {t.githubProfile} <ArrowIcon diagonal />
                 </a>
               </div>
-              <div className="hero-signals" aria-label="Core focus areas">
+              <div className="hero-signals" aria-label={t.focusAreas}>
                 <span>JavaScript / TypeScript</span>
                 <span>Python</span>
                 <span>LangGraph</span>
                 <span>n8n</span>
               </div>
             </div>
-            <div className="hero-art" aria-hidden="true">
-              <div className="art-coordinate art-coordinate-top">ENGINEERING / 001</div>
-              <div className="art-orbit art-orbit-outer" />
-              <div className="art-orbit art-orbit-middle" />
-              <div className="art-orbit art-orbit-inner" />
-              <div className="art-cross art-cross-a">+</div>
-              <div className="art-cross art-cross-b">+</div>
-              <div className="art-core">
-                <span className="art-core-small">BUILD FOR</span>
-                <strong>clarity</strong>
-                <span className="art-core-line" />
-                <small>
-                  01 / DESIGN
-                  <br />
-                  02 / SYSTEMS
-                  <br />
-                  03 / DELIVERY
-                </small>
+            <div className="hero-art">
+              <div className="art-coordinate art-coordinate-top" aria-hidden="true">
+                {t.artTop}
               </div>
-              <div className="art-note art-note-left">
-                interface <i /> logic
+              <div className="art-orbit art-orbit-outer" aria-hidden="true" />
+              <div className="art-orbit art-orbit-middle" aria-hidden="true" />
+              <div className="art-orbit art-orbit-inner" aria-hidden="true" />
+              <div className="art-cross art-cross-a" aria-hidden="true">
+                +
               </div>
-              <div className="art-note art-note-right">idea → system</div>
-              <div className="art-coordinate art-coordinate-bottom">
-                RODRIGO LIMA — SELECTED WORK
+              <div className="art-cross art-cross-b" aria-hidden="true">
+                +
+              </div>
+              <div className="portrait-frame">
+                <img src="/media/portrait-original.jpg" alt={t.portraitAlt} fetchPriority="high" />
+              </div>
+              <div className="art-note art-note-left" aria-hidden="true">
+                {t.artLeft} <i /> {t.artRight}
+              </div>
+              <div className="art-note art-note-right" aria-hidden="true">
+                {t.artNote}
+              </div>
+              <div className="art-coordinate art-coordinate-bottom" aria-hidden="true">
+                {t.artBottom}
               </div>
             </div>
-          </div>
-          <div className="container hero-footer">
-            <span>SCROLL TO EXPLORE</span>
-            <span className="hero-footer-line" />
-            <span>01 — 03</span>
           </div>
         </section>
 
@@ -319,36 +314,90 @@ export function App() {
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="section-kicker">01 / SELECTED WORK</p>
+                <p className="section-kicker">{t.workKicker}</p>
                 <h2 id="work-title">
-                  Proof in the <em>work.</em>
+                  {t.workTitleStart} <em>{t.workTitleEnd}</em>
                 </h2>
               </div>
-              <p>
-                Three public repositories. Each one shows a specific engineering decision and the
-                code behind it.
-              </p>
+              <p>{t.workIntro}</p>
             </div>
             <div className="project-list">
-              <ProjectCard project={projects[0]} featured />
+              <ProjectCard project={projects[0]} index={0} locale={locale} featured />
               <div className="project-grid">
-                <ProjectCard project={projects[1]} />
-                <ProjectCard project={projects[2]} />
+                <ProjectCard project={projects[1]} index={1} locale={locale} />
+                <ProjectCard project={projects[2]} index={2} locale={locale} />
               </div>
             </div>
             <div className="work-footer">
-              <p>
-                Want to inspect the implementation? The repositories include setup instructions,
-                tests, and stated limits.
-              </p>
+              <p>{t.workFooter}</p>
               <a
                 className="underlined-link"
                 href={links.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                See all repositories <ArrowIcon diagonal />
+                {t.allRepositories} <ArrowIcon diagonal />
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="company-section section-space"
+          id="company"
+          aria-labelledby="company-title"
+        >
+          <div className="container company-grid">
+            <div className="company-copy">
+              <p className="section-kicker">{t.companyKicker}</p>
+              <h2 id="company-title">
+                {t.companyTitleStart}
+                <br />
+                <em>{t.companyTitleEnd}</em>
+              </h2>
+              <p>{t.companyIntro}</p>
+              <p className="company-privacy">{t.companyPrivacy}</p>
+              <a
+                className="company-site-link"
+                href={links.company}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.companySiteLink} <ArrowIcon diagonal />
+              </a>
+            </div>
+            <div className="company-feature" aria-label={t.companyCarousel}>
+              <div className="company-feature-image">
+                <img
+                  src={companyImages[slideIndex]}
+                  alt={`${t.companySlideTitles[slideIndex]}. ${t.companySlideAlt}`}
+                  loading="lazy"
+                />
+              </div>
+              <div className="company-feature-copy" aria-live="polite">
+                <span>{t.companySlideLabel}</span>
+                <h3>{t.companySlideTitles[slideIndex]}</h3>
+                <p>{t.companySlideBodies[slideIndex]}</p>
+              </div>
+              <div className="carousel-controls">
+                <button
+                  type="button"
+                  aria-label={t.previousSlide}
+                  onClick={() =>
+                    setSlideIndex((slideIndex + companyImages.length - 1) % companyImages.length)
+                  }
+                >
+                  ←
+                </button>
+                <span>{t.slideOf(slideIndex + 1, companyImages.length)}</span>
+                <button
+                  type="button"
+                  aria-label={t.nextSlide}
+                  onClick={() => setSlideIndex((slideIndex + 1) % companyImages.length)}
+                >
+                  →
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -361,45 +410,39 @@ export function App() {
           <div className="container">
             <div className="section-heading approach-heading">
               <div>
-                <p className="section-kicker">02 / ENGINEERING APPROACH</p>
+                <p className="section-kicker">{t.approachKicker}</p>
                 <h2 id="approach-title">
-                  The details make
+                  {t.approachTitleStart}
                   <br />
-                  <em>the difference.</em>
+                  <em>{t.approachTitleEnd}</em>
                 </h2>
               </div>
-              <p>
-                I care about what happens after the happy path: a rejected request, a failed
-                workflow, or a system that needs to be understood by someone else.
-              </p>
+              <p>{t.approachIntro}</p>
             </div>
             <div className="principles">
               <div className="principle">
                 <span className="principle-index">01</span>
-                <div className="principle-icon">↗</div>
-                <h3>Define the boundary</h3>
-                <p>
-                  Make identity, scope, and permissions visible in code. Check access at the server
-                  and data boundary, not only in the interface.
-                </p>
+                <div className="principle-icon" aria-hidden="true">
+                  ↗
+                </div>
+                <h3>{t.principleOneTitle}</h3>
+                <p>{t.principleOneBody}</p>
               </div>
               <div className="principle">
                 <span className="principle-index">02</span>
-                <div className="principle-icon">◇</div>
-                <h3>Design for failure</h3>
-                <p>
-                  Give invalid input, denied access, and unavailable context explicit paths. Small,
-                  bounded decisions are easier to test and maintain.
-                </p>
+                <div className="principle-icon" aria-hidden="true">
+                  ◇
+                </div>
+                <h3>{t.principleTwoTitle}</h3>
+                <p>{t.principleTwoBody}</p>
               </div>
               <div className="principle">
                 <span className="principle-index">03</span>
-                <div className="principle-icon">⌘</div>
-                <h3>Make it reproducible</h3>
-                <p>
-                  Document the setup and limits, use synthetic examples, and keep verification steps
-                  close to the implementation.
-                </p>
+                <div className="principle-icon" aria-hidden="true">
+                  ⌘
+                </div>
+                <h3>{t.principleThreeTitle}</h3>
+                <p>{t.principleThreeBody}</p>
               </div>
             </div>
           </div>
@@ -408,41 +451,30 @@ export function App() {
         <section className="about-section section-space" id="about" aria-labelledby="about-title">
           <div className="container about-grid">
             <div>
-              <p className="section-kicker">03 / ABOUT</p>
+              <p className="section-kicker">{t.aboutKicker}</p>
               <h2 id="about-title">
-                Engineering across
+                {t.aboutTitleStart}
                 <br />
-                the <em>whole system.</em>
+                <em>{t.aboutTitleEnd}</em>
               </h2>
             </div>
             <div className="about-copy">
-              <p>
-                I work where product experience meets system design: frontends people can use,
-                backends with clear responsibilities, and automation that behaves predictably.
-              </p>
-              <p>
-                My current focus is JavaScript, Python, LangChain, LangGraph, and n8n. I also work
-                with Docker Swarm operations and Zero Trust access controls. The public examples
-                above show specific implementation choices and clearly state their limits.
-              </p>
-              <div className="about-tags" aria-label="Areas of practice">
-                <span>Web applications</span>
-                <span>Applied AI</span>
-                <span>Automation</span>
-                <span>System architecture</span>
+              <p>{t.aboutOne}</p>
+              <p>{t.aboutTwo}</p>
+              <div className="about-tags" aria-label={t.practiceAreas}>
+                <span>{t.practiceWeb}</span>
+                <span>{t.practiceAi}</span>
+                <span>{t.practiceAutomation}</span>
+                <span>{t.practiceArchitecture}</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="portuguese-section" lang="pt-BR" aria-label="Resumo em português">
+        <section className="portuguese-section" aria-label={t.summaryAria}>
           <div className="container portuguese-inner">
-            <span>EM PORTUGUÊS</span>
-            <p>
-              Sou engenheiro de software full stack, com foco em JavaScript, Python, arquitetura de
-              sistemas e IA aplicada. Gosto de transformar problemas complexos em produtos claros,
-              seguros e verificáveis.
-            </p>
+            <span>{t.summaryLabel}</span>
+            <p>{t.summary}</p>
           </div>
         </section>
 
@@ -452,13 +484,13 @@ export function App() {
           aria-labelledby="contact-title"
         >
           <div className="container contact-inner">
-            <p className="section-kicker">04 / CONTACT</p>
+            <p className="section-kicker">{t.contactKicker}</p>
             <h2 id="contact-title">
-              Let’s build something
+              {t.contactTitleStart}
               <br />
-              <em>worth using.</em>
+              <em>{t.contactTitleEnd}</em>
             </h2>
-            <p>Interested in how I think and build? Explore the code or reach out on LinkedIn.</p>
+            <p>{t.contactIntro}</p>
             <div className="contact-actions">
               <a
                 className="button button-light"
@@ -466,7 +498,7 @@ export function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Connect on LinkedIn <ArrowIcon diagonal />
+                {t.linkedinAction} <ArrowIcon diagonal />
               </a>
               <a
                 className="contact-github"
@@ -474,7 +506,7 @@ export function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View GitHub <ArrowIcon diagonal />
+                {t.githubAction} <ArrowIcon diagonal />
               </a>
             </div>
           </div>
@@ -483,10 +515,10 @@ export function App() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <a className="footer-brand" href="#top" aria-label="Back to top">
+          <a className="footer-brand" href="#top" aria-label={t.footerBackToTop}>
             RL<span>.</span>
           </a>
-          <span>Rodrigo Lima · Full Stack Software Engineer</span>
+          <span>Rodrigo Lima · {t.footerRole}</span>
           <div>
             <a href={links.github} target="_blank" rel="noopener noreferrer">
               GitHub

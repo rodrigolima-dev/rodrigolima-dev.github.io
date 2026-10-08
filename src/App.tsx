@@ -35,30 +35,66 @@ function ProjectVisual({
   caption: string
   locale: Locale
 }) {
-  const asset = {
-    dashboard:
-      locale === 'pt-BR' ? '/media/dashboard-showcase-pt.webp' : '/media/dashboard-showcase.webp',
-    graph:
-      locale === 'pt-BR'
-        ? '/media/langgraph-retrieval-flow-pt.svg'
-        : '/media/langgraph-retrieval-flow.svg',
-    workflow:
-      locale === 'pt-BR' ? '/media/n8n-automation-flow-pt.svg' : '/media/n8n-automation-flow.svg',
-  }[kind]
+  const dashboardAsset =
+    locale === 'pt-BR' ? '/media/dashboard-showcase-pt.webp' : '/media/dashboard-showcase.webp'
+  const flow =
+    locale === 'pt-BR'
+      ? {
+          gate: 'Acesso',
+          retrieve: 'Busca',
+          answer: 'Resposta',
+          denied: 'Sem acesso: parar',
+          input: 'Entrada',
+          rules: ['Validar', 'Tentar novamente', 'Sinalizar', 'Buscar'],
+        }
+      : {
+          gate: 'Access',
+          retrieve: 'Retrieve',
+          answer: 'Answer',
+          denied: 'Denied: stop',
+          input: 'Input',
+          rules: ['Validate', 'Retry', 'Signal', 'Lookup'],
+        }
 
   return (
     <figure className={`project-visual ${kind}-visual visual-media`}>
-      <div className={kind === 'dashboard' ? 'showcase-window' : 'diagram-frame'}>
-        {kind === 'dashboard' && (
-          <div className="window-top" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <i>OPPORTUNUSAI / V1</i>
+      {kind === 'dashboard' ? (
+        <img
+          className="dashboard-screen"
+          src={dashboardAsset}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : kind === 'graph' ? (
+        <div className="graph-flow" role="img" aria-label={alt}>
+          <div className="graph-steps" aria-hidden="true">
+            {[flow.gate, flow.retrieve, flow.answer].map((step, index) => (
+              <div className="graph-step" key={step}>
+                <span className="graph-dot">{String(index + 1).padStart(2, '0')}</span>
+                <span>{step}</span>
+              </div>
+            ))}
           </div>
-        )}
-        <img src={asset} alt={alt} loading="lazy" decoding="async" />
-      </div>
+          <span className="graph-denied" aria-hidden="true">
+            ↳ {flow.denied}
+          </span>
+        </div>
+      ) : (
+        <div className="workflow-flow" role="img" aria-label={alt}>
+          <span className="workflow-input" aria-hidden="true">
+            {flow.input}
+          </span>
+          <div className="workflow-rules" aria-hidden="true">
+            {flow.rules.map((rule, index) => (
+              <span className="workflow-rule" key={rule}>
+                <b>{String(index + 1).padStart(2, '0')}</b>
+                {rule}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
       <figcaption className="visual-caption">{caption}</figcaption>
     </figure>
   )
@@ -89,10 +125,14 @@ function ProjectCard({
         </div>
         <h3>{project.title}</h3>
         <p className="project-description">{copy.description}</p>
-        <div className="project-detail">
-          <span>{t.engineeringDecision}</span>
-          <p>{copy.decision}</p>
-        </div>
+        {featured ? (
+          <div className="project-detail">
+            <span>{t.engineeringDecision}</span>
+            <p>{copy.decision}</p>
+          </div>
+        ) : (
+          <p className="project-decision">{copy.decision}</p>
+        )}
         <div className="project-bottom">
           <ul aria-label={`${project.title}: ${t.technologies}`}>
             {project.technologies.map((technology) => (
@@ -130,9 +170,11 @@ export function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [slideIndex, setSlideIndex] = useState(0)
   const t = content[locale]
-  const companyImages = ['v2-operations-concept', 'v2-knowledge-concept'].map(
-    (name) => `/media/${name}${locale === 'pt-BR' ? '-pt' : ''}.svg`,
-  )
+  const companyImages = [
+    '/media/v2-conversation-sanitized.jpg',
+    '/media/v2-learning-sanitized.jpg',
+    '/media/v2-campaigns-sanitized.jpg',
+  ]
 
   useEffect(() => {
     document.documentElement.lang = locale
@@ -251,7 +293,6 @@ export function App() {
                 <span className="eyebrow-line" /> {t.heroRole}{' '}
                 <span className="eyebrow-plus">+</span> {t.heroAi}
               </p>
-              <p className="hero-cto">{t.heroCto}</p>
               <h1 id="hero-title">
                 {t.heroTitleStart}
                 <br />
@@ -261,6 +302,7 @@ export function App() {
                 <span className="period">.</span>
               </h1>
               <p className="hero-lead">{t.heroLead}</p>
+              <p className="hero-cto">{t.heroCto}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#work">
                   {t.heroAction} <ArrowIcon />
@@ -295,16 +337,13 @@ export function App() {
                 +
               </div>
               <div className="portrait-frame">
-                <img src="/media/portrait-original.jpg" alt={t.portraitAlt} fetchPriority="high" />
+                <img src="/media/portrait-head.png" alt={t.portraitAlt} fetchPriority="high" />
               </div>
               <div className="art-note art-note-left" aria-hidden="true">
                 {t.artLeft} <i /> {t.artRight}
               </div>
               <div className="art-note art-note-right" aria-hidden="true">
                 {t.artNote}
-              </div>
-              <div className="art-coordinate art-coordinate-bottom" aria-hidden="true">
-                {t.artBottom}
               </div>
             </div>
           </div>
@@ -367,12 +406,16 @@ export function App() {
               </a>
             </div>
             <div className="company-feature" aria-label={t.companyCarousel}>
-              <div className="company-feature-image">
+              <div className={`company-feature-image company-feature-image-${slideIndex + 1}`}>
+                <span className="company-image-index" aria-hidden="true">
+                  V2 / {String(slideIndex + 1).padStart(2, '0')}
+                </span>
                 <img
                   src={companyImages[slideIndex]}
-                  alt={`${t.companySlideTitles[slideIndex]}. ${t.companySlideAlt}`}
+                  alt={t.companySlideAlt[slideIndex]}
                   loading="lazy"
                 />
+                <span className="company-image-origin">{t.companyImageOrigin}</span>
               </div>
               <div className="company-feature-copy" aria-live="polite">
                 <span>{t.companySlideLabel}</span>

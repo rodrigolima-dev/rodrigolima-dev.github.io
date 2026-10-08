@@ -45,10 +45,8 @@ describe('portfolio presentation', () => {
     expect(screen.getByRole('button', { name: 'Ativar modo escuro' })).toBeTruthy()
     expect(screen.getByRole('img', { name: /Retrato de Rodrigo Lima/i })).toBeTruthy()
     expect(
-      screen
-        .getByRole('img', { name: /Diagrama animado e simples do fluxo de busca/i })
-        .getAttribute('src'),
-    ).toBe('/media/langgraph-retrieval-flow-pt.svg')
+      screen.getByRole('img', { name: /Fluxo LangGraph: acesso, busca e resposta/i }),
+    ).toBeTruthy()
     expect(
       screen
         .getAllByRole('img', { name: /Captura do dashboard público V1/i })[0]
@@ -70,7 +68,7 @@ describe('portfolio presentation', () => {
     ).toBe('true')
   })
 
-  it('opens and closes navigation, and advances the private V2 concept carousel', async () => {
+  it('opens and closes navigation, and advances the sanitized private V2 carousel', async () => {
     const user = userEvent.setup()
     render(<App />)
 
@@ -81,11 +79,17 @@ describe('portfolio presentation', () => {
     await user.click(screen.getByRole('link', { name: 'Approach' }))
     expect(menu.getAttribute('aria-expanded')).toBe('false')
 
-    expect(screen.getByText('1 of 2')).toBeTruthy()
+    expect(screen.getByText('1 of 3')).toBeTruthy()
+    expect(
+      screen.getByRole('img', { name: /sanitized capture of the V2 conversation/i }),
+    ).toBeTruthy()
     await user.click(screen.getByRole('button', { name: 'Next example' }))
-    expect(screen.getByText('2 of 2')).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'AI with human review' })).toBeTruthy()
+    expect(screen.getByText('2 of 3')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Knowledge with a review step' })).toBeTruthy()
+    await user.click(screen.getByRole('button', { name: 'Next example' }))
+    expect(screen.getByText('3 of 3')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Campaign planning' })).toBeTruthy()
     await user.click(screen.getByRole('button', { name: 'Previous example' }))
-    expect(screen.getByText('1 of 2')).toBeTruthy()
+    expect(screen.getByText('2 of 3')).toBeTruthy()
   })
 })

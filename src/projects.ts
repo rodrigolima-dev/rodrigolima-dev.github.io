@@ -42,18 +42,16 @@ export const projectCopy = {
     },
     {
       category: 'Applied AI · Architecture',
-      description:
-        'A LangGraph example that checks access before retrieving information and knows when to stop.',
-      decision: 'Denied requests stop early; a bounded retry stays within the same tenant.',
-      visualAlt: 'Simple animated diagram of the offline LangGraph retrieval flow',
+      description: 'An offline LangGraph example with access checks before retrieval.',
+      decision: 'Denied requests stop early. A bounded retry stays within the same tenant.',
+      visualAlt: 'LangGraph flow: access, retrieval, answer; denied requests stop',
       visualCaption: 'OFFLINE EXAMPLE / NO LLM CALL',
     },
     {
       category: 'Automation · Reliability',
-      description:
-        'Four offline n8n examples for validation, retry decisions, health signals, and scoped lookup.',
-      decision: 'Every branch has a clear outcome, with no external service calls.',
-      visualAlt: 'Simple animated diagram of an offline n8n automation flow',
+      description: 'Four offline n8n patterns for validation, retry, health, and lookup.',
+      decision: 'Each branch has an explicit outcome and no external calls.',
+      visualAlt: 'Four n8n patterns branching from one input: validation, retry, health, lookup',
       visualCaption: 'FOUR OFFLINE FLOWS / NO AGENT NODE OR CREDENTIALS',
     },
   ],
@@ -68,18 +66,17 @@ export const projectCopy = {
     },
     {
       category: 'IA aplicada · Arquitetura',
-      description:
-        'Um exemplo de LangGraph que confere o acesso antes de buscar informações e sabe quando parar.',
-      decision: 'Sem permissão, a busca não começa. A tentativa extra fica na mesma organização.',
-      visualAlt: 'Diagrama animado e simples do fluxo de busca offline em LangGraph',
+      description: 'Exemplo offline em LangGraph: o acesso é conferido antes da busca.',
+      decision: 'Sem permissão, o fluxo para. A nova tentativa fica na mesma organização.',
+      visualAlt: 'Fluxo LangGraph: acesso, busca e resposta; sem permissão, o fluxo para',
       visualCaption: 'EXEMPLO OFFLINE / SEM CHAMADA A LLM',
     },
     {
       category: 'Automação · Confiabilidade',
-      description:
-        'Quatro exemplos offline em n8n: validação, decisão de nova tentativa, sinal de saúde e busca com escopo definido.',
-      decision: 'Cada caminho tem um resultado claro, sem chamadas a serviços externos.',
-      visualAlt: 'Diagrama animado e simples de uma automação n8n offline',
+      description: 'Quatro padrões offline em n8n: validação, nova tentativa, saúde e busca.',
+      decision: 'Cada caminho tem um resultado definido, sem chamar serviços externos.',
+      visualAlt:
+        'Quatro padrões n8n a partir de uma entrada: validação, nova tentativa, saúde e busca',
       visualCaption: 'QUATRO FLUXOS OFFLINE / SEM AGENT NEM CREDENCIAIS',
     },
   ],

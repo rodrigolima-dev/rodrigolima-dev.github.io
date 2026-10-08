@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Rodrigo Lima, Full Stack Software Engineer and Applied AI">
+  <defs>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="#bfc7bc" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#f4f1eb"/>
+  <rect x="606" y="0" width="594" height="630" fill="url(#grid)" opacity=".5"/>
+  <circle cx="924" cy="303" r="232" fill="none" stroke="#c2ccbf" stroke-width="2"/>
+  <circle cx="924" cy="303" r="165" fill="none" stroke="#c2ccbf" stroke-width="2" stroke-dasharray="5 9"/>
+  <circle cx="924" cy="303" r="117" fill="#20322d"/>
+  <text x="865" y="318" fill="#f4f1eb" font-family="Georgia, serif" font-size="44">clarity</text>
+  <text x="70" y="91" fill="#20322d" font-family="Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="-3">RL<tspan fill="#d45b3d">.</tspan></text>
+  <path d="M70 137h43" stroke="#d45b3d" stroke-width="3"/>
+  <text x="70" y="181" fill="#687b6d" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">FULL STACK SOFTWARE ENGINEER + APPLIED AI</text>
+  <text x="70" y="327" fill="#20322d" font-family="Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="-5">Rodrigo Lima</text>
+  <text x="70" y="389" fill="#53665a" font-family="Arial, sans-serif" font-size="26">Web products. Clear systems. Tested boundaries.</text>
+  <text x="70" y="556" fill="#607369" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="2">JAVASCRIPT  /  PYTHON  /  LANGGRAPH  /  N8N</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RL monogram">
+  <rect width="64" height="64" rx="12" fill="#20322d"/>
+  <text x="10" y="43" fill="#f4f1eb" font-family="Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="-4">RL</text>
+  <circle cx="51" cy="42" r="4" fill="#d45b3d"/>
+</svg>

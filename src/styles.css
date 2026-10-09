@@ -732,9 +732,11 @@ h1 {
   display: flex;
   align-items: center;
   color: var(--orange);
-  font-family: Georgia, serif;
-  font-size: 49px;
-  line-height: 1;
+}
+.principle-icon svg {
+  display: block;
+  width: 48px;
+  height: 48px;
 }
 .principle h3 {
   margin-bottom: 11px;

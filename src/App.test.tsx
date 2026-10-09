@@ -11,6 +11,17 @@ beforeEach(() => {
 })
 
 describe('portfolio presentation', () => {
+  it('renders the approach icons as platform-independent vector graphics', () => {
+    render(<App />)
+
+    const icons = document.querySelectorAll('#approach .principle-icon')
+    expect(icons).toHaveLength(3)
+    for (const icon of icons) {
+      expect(icon.querySelector('svg')).not.toBeNull()
+      expect(icon.textContent?.trim()).toBe('')
+    }
+  })
+
   it('links only reviewed public projects and labels their limits', () => {
     render(<App />)
     expect(projects.map((project) => project.href)).toEqual([

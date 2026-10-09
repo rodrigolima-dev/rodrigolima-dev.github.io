@@ -24,6 +24,41 @@ function ArrowIcon({ diagonal = false }: { diagonal?: boolean }) {
   )
 }
 
+function PrincipleIcon({ variant }: { variant: 'access' | 'failure' | 'repeat' }) {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {variant === 'access' ? (
+        <>
+          <path d="M12 3 19 6v5c0 4.5-2.9 8-7 10-4.1-2-7-5.5-7-10V6l7-3Z" />
+          <path d="m9 12 2 2 4-4" />
+        </>
+      ) : variant === 'failure' ? (
+        <>
+          <path d="m12 4 9 16H3L12 4Z" />
+          <path d="M12 9v4" />
+          <circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none" />
+        </>
+      ) : (
+        <>
+          <path d="M20 7v5h-5" />
+          <path d="M4.9 9A7.5 7.5 0 0 1 18.5 7L20 12" />
+          <path d="M4 17v-5h5" />
+          <path d="M19.1 15A7.5 7.5 0 0 1 5.5 17L4 12" />
+        </>
+      )}
+    </svg>
+  )
+}
+
 function ProjectVisual({
   kind,
   alt,
@@ -481,7 +516,7 @@ export function App() {
               <div className="principle">
                 <span className="principle-index">01</span>
                 <div className="principle-icon" aria-hidden="true">
-                  ↗
+                  <PrincipleIcon variant="access" />
                 </div>
                 <h3>{t.principleOneTitle}</h3>
                 <p>{t.principleOneBody}</p>
@@ -489,7 +524,7 @@ export function App() {
               <div className="principle">
                 <span className="principle-index">02</span>
                 <div className="principle-icon" aria-hidden="true">
-                  ◇
+                  <PrincipleIcon variant="failure" />
                 </div>
                 <h3>{t.principleTwoTitle}</h3>
                 <p>{t.principleTwoBody}</p>
@@ -497,7 +532,7 @@ export function App() {
               <div className="principle">
                 <span className="principle-index">03</span>
                 <div className="principle-icon" aria-hidden="true">
-                  ⌘
+                  <PrincipleIcon variant="repeat" />
                 </div>
                 <h3>{t.principleThreeTitle}</h3>
                 <p>{t.principleThreeBody}</p>

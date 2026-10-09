@@ -117,6 +117,7 @@ export const content = {
       'I’m open to software engineering roles and projects across full stack development, architecture, and applied AI. Explore my work on GitHub and connect on LinkedIn.',
     linkedinAction: 'Connect on LinkedIn',
     githubAction: 'View code on GitHub',
+    emailAction: 'Email',
     footerRole: 'Full Stack Software Engineer · Co-founder & CTO',
   },
   'pt-BR': {
@@ -236,6 +237,7 @@ export const content = {
       'Estou aberto a oportunidades em engenharia full stack, arquitetura e IA aplicada. Veja meus projetos no GitHub e fale comigo pelo LinkedIn.',
     linkedinAction: 'Conectar no LinkedIn',
     githubAction: 'Ver código no GitHub',
+    emailAction: 'E-mail',
     footerRole: 'Engenheiro de Software Full Stack · Cofundador e CTO',
   },
 } as const

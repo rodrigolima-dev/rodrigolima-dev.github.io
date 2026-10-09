@@ -38,6 +38,10 @@ describe('portfolio presentation', () => {
     expect(screen.getByText(/runnable public V1 dashboard/i)).toBeTruthy()
     expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('to production')
     expect(screen.getByRole('heading', { name: /Have an engineering challenge/i })).toBeTruthy()
+    const emailContact = screen.getByRole('link', {
+      name: /Email: rodrigolima\.developer@gmail\.com/i,
+    })
+    expect(emailContact.getAttribute('href')).toBe('mailto:rodrigolima.developer@gmail.com')
     expect(screen.getAllByText(/no LLM call/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/no Agent node or credentials/i)).toBeTruthy()
     expect(screen.queryByText(/SCROLL TO EXPLORE/i)).toBeNull()
@@ -57,6 +61,10 @@ describe('portfolio presentation', () => {
     expect(localStorage.getItem('portfolio-locale')).toBe('pt-BR')
     expect(document.title).toContain('Engenheiro de Software')
     expect(screen.getByRole('link', { name: 'Ir para o conteúdo' })).toBeTruthy()
+    const emailContact = screen.getByRole('link', {
+      name: /E-mail: rodrigolima\.developer@gmail\.com/i,
+    })
+    expect(emailContact.getAttribute('href')).toBe('mailto:rodrigolima.developer@gmail.com')
     expect(screen.getByRole('link', { name: 'Abordagem' })).toBeTruthy()
     expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('à operação')
     expect(screen.getByRole('heading', { name: /Veja como eu/i })).toBeTruthy()

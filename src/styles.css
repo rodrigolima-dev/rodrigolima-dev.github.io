@@ -852,7 +852,8 @@ h1 {
 .button-light:hover {
   background: #fff;
 }
-.contact-github {
+.contact-github,
+.contact-email {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -861,9 +862,11 @@ h1 {
   color: #f7f6ef;
   font-size: 13px;
   font-weight: 800;
+  overflow-wrap: anywhere;
   text-decoration: none;
 }
-.contact-github:hover {
+.contact-github:hover,
+.contact-email:hover {
   color: #f5ab91;
 }
 .site-footer {

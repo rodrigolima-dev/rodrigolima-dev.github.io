@@ -6,6 +6,7 @@ const links = {
   github: 'https://github.com/rodrigolima-dev',
   linkedin: 'https://www.linkedin.com/in/rodrigo-lima-95a548242/',
   company: 'https://opportunusai.com/',
+  email: 'rodrigolima.developer@gmail.com',
 }
 
 function ArrowIcon({ diagonal = false }: { diagonal?: boolean }) {
@@ -596,6 +597,9 @@ export function App() {
                 rel="noopener noreferrer"
               >
                 {t.githubAction} <ArrowIcon diagonal />
+              </a>
+              <a className="contact-email" href={`mailto:${links.email}`}>
+                {t.emailAction}: {links.email}
               </a>
             </div>
           </div>

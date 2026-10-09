@@ -792,30 +792,6 @@ h1 {
   font-size: 11px;
   font-weight: 800;
 }
-.portuguese-section {
-  border-top: 1px solid #d8ddd3;
-  background: #e8eee6;
-}
-.portuguese-inner {
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  gap: 50px;
-  padding-block: 41px;
-}
-.portuguese-inner > span {
-  padding-top: 7px;
-  color: #527363;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.17em;
-}
-.portuguese-inner p {
-  max-width: 810px;
-  margin: 0;
-  color: #465c4c;
-  font-size: 18px;
-  line-height: 1.65;
-}
 .contact-section {
   position: relative;
   overflow: hidden;
@@ -1470,14 +1446,6 @@ h1 {
   .about-copy {
     padding-top: 12px;
   }
-  .portuguese-inner {
-    grid-template-columns: 1fr;
-    gap: 11px;
-    padding-block: 32px;
-  }
-  .portuguese-inner p {
-    font-size: 16px;
-  }
   .contact-section::after {
     right: -440px;
   }
@@ -1746,14 +1714,9 @@ h1 {
   border-color: #4b6753;
   color: #ceddcd;
 }
-:root[data-theme='dark'] .portuguese-section,
 :root[data-theme='dark'] .company-section {
   border-color: #45634d;
   background: #1b3025;
-}
-:root[data-theme='dark'] .portuguese-inner > span,
-:root[data-theme='dark'] .portuguese-inner p {
-  color: #d0dfcf;
 }
 :root[data-theme='dark'] .company-feature {
   border-color: #54735a;

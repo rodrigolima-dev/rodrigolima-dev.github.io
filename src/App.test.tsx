@@ -45,7 +45,7 @@ describe('portfolio presentation', () => {
     expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('à operação')
     expect(screen.getByRole('heading', { name: /Veja como eu/i })).toBeTruthy()
     expect(screen.getByRole('heading', { name: /Tem um desafio técnico/i })).toBeTruthy()
-    expect(screen.getByRole('region', { name: 'Como trabalho' })).toBeTruthy()
+    expect(screen.queryByRole('region', { name: 'Como trabalho' })).toBeNull()
     expect(screen.getByRole('button', { name: 'Ativar modo escuro' })).toBeTruthy()
     expect(screen.getByRole('img', { name: /Retrato de Rodrigo Lima/i })).toBeTruthy()
     expect(

@@ -532,13 +532,6 @@ export function App() {
           </div>
         </section>
 
-        <section className="portuguese-section" aria-label={t.summaryAria}>
-          <div className="container portuguese-inner">
-            <span>{t.summaryLabel}</span>
-            <p>{t.summary}</p>
-          </div>
-        </section>
-
         <section
           className="contact-section section-space"
           id="contact"

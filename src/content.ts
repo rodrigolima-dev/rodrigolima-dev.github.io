@@ -31,7 +31,7 @@ export const content = {
     heroTitleStart: 'From code',
     heroTitleEmphasis: 'to production',
     heroLead:
-      'I build web applications, automations, and AI systems. The projects below show my engineering decisions, code, and tests.',
+      'I build web products and apply AI to real problems, with a focus on architecture, security, and software quality.',
     heroAction: 'Explore my work',
     githubProfile: 'GitHub profile',
     focusAreas: 'Core focus areas',
@@ -102,18 +102,14 @@ export const content = {
       'My current focus is JavaScript/TypeScript and Python, with LangChain, LangGraph, and n8n for applied AI and automation.',
     aboutInfraTitle: 'Infrastructure & security',
     aboutInfraOperations:
-      'At OpportunusAI, I worked hands-on with production infrastructure: Docker Swarm and Traefik, Prometheus/Grafana observability, health checks, and watchdogs.',
+      'I work with production infrastructure, including high-availability, multi-manager Docker Swarm clusters, Traefik, Prometheus/Grafana observability, health checks, and watchdogs.',
     aboutInfraSecurity:
-      'I also worked with Cloudflare Tunnel and Access, Zero Trust controls, and rate limiting to protect platform access and traffic.',
+      'I also use Cloudflare Tunnel and Access, Zero Trust controls, and rate limiting to manage access and protect traffic.',
     practiceAreas: 'Areas of practice',
     practiceWeb: 'Web applications',
     practiceAi: 'Applied AI',
     practiceAutomation: 'Automation',
     practiceArchitecture: 'System architecture',
-    summaryLabel: 'HOW I WORK',
-    summaryAria: 'How I work',
-    summary:
-      'I own the full cycle: understand the problem, build, launch, and stay accountable for what I ship.',
     contactKicker: '05 / CONTACT',
     contactTitleStart: 'Have an engineering challenge?',
     contactTitleEnd: 'Let’s talk.',
@@ -152,7 +148,7 @@ export const content = {
     heroTitleStart: 'Do código',
     heroTitleEmphasis: 'à operação',
     heroLead:
-      'Desenvolvo aplicações web, automações e sistemas com IA. Os projetos abaixo mostram código, testes e decisões técnicas.',
+      'Desenvolvo produtos web e aplico IA a problemas reais, com foco em arquitetura, segurança e qualidade de engenharia.',
     heroAction: 'Conheça meus projetos',
     githubProfile: 'Perfil no GitHub',
     focusAreas: 'Áreas principais',
@@ -225,18 +221,14 @@ export const content = {
       'Meu foco hoje é JavaScript/TypeScript e Python, com LangChain, LangGraph e n8n em IA aplicada e automação.',
     aboutInfraTitle: 'Infraestrutura e segurança',
     aboutInfraOperations:
-      'Na OpportunusAI, atuei diretamente na infraestrutura de produção: Docker Swarm e Traefik, observabilidade com Prometheus/Grafana, health checks e watchdogs.',
+      'Trabalho com infraestrutura de produção, incluindo clusters Docker Swarm com múltiplos managers e alta disponibilidade, além de Traefik, observabilidade com Prometheus/Grafana, health checks e watchdogs.',
     aboutInfraSecurity:
-      'Também trabalhei com Cloudflare Tunnel e Access, controles Zero Trust e rate limiting para proteger o acesso e o tráfego da plataforma.',
+      'Também uso Cloudflare Tunnel/Access, controles Zero Trust e rate limiting para gerenciar acessos e proteger o tráfego.',
     practiceAreas: 'Áreas de atuação',
     practiceWeb: 'Aplicações web',
     practiceAi: 'IA aplicada',
     practiceAutomation: 'Automação',
     practiceArchitecture: 'Arquitetura de sistemas',
-    summaryLabel: 'COMO TRABALHO',
-    summaryAria: 'Como trabalho',
-    summary:
-      'Acompanho o ciclo inteiro: entendo o problema, construo, coloco em uso e continuo responsável pelo que entreguei.',
     contactKicker: '05 / CONTATO',
     contactTitleStart: 'Tem um desafio técnico?',
     contactTitleEnd: 'Vamos conversar.',

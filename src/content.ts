@@ -31,7 +31,7 @@ export const content = {
     heroTitleStart: 'From code',
     heroTitleEmphasis: 'to production',
     heroLead:
-      'I build web products and apply AI to real problems, with a focus on architecture, security, and software quality.',
+      'I’m a full stack software engineer focused on applied AI. I build scalable software, from architecture to production.',
     heroAction: 'Explore my work',
     githubProfile: 'GitHub profile',
     focusAreas: 'Core focus areas',
@@ -148,7 +148,7 @@ export const content = {
     heroTitleStart: 'Do código',
     heroTitleEmphasis: 'à operação',
     heroLead:
-      'Desenvolvo produtos web e aplico IA a problemas reais, com foco em arquitetura, segurança e qualidade de engenharia.',
+      'Sou engenheiro de software full stack com foco em IA aplicada. Desenvolvo soluções escaláveis, da arquitetura à produção.',
     heroAction: 'Conheça meus projetos',
     githubProfile: 'Perfil no GitHub',
     focusAreas: 'Áreas principais',

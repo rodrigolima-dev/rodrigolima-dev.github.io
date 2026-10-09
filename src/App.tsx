@@ -317,8 +317,8 @@ export function App() {
               <div className="hero-signals" aria-label={t.focusAreas}>
                 <span>JavaScript / TypeScript</span>
                 <span>Python</span>
+                <span>LangChain</span>
                 <span>LangGraph</span>
-                <span>n8n</span>
               </div>
             </div>
             <div className="hero-art">

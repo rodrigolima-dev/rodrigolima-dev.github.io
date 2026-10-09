@@ -30,6 +30,11 @@ describe('portfolio presentation', () => {
     expect(screen.getAllByText(/no LLM call/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/no Agent node or credentials/i)).toBeTruthy()
     expect(screen.queryByText(/SCROLL TO EXPLORE/i)).toBeNull()
+    const heroFocus = screen.getByText('JavaScript / TypeScript').parentElement
+    expect(heroFocus?.textContent).toContain('Python')
+    expect(heroFocus?.textContent).toContain('LangChain')
+    expect(heroFocus?.textContent).toContain('LangGraph')
+    expect(heroFocus?.textContent).not.toContain('n8n')
   })
 
   it('switches all primary copy and visual assets to Brazilian Portuguese', async () => {

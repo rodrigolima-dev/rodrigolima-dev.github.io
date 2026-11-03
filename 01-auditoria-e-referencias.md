@@ -19,7 +19,7 @@ A OpportunusAI foi mantida como projeto e como experiência. O `TechTalk` foi re
 
 ## Diagnóstico
 
-A versão atual tem bons sinais de engenharia pública: o dashboard informa que os dados são fictícios; a frase “The server checks the session, organization, and route permissions before returning data” aponta para uma decisão concreta; os repositórios são o destino das ações; e os projetos LangGraph e n8n deixam claro que são exemplos offline. Esses detalhes devem continuar.
+A versão atual tem bons sinais de engenharia: o dashboard informa como sessão, organização e rota entram na autorização; o Vector Chunk Kit deixa a prévia antes da escrita; os repositórios são o destino das ações; e o e-commerce mostra um fluxo que qualquer leitor consegue seguir. Esses detalhes devem continuar.
 
 O problema editorial principal é a ordem. A primeira tela apresenta “FULL STACK SOFTWARE ENGINEER + APPLIED AI”, “From code to production” e o cargo de cofundador e CTO antes de explicar qual produto o leitor pode abrir. O primeiro case é o dashboard da OpportunusAI, embora a evidência pública mais completa e autoral para uma vaga full stack seja a Orpheuswim: catálogo, seleção, carrinho, API e início do pedido. A seção de abordagem repete os mesmos princípios que aparecem no dashboard e nos fluxos offline. O texto de infraestrutura afirma operações de produção que não são necessárias para o posicionamento pedido e não serão usadas na copy final sem prova específica.
 
@@ -52,10 +52,10 @@ Hipótese editorial adotada: trocar abstrações por um percurso curto de prova.
 ## Detalhes bons que estavam escondidos
 
 - O site já informa “public code you can inspect, run, and test”; essa promessa deve ser aplicada ao case certo, com o link do primeiro arquivo.
-- O dashboard já diferencia dados fictícios e V2 privada. A nova versão conserva essa distinção e não transforma a imagem em demo.
+- O dashboard usa dados fictícios e mostra uma regra de autorização que pode ser conferida no repositório. A nova versão não transforma as imagens de produto em uma promessa de demo.
 - O fluxo do carrinho calcula total, conserva itens no localStorage e monta a mensagem com produto, tamanho, cor e quantidade. Esse é o detalhe que faz a Orpheuswim ser entendida por recrutamento e engenharia.
 - O projeto Python deixa o preview offline por padrão e exige --apply para chamar embeddings ou escrever no banco. É uma prova melhor que uma lista de “IA aplicada”.
-- Guarded Retrieval Graph e n8n já dizem que não têm LLM, credenciais nem chamadas externas. Esses limites tornam os cases técnicos honestos.
+- Guarded Retrieval Graph e n8n continuam disponíveis no GitHub, mas não entram na seleção visual atual porque não explicam o produto tão rápido quanto o dashboard e o Vector Chunk Kit.
 
 ## Referências profissionais consultadas
 
@@ -94,13 +94,12 @@ Hipótese editorial adotada: trocar abstrações por um percurso curto de prova.
 
 ### Case técnico complementar: OpportunusAI Dashboard
 
-É a melhor prova pública de permissões e isolamento entre organizações. A demonstração usa fixtures, perfis fictícios e APIs de leitura; a V2 privada não deve ser apresentada como demo pública. A copy usa os testes de 401/403, troca de empresa e cache privado, e não promete banco ou produção.
+É a melhor prova pública de permissões e isolamento entre organizações. A demonstração usa fixtures, perfis fictícios e APIs de leitura. A copy usa os testes de 401/403, troca de empresa e cache e não promete banco ou produção.
 
 ### Outros complementos
 
 - **vector-chunk-kit:** prova Python com preview offline antes de embeddings e banco; testes demonstram determinismo, hashes, idempotência e replacement explícito.
-- **Guarded Retrieval Graph:** prova LangGraph/LangChain Core com autorização antes da recuperação, retry lexical limitado e ausência de LLM.
-- **n8n Automation Patterns:** prova de workflows inativos, validação estrutural e comportamento determinístico; um teste Node foi executado nesta auditoria.
+- **Guarded Retrieval Graph e n8n:** avaliados durante a auditoria, mas retirados da seleção principal para manter a narrativa concentrada nos quatro projetos atuais.
 
 ### Candidato excluído da seleção principal
 
@@ -112,3 +111,24 @@ digital-product-sales-journey foi lido, inclusive docs/ORIGIN.md. O documento id
 - Um líder técnico encontra uma decisão em até dois cliques? Sim: o card liga a Cart.jsx; o dashboard liga ao repositório e ao walkthrough.
 - Os botões prometem o destino? Sim: “Abrir case” aponta para a seção; “Ver arquivo” aponta ao arquivo; “Ver repositório” aponta ao GitHub; nenhum botão promete demo não validada.
 - Há adjetivo substituindo evidência? Os clichês “scalable”, “from architecture to production”, “modern”, “robust” e “seamless” foram removidos da versão recomendada.
+
+## Pesquisa de posicionamento aplicada nesta rodada
+
+Esta rodada comparou seis sites pessoais reais, escolhidos por apresentarem trabalho de engenharia em vez de apenas galerias visuais. O padrão que se repete é simples: a primeira tela nomeia a função e o tipo de produto; os projetos explicam autoria, problema, decisão e resultado; a tecnologia aparece junto da prova.
+
+| Referência                                         | Página consultada e exemplo                                                                                                                                                                    | Decisão para este portfólio                                                                                                                                                                               |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [João Bernardo](https://jbnado.dev/)               | Home e cases de [UpWatch](https://jbnado.dev/projeto/upwatch) e [Instanta](https://jbnado.dev/projeto/instanta). Cada case usa “Problema”, “Decisão Técnica” e “Resultado”, com GitHub e demo. | Transformar a seção 03 em método de engenharia e manter cada card ligado a uma decisão que o leitor possa conferir.                                                                                       |
+| [Brittany Chiang](https://brittanychiang.com/)     | Home, experiência e projetos. A abertura diz que ela constrói interfaces acessíveis e detalha sua contribuição em design systems, componentes e colaboração com produto.                       | Nomear a prática antes de listar stack: arquitetura, revisão, entrega e IA aplicada precisam aparecer como trabalho, não como palavras-chave.                                                             |
+| [dlasap](https://dlasap-portfolio.vercel.app/work) | Work page. O texto começa com seis projetos entregues e cada card informa autoria, produto, escopo, cliente ou contexto e tecnologias.                                                         | Dizer o que Rodrigo implementou e qual fluxo o usuário percorre antes de mostrar a tecnologia.                                                                                                            |
+| [Mateus Felipe](https://mateusf.com/)              | Home e projetos. “Build across the stack”, “Run what I ship” e “Share what I learn” organizam a identidade em práticas observáveis; BrTools é descrito como plataforma mantida.                | Agrupar a copy por práticas de engenharia: arquitetura, entrega e aprendizado aplicado.                                                                                                                   |
+| [João Prestes](https://www.joaoprestes.dev/)       | Home, repositórios e trajetória. Os projetos citam Testcontainers, Docker, GitHub Actions, observabilidade e revisão de código junto do problema.                                              | Usar CI/CD, Docker, modularização e code review em frases que expliquem para que servem.                                                                                                                  |
+| [Lee Robinson](https://leerob.io/)                 | Home e notas. A abertura reduz a identidade a “engineer and writer” e apresenta uma tese técnica clara antes da lista de assuntos.                                                             | Manter uma ideia central: engenharia que transforma problemas de negócio em produtos, APIs e automações de IA. A posição profissional do site não é comparável ao caso de Rodrigo e não deve ser copiada. |
+
+### O que muda na copy
+
+- A primeira tela passa a dizer que Rodrigo transforma problemas de negócio em produtos web, APIs e automações de IA aplicada.
+- “Do produto ao sistema ao redor dele” sai. A seção Sobre passa a explicar Clean Architecture, modularização, Docker, CI/CD, testes, code review, agentes, LangChain, LangGraph e MCPs.
+- “As decisões fazem parte da entrega” sai. A seção 03 passa a explicar fronteiras de domínio, entrega repetível e agentes com contexto e permissões.
+- A seção Projetos orienta o leitor: loja para o fluxo completo; dashboard para autorização; Vector Chunk Kit para contexto de RAG.
+- A copy de MCPs usa “exploro” porque não foi encontrado um repositório público de implementação MCP no perfil auditado. A afirmação fica como prática relatada pelo autor, não como produto lançado.

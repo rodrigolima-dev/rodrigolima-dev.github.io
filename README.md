@@ -1,6 +1,6 @@
 # Rodrigo Lima — personal site
 
-A small, static portfolio built with React, TypeScript, and Vite. It presents selected public code alongside a short account of the work behind OpportunusAI.
+A static portfolio built with React, TypeScript, and Vite. It presents web products, APIs, applied AI work, and the engineering practices behind them.
 
 ## Run locally
 
@@ -25,9 +25,9 @@ The static output is written to `dist/`.
 
 ## What is shown
 
-- The featured dashboard is a **public V1 demonstration** with fictional data. The operational OpportunusAI V2 is private; its code and production data are not part of this site.
-- The V1 images are captures of the public demonstration. The V2 gallery shows the product's overview, conversation, and AI knowledge review interfaces. Customer content, identifiers, operational figures, chart data, and knowledge cards were replaced with synthetic examples. Each image is labeled as demo data; no V2 code or production data is included.
-- The LangGraph and n8n visuals explain the linked public examples. Their repositories define what those examples actually implement and test.
+- The project cards cover a renamed e-commerce product backed by the `orpheuswim-frontend` and `orpheuswim-api` repositories, the OpportunusAI dashboard, HIT, and Vector Chunk Kit.
+- The OpportunusAI carousel shows product interfaces. Its engineering context is explained through organization permissions, AI-assisted conversations, and knowledge review.
+- The visual language names Clean Architecture, modularization, Docker, CI/CD, code review, agents, LangChain, LangGraph, and MCP exploration as engineering practices. Public evidence is documented in `03-provas-e-aplicacao.md`.
 - The hero portrait was derived from a photo supplied by the site owner. Other site graphics were made for this site.
 
 Content is available in English and Brazilian Portuguese. The language and light/dark theme controls remember the visitor's choice locally. The site has no backend, analytics, third-party scripts, remote fonts, or visitor data collection.
@@ -35,9 +35,9 @@ Content is available in English and Brazilian Portuguese. The language and light
 ## Structure
 
 - `src/content.ts` — interface copy in both languages.
-- `src/projects.ts` — featured repositories and their public claims.
+- `src/projects.ts` — selected projects and their evidence-backed claims.
 - `src/App.tsx` and `src/styles.css` — page structure, controls, and responsive design.
-- `public/media/` — the portrait, public V1 captures, and labeled diagrams.
+- `public/media/` — the portrait, dashboard captures, fictional product image, and HIT screens.
 - `src/App.test.tsx` — interaction and disclosure checks.
 
 ## Publishing

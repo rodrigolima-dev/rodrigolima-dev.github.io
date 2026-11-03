@@ -1,4 +1,4 @@
-# Copy final — PT-BR e English
+﻿# Copy final — PT-BR e English
 
 ## Alternativas da primeira tela
 
@@ -10,13 +10,9 @@
 
 **Full Stack Developer | React, TypeScript, Node.js, Python & Docker | Web Applications & REST APIs**
 
-Desenvolvo aplicações web e APIs REST.
+Engenheiro de software dedicado a aprender, construir e transformar problemas de negócio em produtos web, APIs e automações de IA.
 
-No E-commerce Application, a pessoa escolhe a peça, define tamanho, cor e quantidade e abre o WhatsApp com o pedido já preenchido.
-
-[**Abrir case E-commerce Application**](#work)
-
-[**Ver código no GitHub**](https://github.com/rodrigolima-dev)
+[**Conheça meus projetos**](#projetos)
 
 #### English
 
@@ -24,13 +20,9 @@ No E-commerce Application, a pessoa escolhe a peça, define tamanho, cor e quant
 
 **Full Stack Developer | React, TypeScript, Node.js, Python & Docker | Web Applications & REST APIs**
 
-I build web applications and REST APIs.
+Software engineer dedicated to learning, building, and turning business problems into web products, APIs, and applied AI automation.
 
-In the E-commerce Application, a customer chooses a piece, size, color, and quantity, then opens WhatsApp with the order details already filled in.
-
-[**Open the E-commerce Application case**](#work)
-
-[**View code on GitHub**](https://github.com/rodrigolima-dev)
+[**Explore my work**](#projects)
 
 ### Alternativa B — projeto mais cedo
 
@@ -40,13 +32,11 @@ In the E-commerce Application, a customer chooses a piece, size, color, and quan
 
 **E-commerce Application**
 
-Uma loja de crochê em que a pessoa escolhe a peça, ajusta tamanho e cor, monta o carrinho e abre o WhatsApp com o pedido preenchido.
+Uma loja de crochê em que a pessoa escolhe a peça, define tamanho, cor e quantidade, monta o carrinho e abre o WhatsApp com os dados do pedido.
 
 **Full Stack Developer | React, TypeScript, Node.js, Python & Docker | Web Applications & REST APIs**
 
-[**Abrir o case**](#work)
-
-[**Ver código no GitHub**](https://github.com/rodrigolima-dev)
+[**Abrir os projetos**](#projetos)
 
 #### English
 
@@ -54,13 +44,11 @@ Uma loja de crochê em que a pessoa escolhe a peça, ajusta tamanho e cor, monta
 
 **E-commerce Application**
 
-A crochet store where a customer chooses a piece, selects size and color, builds a cart, and opens WhatsApp with the order filled in.
+A crochet storefront where a customer chooses a piece, size, color, and quantity, reviews the cart, and opens WhatsApp with the order details.
 
 **Full Stack Developer | React, TypeScript, Node.js, Python & Docker | Web Applications & REST APIs**
 
-[**Open the case**](#work)
-
-[**View code on GitHub**](https://github.com/rodrigolima-dev)
+[**Open the projects**](#projects)
 
 ## Versão escolhida — PT-BR
 
@@ -68,213 +56,187 @@ A crochet store where a customer chooses a piece, selects size and color, builds
 
 Rodrigo Lima
 
-Projetos  
-Experiência  
-Sobre  
-Contato
+Projetos · OpportunusAI · Como trabalho · Sobre · Contato
 
-EN  
-Modo escuro
+Inglês · Tema
 
 ### Primeira tela
 
-**Rodrigo Lima**
+**FULL STACK DEVELOPER + APPLIED AI**
 
-**Full Stack Developer | React, TypeScript, Node.js, Python & Docker | Web Applications & REST APIs**
+# Do código
 
-Desenvolvo aplicações web e APIs REST.
+## à produção
 
-No E-commerce Application, a pessoa escolhe a peça, define tamanho, cor e quantidade e abre o WhatsApp com o pedido já preenchido.
+Engenheiro de software dedicado a aprender, construir e transformar problemas de negócio em produtos web, APIs e automações de IA.
 
-[**Abrir case E-commerce Application**](#work)
+[**Conheça meus projetos**](#work)
 
 [**Ver código no GitHub**](https://github.com/rodrigolima-dev)
+
+JavaScript / TypeScript · Python · LangChain · LangGraph
 
 Texto alternativo do retrato: Retrato de Rodrigo Lima
 
-### Case principal
+### Projetos
 
-### Card curto
+#### Abertura
 
-## E-commerce Application
+# Projetos com
 
-Uma loja de crochê em que a pessoa escolhe a peça, define tamanho, cor e quantidade, adiciona ao carrinho e abre o WhatsApp com os dados do pedido preenchidos.
+## código para abrir.
 
-React/Vite · Java/Spring Boot
+Comece pela loja para acompanhar um fluxo completo. Depois confira no dashboard e na ferramenta de chunks como autorização e contexto de IA entram no código.
 
-[**Abrir case E-commerce Application**](#work)
-
-[**Abrir Cart.jsx**](https://github.com/rodrigolima-dev/orpheuswim-frontend/blob/271bd002b16d70dde014b3f6adef73a2cca1a610/src/pages/Cart/Cart.jsx#L16-L40)
-
-#### 01 / CASE PRINCIPAL
+#### 01 / FULL STACK · APLICAÇÃO WEB
 
 ## E-commerce Application
 
-**Catálogo, seleção da peça, carrinho e pedido iniciado no WhatsApp.**
+Uma loja de crochê com catálogo, escolha da peça, carrinho e pedido iniciado no WhatsApp.
 
-A loja combina uma interface React/Vite com uma API REST em Java/Spring Boot.
+O carrinho reúne produto, tamanho, cor, quantidade e total antes de abrir a conversa no WhatsApp.
 
-#### O que a pessoa consegue fazer
+React · Vite · Java · Spring Boot
 
-Ela vê lançamentos e produtos, filtra o catálogo, abre uma peça, escolhe tamanho e cor, ajusta a quantidade, adiciona ao carrinho e revisa o total antes de iniciar a conversa no WhatsApp.
+[**Ver repositório**](https://github.com/rodrigolima-dev/orpheuswim-frontend)
 
-#### O que implementei
+Legenda: Catálogo de produtos fictícios
 
-Implementei a interface React/Vite e a API REST Java/Spring Boot. O carrinho preserva os itens no navegador; a API entrega produtos, lançamentos e operações administrativas protegidas por JWT.
-
-#### Decisão para discutir
-
-No checkout, o navegador monta a mensagem com produto, tamanho, cor, quantidade, preço unitário e total e abre o link do WhatsApp.
-
-#### Consequência observável
-
-Ao clicar em “Finalizar Compra”, a conversa é aberta com esses dados já preenchidos. O carrinho é limpo depois da abertura da janela.
-
-#### Limite honesto
-
-O código abre o WhatsApp; não processa pagamento e não prova que uma venda ou um pedido foram concluídos.
-
-[**Abrir o primeiro arquivo: Cart.jsx**](https://github.com/rodrigolima-dev/orpheuswim-frontend/blob/271bd002b16d70dde014b3f6adef73a2cca1a610/src/pages/Cart/Cart.jsx#L16-L40)
-
-[**Ver código do frontend**](https://github.com/rodrigolima-dev/orpheuswim-frontend/tree/271bd002b16d70dde014b3f6adef73a2cca1a610)
-
-[**Ver código da API**](https://github.com/rodrigolima-dev/orpheuswim-api/tree/4b5dfd059057500f13a0cc561f0b5225980a4748)
-
-Legenda da figura: Fluxo de pedido com dados escolhidos no navegador · sem pagamento processado
-
-### Projetos técnicos
-
-#### 02 / CASE TÉCNICO
+#### 02 / ENGENHARIA DE PRODUTO · MULTI-TENANT
 
 ## OpportunusAI Dashboard
 
-**Permissões e isolamento entre organizações em uma demonstração pública com dados fictícios.**
+Um dashboard multi-tenant para relatórios, permissões e visualizações de APIs de leitura.
 
-O dashboard Next.js usa perfis, empresas e registros sintéticos. Páginas e APIs repetem no servidor a verificação de sessão, empresa ativa, vínculo e permissão da rota antes de devolver dados.
+O servidor confere sessão, organização e permissão da rota antes de devolver os dados.
 
-**O que conferir:** trocar o tenant na URL não libera os dados de outra empresa; os testes HTTP cobrem respostas 401 e 403, troca de empresa, origem inválida, cache privado e logout.
+Next.js · React · TypeScript
 
-**Limite:** é uma demonstração local, sem banco, integrações comerciais ou dados reais.
+[**Ver repositório**](https://github.com/rodrigolima-dev/opportunus-dashboard)
 
-[**Ver repositório**](https://github.com/rodrigolima-dev/opportunus-dashboard/tree/3ee0dc86fd31c0fe153f3779846305378969ee51)
+Legenda: Dashboard da OpportunusAI com dados fictícios
 
-[**Ler walkthrough de cinco minutos**](https://github.com/rodrigolima-dev/opportunus-dashboard/blob/3ee0dc86fd31c0fe153f3779846305378969ee51/docs/DEMO_WALKTHROUGH.md)
-
-Legenda da figura: Dashboard V1 · organizações, perfis e números fictícios
-
-#### 03 / PRODUTO PRIVADO
+#### 03 / PRODUTO MOBILE · FITNESS
 
 ## HIT
 
-**Um app de fitness em desenvolvimento, com identidade própria e previsão de lançamento para dezembro de 2026.**
+Um app para quem vive o esporte: encontrar sua turma, acompanhar sua rotina e continuar jogando entre as atividades.
 
-O review público mostra a direção do produto e o status do projeto sem expor telas ou código privados.
+Em desenvolvimento · previsão de lançamento: dezembro de 2026.
 
-**Limite:** o repositório é privado; esta página não apresenta demo, métricas ou funcionalidades que não foram autorizadas para divulgação.
+[**Abrir as telas do HIT**](/media/hit-screens.png)
 
-Status: desenvolvimento privado · previsão de lançamento: dezembro de 2026
+Legenda: Telas reais do HIT com login, desempenho e feed esportivo
 
-Legenda da figura: Logo HIT · projeto privado · previsão dezembro de 2026
+#### 04 / PYTHON · FERRAMENTA DE DADOS
 
-#### 04 / PROVA DE PYTHON
+## Vector Chunk Kit
 
-## vector-chunk-kit
+Uma ferramenta Python que transforma documentos em chunks pesquisáveis com título, palavras-chave, metadados, IDs estáveis e hashes para um pipeline RAG.
 
-**Chunks de texto revisáveis antes de embeddings e escrita no pgvector.**
+A prévia local permite revisar o contexto do chunk antes de embeddings ou gravações no banco.
 
-A ferramenta lê documentos JSONL, aplica um template e prepara chunks com ID, posição, hash e metadados. O comando padrão faz preview offline; somente --apply pode chamar a API de embeddings ou escrever no banco.
+Python · PostgreSQL · pgvector
 
-**O que conferir:** os testes cobrem saída determinística, sobreposição de chunks, rejeição de namespace inválido, idempotência por hash e substituição explícita de uma fonte.
+[**Ver repositório**](https://github.com/rodrigolima-dev/vector-chunk-kit)
 
-**Limite:** a estimativa de tokens usa caracteres; ela é uma prévia, não uma cotação do modelo.
+Legenda: JSONL · prévia · apply · pgvector
 
-[**Ver repositório**](https://github.com/rodrigolima-dev/vector-chunk-kit/tree/fd5302a14b0e1afaa66f37528899ef27d8fdd584)
+### OpportunusAI
 
-Legenda da figura: JSONL → chunks revisáveis → preview offline → apply explícito
+#### 02 / OPPORTUNUSAI
 
-#### 05 / FLUXO OFFLINE
+# Engenharia de produto
 
-## Guarded Retrieval Graph
+## na OpportunusAI.
 
-**Autorização por tenant antes da recuperação em um grafo LangGraph.**
+Na OpportunusAI, trabalho no produto por trás da operação: dashboards, permissões entre organizações, conversas com IA, revisão de conhecimento e campanhas.
 
-O fluxo valida a entrada, verifica o vínculo do principal, busca somente documentos publicados do tenant selecionado e limita a uma nova tentativa lexical. Um pedido negado termina antes da recuperação e da resposta.
+[**Visitar a OpportunusAI**](https://opportunusai.com/)
 
-**Limite:** os tenants e documentos são fictícios; não há LLM, chave de API, banco ou integração externa.
+##### Visão da operação
 
-[**Ver repositório**](https://github.com/rodrigolima-dev/guarded-langgraph-demo/tree/077b4aff19ccb6e9b09ed91a1e53f754aad5b6d3)
+Vendas, conversas que pedem atenção e atuação da IA em um só lugar.
 
-[**Abrir testes do fluxo**](https://github.com/rodrigolima-dev/guarded-langgraph-demo/blob/077b4aff19ccb6e9b09ed91a1e53f754aad5b6d3/tests/test_workflow.py)
+##### IA com controle humano
 
-#### 06 / AUTOMAÇÃO OFFLINE
+A equipe responde, pede sugestões ou pausa a IA na mesma conversa.
 
-## n8n Automation Patterns
+##### Conhecimento revisado pela equipe
 
-**Quatro workflows inativos para validar entradas, limitar tentativas, classificar um sinal e filtrar documentos sintéticos por tenant.**
+A equipe pode revisar conhecimentos sugeridos antes de usá-los em novas respostas.
 
-Cada caminho termina em um resultado explícito. Os exports não têm Agent, prompt autorado, credencial ou chamada externa.
+[**Abrir imagem**](/media/v2-overview-rich-sanitized.jpg)
 
-**O que conferir:** os testes verificam que cada tenant recebe somente documentos publicados do próprio escopo, que consultas inválidas são rejeitadas e que o resultado é determinístico e somente leitura.
+### Como trabalho
 
-**Limite:** os exemplos não monitoram um serviço real, não fazem busca vetorial e não mutam sistemas externos.
+#### 03 / COMO TRABALHO
 
-[**Ver repositório**](https://github.com/rodrigolima-dev/n8n-patterns/tree/3f1c6dc3ce342a2e31fc9e05d70e15a516029c80)
+# Como construo
 
-### Experiência
+## sistemas que o time consegue evoluir.
 
-#### Cofundador e CTO — OpportunusAI
+Defino a fronteira do problema, separo o que muda do que deve permanecer estável, automatizo a entrega e reviso o código antes de chamá-lo de pronto.
 
-Atuo na engenharia de produto da OpportunusAI. Nos projetos públicos, disponibilizei o dashboard V1 e exemplos offline de autorização, recuperação e automação.
+##### 01 · Separar domínio de infraestrutura
 
-A V2 privada não está aberta para inspeção. As imagens públicas da V2 usam conteúdo e números fictícios.
+Uso Clean Architecture e módulos bem definidos quando isso reduz acoplamento: as regras do produto ficam separadas do banco, do framework e das integrações.
 
-[**Ver projetos públicos da OpportunusAI**](#projetos)
+##### 02 · Tornar a entrega repetível
+
+Docker, CI/CD e testes automatizados transformam build, validação e deploy em passos repetíveis. Assim, sei o que mudou antes de chegar ao ambiente seguinte.
+
+##### 03 · Dar contexto e limites aos agentes
+
+Em IA aplicada, exploro LangChain, LangGraph e MCPs. Ferramentas, permissões e saídas revisáveis ficam explícitas para o code review acompanhar o comportamento.
 
 ### Sobre
 
-## Interface, API e dados
+#### 04 / SOBRE
 
-Trabalho entre interface, API e dados. Em projetos públicos, você pode acompanhar uma loja React/Vite conectada a uma API Java/Spring Boot, um dashboard Next.js com isolamento por organização, ferramentas Python para preparar e revisar dados antes da ingestão.
+# Produtos que funcionam
 
-Meu trabalho público mostra o caminho entre uma ação na interface e a regra que a sustenta no servidor: o carrinho leva escolhas ao WhatsApp; o dashboard bloqueia uma empresa fora da sessão; o preview de chunks permite revisar o texto antes de chamar um provedor.
+## precisam de base.
+
+Construo entre produto e plataforma: uma loja React conectada a uma API Java/Spring Boot, um dashboard multi-tenant, uma ferramenta Python para contexto de RAG e um produto esportivo mobile em desenvolvimento.
+
+O fio comum é separar para o time avançar: módulos claros, integrações explícitas, testes nas regras importantes e documentação que facilita revisar a próxima mudança.
+
+#### Práticas de engenharia
+
+Clean Architecture, modularização, Docker, CI/CD, testes automatizados e code review orientam como estruturo e entrego software.
+
+Na IA aplicada, exploro agentes, LangChain, LangGraph e MCPs. Mantenho ferramentas, contexto, permissões e transições entre agentes visíveis em vez de esconder o comportamento em um prompt.
+
+Clean Architecture · CI/CD · Docker · Agentes + MCPs
 
 ### Contato
 
-## Estou aberto a vagas de desenvolvimento full stack.
+#### 05 / CONTATO
 
-Se você está recrutando ou quer revisar o código, comece pelo case E-commerce Application e depois abra o dashboard da OpportunusAI ou o review do HIT.
+# Código que move
+
+## negócios.
+
+Conecto interface, API, regra de negócio e entrega para transformar ideias em produtos que o time consegue evoluir. Explore os projetos e abra o código onde ele está disponível.
+
+[**Abrir LinkedIn**](https://www.linkedin.com/in/rodrigo-lima-95a548242/)
 
 [**Ver código no GitHub**](https://github.com/rodrigolima-dev)
 
-[**Conectar no LinkedIn**](https://www.linkedin.com/in/rodrigo-lima-95a548242/)
-
-[**Enviar e-mail**](mailto:rodrigolima.developer@gmail.com)
+[**E-mail**](mailto:rodrigolima.developer@gmail.com)
 
 ### Rodapé
 
 Rodrigo Lima · Full Stack Developer
 
-GitHub  
-LinkedIn
+GitHub · LinkedIn
 
-### Metadados e prévia de compartilhamento
+### Metadados
 
-Título: Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python & Docker
-
-Description: Full Stack Developer em React, TypeScript, Node.js, Python e Docker. Comece pelo E-commerce Application e inspecione aplicações web e APIs REST com código público.
-
-Open Graph title: Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python & Docker
-
-Open Graph description: Comece pelo E-commerce Application: uma aplicação web com catálogo, carrinho e pedido iniciado no WhatsApp. Depois, abra os projetos técnicos com código e testes públicos.
-
-Twitter card: summary_large_image
-
-Social card:
-
-Rodrigo Lima  
-FULL STACK DEVELOPER  
-Web applications & REST APIs  
-ORPHEUSWIM · REACT · JAVA
+- **Título:** Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python e Docker
+- **Descrição:** Engenheiro de software dedicado a aprender, construir e transformar problemas de negócio em produtos web, APIs e automações de IA.
+- **Open Graph:** Web products, REST APIs, modular architecture, and applied AI automation by Rodrigo Lima.
 
 ## Final version — English
 
@@ -282,210 +244,184 @@ ORPHEUSWIM · REACT · JAVA
 
 Rodrigo Lima
 
-Projects  
-Experience  
-About  
-Contact
+Projects · OpportunusAI · How I work · About · Contact
 
-PT  
-Dark mode
+Português do Brasil · Theme
 
-### First screen
+### Hero
 
-**Rodrigo Lima**
+**FULL STACK DEVELOPER + APPLIED AI**
 
-**Full Stack Developer | React, TypeScript, Node.js, Python & Docker | Web Applications & REST APIs**
+# From code
 
-I build web applications and REST APIs.
+## to production
 
-In the E-commerce Application, a customer chooses a piece, size, color, and quantity, then opens WhatsApp with the order details already filled in.
+Software engineer dedicated to learning, building, and turning business problems into web products, APIs, and applied AI automation.
 
-[**Open the E-commerce Application case**](#work)
+[**Explore my work**](#work)
 
 [**View code on GitHub**](https://github.com/rodrigolima-dev)
 
-Portrait alt text: Portrait of Rodrigo Lima
+JavaScript / TypeScript · Python · LangChain · LangGraph
 
-### Main case
+Alt text: Portrait of Rodrigo Lima
 
-### Short card
+### Projects
 
-## E-commerce Application
+#### Introduction
 
-A crochet store where a customer chooses a piece, size, color, and quantity, adds it to the cart, and opens WhatsApp with the order details filled in.
+# Projects with
 
-React/Vite · Java/Spring Boot
+## code you can open.
 
-[**Open the E-commerce Application case**](#work)
+Start with the storefront to follow a complete product flow. Then inspect the dashboard and the chunking tool to see authorization and AI context handled in code.
 
-[**Open Cart.jsx**](https://github.com/rodrigolima-dev/orpheuswim-frontend/blob/271bd002b16d70dde014b3f6adef73a2cca1a610/src/pages/Cart/Cart.jsx#L16-L40)
-
-#### 01 / MAIN CASE
+#### 01 / FULL STACK · WEB APPLICATION
 
 ## E-commerce Application
 
-**Catalog, product selection, cart, and an order started in WhatsApp.**
+A crochet storefront with a catalog, product choices, cart, and an order started in WhatsApp.
 
-The store pairs a React/Vite interface with a Java/Spring Boot REST API.
+The cart gathers product, size, color, quantity, and total before opening the WhatsApp conversation.
 
-#### What a customer can do
+React · Vite · Java · Spring Boot
 
-They can browse releases and products, filter the catalog, open a product, choose a size and color, adjust the quantity, add it to the cart, and review the total before starting a WhatsApp conversation.
+[**View repository**](https://github.com/rodrigolima-dev/orpheuswim-frontend)
 
-#### What I implemented
+Caption: Fictional product catalog
 
-I implemented the React/Vite interface and the Java/Spring Boot REST API. The cart keeps items in the browser; the API serves products and releases and protects administrative operations with JWT.
-
-#### A decision to discuss
-
-At checkout, the browser builds a message with the product, size, color, quantity, unit price, and total, then opens the WhatsApp link.
-
-#### Observable consequence
-
-Clicking “Finish order” opens the conversation with those details already filled in. The cart is cleared after the new window is opened.
-
-#### Honest limit
-
-The code opens WhatsApp; it does not process payment or prove that a sale or order was completed.
-
-[**Open the first file: Cart.jsx**](https://github.com/rodrigolima-dev/orpheuswim-frontend/blob/271bd002b16d70dde014b3f6adef73a2cca1a610/src/pages/Cart/Cart.jsx#L16-L40)
-
-[**View frontend code**](https://github.com/rodrigolima-dev/orpheuswim-frontend/tree/271bd002b16d70dde014b3f6adef73a2cca1a610)
-
-[**View API code**](https://github.com/rodrigolima-dev/orpheuswim-api/tree/4b5dfd059057500f13a0cc561f0b5225980a4748)
-
-Figure caption: Order flow with customer choices assembled in the browser · no payment processed
-
-### Technical projects
-
-#### 02 / TECHNICAL CASE
+#### 02 / PRODUCT ENGINEERING · MULTI-TENANT
 
 ## OpportunusAI Dashboard
 
-**Permissions and organization isolation in a public demonstration with fictional data.**
+A multi-tenant dashboard for reports, permissions, and read-only API views.
 
-The Next.js dashboard uses fictional profiles, companies, and records. Pages and APIs repeat the server-side checks for session, active company, membership, and route capability before returning data.
+The server checks the session, organization, and route permissions before returning data.
 
-**What to inspect:** changing the tenant in the URL does not release another company’s data; HTTP tests cover 401 and 403 responses, tenant switching, invalid origin, private cache, and logout.
+Next.js · React · TypeScript
 
-**Limit:** this is a local demonstration with no database, commercial integrations, or real data.
+[**View repository**](https://github.com/rodrigolima-dev/opportunus-dashboard)
 
-[**View repository**](https://github.com/rodrigolima-dev/opportunus-dashboard/tree/3ee0dc86fd31c0fe153f3779846305378969ee51)
+Caption: OpportunusAI dashboard with fictional data
 
-[**Read the five-minute walkthrough**](https://github.com/rodrigolima-dev/opportunus-dashboard/blob/3ee0dc86fd31c0fe153f3779846305378969ee51/docs/DEMO_WALKTHROUGH.md)
-
-Figure caption: V1 dashboard · fictional organizations, profiles, and figures
-
-#### 03 / PRIVATE PRODUCT
+#### 03 / MOBILE PRODUCT · FITNESS
 
 ## HIT
 
-**A fitness app in development with its own identity and a planned December 2026 launch.**
+An app for people who live sport: find your group, follow your routine, and keep playing between activities.
 
-The public review shows the product direction and project status without exposing private screens or code.
+In development · planned launch: December 2026.
 
-**Limit:** the repository is private; this page does not present a demo, metrics, or features that were not authorized for publication.
+[**Open the HIT screens**](/media/hit-screens.png)
 
-Status: private build · planned launch: December 2026
+Caption: Real HIT screens showing login, performance, and a sports feed
 
-Figure caption: HIT wordmark · private product · December 2026 target
+#### 04 / PYTHON · DATA TOOLING
 
-#### 04 / PYTHON PROOF
+## Vector Chunk Kit
 
-## vector-chunk-kit
+A Python tool that turns documents into searchable chunks with titles, keywords, metadata, stable IDs, and hashes for a RAG pipeline.
 
-**Reviewable text chunks before embeddings and pgvector writes.**
+A local preview lets you review chunk context before embeddings or database writes.
 
-The tool reads JSONL documents, applies a template, and prepares chunks with an ID, position, hash, and metadata. The default command runs an offline preview; only --apply can call the embeddings API or write to the database.
+Python · PostgreSQL · pgvector
 
-**What to inspect:** tests cover deterministic output, chunk overlap, invalid namespaces, hash-based idempotence, and explicit source replacement.
+[**View repository**](https://github.com/rodrigolima-dev/vector-chunk-kit)
 
-**Limit:** the token estimate uses character count; it is a preview, not a model quote.
+Caption: JSONL · preview · apply · pgvector
 
-[**View repository**](https://github.com/rodrigolima-dev/vector-chunk-kit/tree/fd5302a14b0e1afaa66f37528899ef27d8fdd584)
+### OpportunusAI
 
-Figure caption: JSONL → reviewable chunks → offline preview → explicit apply
+#### 02 / OPPORTUNUSAI
 
-#### 05 / OFFLINE FLOW
+# Product engineering
 
-## Guarded Retrieval Graph
+## at OpportunusAI.
 
-**Tenant authorization before retrieval in a LangGraph flow.**
+At OpportunusAI, I work on the product behind the operation: dashboards, organization permissions, AI-assisted conversations, knowledge review, and campaigns.
 
-The flow validates input, checks principal membership, retrieves only published documents from the selected tenant, and allows one bounded lexical retry. A denied request ends before retrieval and response.
+[**Visit OpportunusAI**](https://opportunusai.com/)
 
-**Limit:** tenants and documents are fictional; there is no LLM, API key, database, or external integration.
+##### Operations overview
 
-[**View repository**](https://github.com/rodrigolima-dev/guarded-langgraph-demo/tree/077b4aff19ccb6e9b09ed91a1e53f754aad5b6d3)
+Sales, conversations needing attention, and AI activity in one place.
 
-[**Open the workflow tests**](https://github.com/rodrigolima-dev/guarded-langgraph-demo/blob/077b4aff19ccb6e9b09ed91a1e53f754aad5b6d3/tests/test_workflow.py)
+##### AI assistance with human control
 
-#### 06 / OFFLINE AUTOMATION
+The team can reply, request a suggestion, or pause AI in the same conversation.
 
-## n8n Automation Patterns
+##### Knowledge reviewed by the team
 
-**Four inactive workflows for input validation, bounded retry decisions, signal classification, and tenant-scoped filtering of synthetic documents.**
+The team can review suggested knowledge before using it in future replies.
 
-Each path ends in an explicit result. The exports contain no Agent node, authored prompt, credential, or external call.
+[**Open image**](/media/v2-overview-rich-sanitized.jpg)
 
-**What to inspect:** tests check that each tenant receives only published documents from its own scope, invalid queries are rejected, and the result is deterministic and read-only.
+### How I work
 
-**Limit:** the examples do not monitor a real service, perform vector search, or mutate external systems.
+#### 03 / HOW I WORK
 
-[**View repository**](https://github.com/rodrigolima-dev/n8n-patterns/tree/3f1c6dc3ce342a2e31fc9e05d70e15a516029c80)
+# How I build
 
-### Experience
+## systems teams can evolve.
 
-#### Co-founder and CTO — OpportunusAI
+I define the problem boundary, separate what changes from what should stay stable, automate the path to delivery, and review the code before calling it ready.
 
-I work in product engineering at OpportunusAI. In the public work, I shipped the V1 dashboard and offline examples for authorization, retrieval, and automation.
+##### 01 · Keep domain separate from infrastructure
 
-The private V2 is not open for inspection. Public V2 images use fictional content and figures.
+I use Clean Architecture and modular boundaries when they reduce coupling: product rules stay separate from the database, framework, and integrations.
 
-[**View public projects from OpportunusAI**](#projects)
+##### 02 · Make delivery repeatable
+
+Docker, CI/CD, and automated tests turn build, validation, and deployment into repeatable steps. The goal is to know what changed before it reaches the next environment.
+
+##### 03 · Give agents context and limits
+
+In applied AI, I explore LangChain, LangGraph, and MCPs. Tools, permissions, and reviewable output stay explicit so code review can follow the behavior.
 
 ### About
 
-## Interfaces, APIs, and data
+#### 04 / ABOUT
 
-I work across interfaces, APIs, and data. In public projects, you can follow a React/Vite store connected to a Java/Spring Boot API, a Next.js dashboard with organization isolation, Python tools that prepare and review data before ingestion.
+# Products that work
 
-My public work follows the path between an interface action and the server rule behind it: the cart carries choices to WhatsApp; the dashboard blocks a company outside the session; the chunk preview lets you review text before calling a provider.
+## need a foundation.
+
+I build across product and platform: a React storefront connected to a Java/Spring Boot API, a multi-tenant dashboard, a Python tool for RAG context, and a mobile sports product in development.
+
+The common thread is separation that helps a team move: clear modules, explicit integrations, tests around important rules, and documentation that makes the next change easier to review.
+
+#### Engineering practices
+
+Clean Architecture, modularization, Docker, CI/CD, automated tests, and code review shape how I structure and deliver software.
+
+For applied AI, I explore agents, LangChain, LangGraph, and MCPs. I keep tools, context, permissions, and handoffs visible instead of hiding behavior behind a prompt.
+
+Clean Architecture · CI/CD · Docker · Agents + MCPs
 
 ### Contact
 
-## I’m open to full stack development roles.
+#### 05 / CONTACT
 
-If you are hiring or want to review the code, start with the E-commerce Application case, then open the OpportunusAI dashboard or the HIT review.
+# Code that moves
+
+## businesses.
+
+I connect interfaces, APIs, business rules, and delivery so ideas become products teams can evolve. Explore the work and open the code where it is available.
+
+[**Open LinkedIn**](https://www.linkedin.com/in/rodrigo-lima-95a548242/)
 
 [**View code on GitHub**](https://github.com/rodrigolima-dev)
 
-[**Connect on LinkedIn**](https://www.linkedin.com/in/rodrigo-lima-95a548242/)
-
-[**Send an email**](mailto:rodrigolima.developer@gmail.com)
+[**Email**](mailto:rodrigolima.developer@gmail.com)
 
 ### Footer
 
 Rodrigo Lima · Full Stack Developer
 
-GitHub  
-LinkedIn
+GitHub · LinkedIn
 
-### Metadata and share preview
+### Metadata
 
-Title: Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python & Docker
-
-Description: Full Stack Developer using React, TypeScript, Node.js, Python and Docker. Start with the E-commerce Application, then inspect public web applications and REST APIs.
-
-Open Graph title: Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python & Docker
-
-Open Graph description: Start with the E-commerce Application: a web application with a catalog, cart, and an order started in WhatsApp. Then open technical projects with public code and tests.
-
-Twitter card: summary_large_image
-
-Social card:
-
-Rodrigo Lima  
-FULL STACK DEVELOPER  
-Web applications & REST APIs  
-ORPHEUSWIM · REACT · JAVA
+- **Title:** Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python & Docker
+- **Description:** Software engineer dedicated to learning, building, and turning business problems into web products, APIs, and applied AI automation.
+- **Open Graph:** Web products, REST APIs, modular architecture, and applied AI automation by Rodrigo Lima

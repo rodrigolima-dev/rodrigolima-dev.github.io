@@ -73,61 +73,36 @@ function ProjectVisual({
 }) {
   const dashboardAsset =
     locale === 'pt-BR' ? '/media/dashboard-showcase-pt.webp' : '/media/dashboard-showcase.webp'
-  const flow =
-    locale === 'pt-BR'
-      ? {
-          gate: 'Acesso',
-          retrieve: 'Busca',
-          answer: 'Resposta',
-          denied: 'Sem acesso: parar',
-          input: 'Entrada',
-          rules: ['Validar', 'Tentar novamente', 'Sinalizar', 'Buscar'],
-        }
-      : {
-          gate: 'Access',
-          retrieve: 'Retrieve',
-          answer: 'Answer',
-          denied: 'Denied: stop',
-          input: 'Input',
-          rules: ['Validate', 'Retry', 'Signal', 'Lookup'],
-        }
-
-  const store =
-    locale === 'pt-BR'
-      ? { catalog: 'Catálogo', product: 'Peça', cart: 'Carrinho', order: 'WhatsApp' }
-      : { catalog: 'Catalog', product: 'Piece', cart: 'Cart', order: 'WhatsApp' }
-
   const fit =
     locale === 'pt-BR'
-      ? { status: 'Projeto privado', target: 'Dezembro 2026' }
-      : { status: 'Private build', target: 'December 2026' }
+      ? { status: 'Em desenvolvimento', target: 'Dezembro 2026' }
+      : { status: 'In development', target: 'December 2026' }
+
+  const pipeline =
+    locale === 'pt-BR'
+      ? {
+          input: 'JSONL',
+          preview: 'Prévia',
+          apply: 'Apply',
+          output: 'pgvector',
+        }
+      : {
+          input: 'JSONL',
+          preview: 'Preview',
+          apply: 'Apply',
+          output: 'pgvector',
+        }
 
   return (
     <figure className={`project-visual ${kind}-visual visual-media`}>
       {kind === 'store' ? (
-        <div className="store-flow" role="img" aria-label={alt}>
-          <div className="store-toolbar">
-            <span className="store-logo">RL</span>
-            <span>{store.catalog}</span>
-            <b>03</b>
-          </div>
-          <div className="store-grid">
-            <div className="store-product store-product-main">
-              <span className="store-product-image" />
-              <span>{store.product}</span>
-              <b>01</b>
-            </div>
-            <div className="store-product store-cart">
-              <span className="store-cart-label">{store.cart}</span>
-              <strong>1 ×</strong>
-              <small>{store.order}</small>
-            </div>
-          </div>
-          <div className="store-path" aria-hidden="true">
-            {['01', '02', '03'].map((step) => (
-              <span key={step}>{step}</span>
-            ))}
-          </div>
+        <div className="store-screenshot" role="img" aria-label={alt}>
+          <img
+            src="/media/ecommerce-fictional-products.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       ) : kind === 'dashboard' ? (
         <img
@@ -139,51 +114,32 @@ function ProjectVisual({
         />
       ) : kind === 'fit' ? (
         <div className="fit-flow" role="img" aria-label={alt}>
-          <div className="fit-mark" aria-hidden="true">
-            <span>H</span>
-            <span>I</span>
-            <span>T</span>
+          <div className="fit-gallery" aria-hidden="true">
+            <span className="fit-thumb fit-thumb-login" />
+            <span className="fit-thumb fit-thumb-home" />
+            <span className="fit-thumb fit-thumb-feed" />
           </div>
+          <img className="fit-logo-image" src="/media/hit-logo-creme.svg" alt="" />
           <div className="fit-meta">
             <span>{fit.status}</span>
             <strong>{fit.target}</strong>
           </div>
-          <div className="fit-pulse" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
+        </div>
+      ) : kind === 'chunks' ? (
+        <div className="chunks-flow" role="img" aria-label={alt}>
+          <div className="chunks-row">
+            <span>{pipeline.input}</span>
+            <i>→</i>
+            <span>{pipeline.preview}</span>
+            <i>→</i>
+            <span>{pipeline.apply}</span>
+          </div>
+          <div className="chunks-output">
+            <b>{pipeline.output}</b>
+            <small>explicit write</small>
           </div>
         </div>
-      ) : kind === 'graph' ? (
-        <div className="graph-flow" role="img" aria-label={alt}>
-          <div className="graph-steps" aria-hidden="true">
-            {[flow.gate, flow.retrieve, flow.answer].map((step, index) => (
-              <div className="graph-step" key={step}>
-                <span className="graph-dot">{String(index + 1).padStart(2, '0')}</span>
-                <span>{step}</span>
-              </div>
-            ))}
-          </div>
-          <span className="graph-denied" aria-hidden="true">
-            ↳ {flow.denied}
-          </span>
-        </div>
-      ) : (
-        <div className="workflow-flow" role="img" aria-label={alt}>
-          <span className="workflow-input" aria-hidden="true">
-            {flow.input}
-          </span>
-          <div className="workflow-rules" aria-hidden="true">
-            {flow.rules.map((rule, index) => (
-              <span className="workflow-rule" key={rule}>
-                <b>{String(index + 1).padStart(2, '0')}</b>
-                {rule}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+      ) : null}
       <figcaption className="visual-caption">{caption}</figcaption>
     </figure>
   )
@@ -238,9 +194,7 @@ function ProjectCard({
             >
               {t.repositoryAction} <ArrowIcon diagonal />
             </a>
-          ) : (
-            <span className="project-private">{t.privateProject}</span>
-          )}
+          ) : null}
         </div>
       </div>
       <ProjectVisual
@@ -383,7 +337,8 @@ export function App() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">
-                <span className="eyebrow-line" /> {t.heroRole}
+                <span className="eyebrow-line" /> {t.heroRole}{' '}
+                <span className="eyebrow-plus">+</span> {t.heroAi}
               </p>
               <h1 id="hero-title">
                 {t.heroTitleStart}
@@ -406,10 +361,10 @@ export function App() {
                 </a>
               </div>
               <div className="hero-signals" aria-label={t.focusAreas}>
-                <span>React / TypeScript</span>
-                <span>Java / Spring Boot</span>
+                <span>JavaScript / TypeScript</span>
                 <span>Python</span>
-                <span>Mobile product</span>
+                <span>LangChain</span>
+                <span>LangGraph</span>
               </div>
             </div>
             <div className="hero-art">
@@ -427,12 +382,6 @@ export function App() {
               </div>
               <div className="portrait-frame">
                 <img src="/media/portrait-head.png" alt={t.portraitAlt} fetchPriority="high" />
-              </div>
-              <div className="hero-case-panel">
-                <span>{t.heroCaseLabel}</span>
-                <strong>{t.heroCaseTitle}</strong>
-                <p>{t.heroCaseBody}</p>
-                <small>{t.heroCaseStack}</small>
               </div>
               <div className="art-note art-note-left" aria-hidden="true">
                 {t.artLeft} <i /> {t.artRight}
@@ -499,7 +448,6 @@ export function App() {
               </div>
               <div className="company-copy">
                 <p>{t.companyIntro}</p>
-                <p className="company-privacy">{t.companyPrivacy}</p>
                 <a
                   className="company-site-link"
                   href={links.company}
@@ -512,9 +460,6 @@ export function App() {
             </div>
             <div className="company-feature" aria-label={t.companyCarousel}>
               <div className={`company-feature-image company-feature-image-${slideIndex + 1}`}>
-                <span className="company-image-index" aria-hidden="true">
-                  V2 / {String(slideIndex + 1).padStart(2, '0')}
-                </span>
                 <div className="mac-window">
                   <div className="mac-toolbar" aria-hidden="true">
                     <span className="mac-dots">
@@ -523,7 +468,6 @@ export function App() {
                       <i />
                     </span>
                     <span>OpportunusAI</span>
-                    <span className="mac-version">V2</span>
                   </div>
                   <img
                     src={companyImages[slideIndex]}

@@ -92,9 +92,44 @@ function ProjectVisual({
           rules: ['Validate', 'Retry', 'Signal', 'Lookup'],
         }
 
+  const store =
+    locale === 'pt-BR'
+      ? { catalog: 'Catálogo', product: 'Peça', cart: 'Carrinho', order: 'WhatsApp' }
+      : { catalog: 'Catalog', product: 'Piece', cart: 'Cart', order: 'WhatsApp' }
+
+  const fit =
+    locale === 'pt-BR'
+      ? { status: 'Projeto privado', target: 'Dezembro 2026' }
+      : { status: 'Private build', target: 'December 2026' }
+
   return (
     <figure className={`project-visual ${kind}-visual visual-media`}>
-      {kind === 'dashboard' ? (
+      {kind === 'store' ? (
+        <div className="store-flow" role="img" aria-label={alt}>
+          <div className="store-toolbar">
+            <span className="store-logo">RL</span>
+            <span>{store.catalog}</span>
+            <b>03</b>
+          </div>
+          <div className="store-grid">
+            <div className="store-product store-product-main">
+              <span className="store-product-image" />
+              <span>{store.product}</span>
+              <b>01</b>
+            </div>
+            <div className="store-product store-cart">
+              <span className="store-cart-label">{store.cart}</span>
+              <strong>1 ×</strong>
+              <small>{store.order}</small>
+            </div>
+          </div>
+          <div className="store-path" aria-hidden="true">
+            {['01', '02', '03'].map((step) => (
+              <span key={step}>{step}</span>
+            ))}
+          </div>
+        </div>
+      ) : kind === 'dashboard' ? (
         <img
           className="dashboard-screen"
           src={dashboardAsset}
@@ -102,6 +137,24 @@ function ProjectVisual({
           loading="lazy"
           decoding="async"
         />
+      ) : kind === 'fit' ? (
+        <div className="fit-flow" role="img" aria-label={alt}>
+          <div className="fit-mark" aria-hidden="true">
+            <span>H</span>
+            <span>I</span>
+            <span>T</span>
+          </div>
+          <div className="fit-meta">
+            <span>{fit.status}</span>
+            <strong>{fit.target}</strong>
+          </div>
+          <div className="fit-pulse" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+        </div>
       ) : kind === 'graph' ? (
         <div className="graph-flow" role="img" aria-label={alt}>
           <div className="graph-steps" aria-hidden="true">
@@ -175,15 +228,19 @@ function ProjectCard({
               <li key={technology}>{technology}</li>
             ))}
           </ul>
-          <a
-            className="project-link"
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={t.repositoryAria(project.title)}
-          >
-            {t.repositoryAction} <ArrowIcon diagonal />
-          </a>
+          {project.visibility === 'public' ? (
+            <a
+              className="project-link"
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.repositoryAria(project.title)}
+            >
+              {t.repositoryAction} <ArrowIcon diagonal />
+            </a>
+          ) : (
+            <span className="project-private">{t.privateProject}</span>
+          )}
         </div>
       </div>
       <ProjectVisual
@@ -326,8 +383,7 @@ export function App() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">
-                <span className="eyebrow-line" /> {t.heroRole}{' '}
-                <span className="eyebrow-plus">+</span> {t.heroAi}
+                <span className="eyebrow-line" /> {t.heroRole}
               </p>
               <h1 id="hero-title">
                 {t.heroTitleStart}
@@ -336,7 +392,6 @@ export function App() {
                 <span className="period">.</span>
               </h1>
               <p className="hero-lead">{t.heroLead}</p>
-              <p className="hero-cto">{t.heroCto}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#work">
                   {t.heroAction} <ArrowIcon />
@@ -351,10 +406,10 @@ export function App() {
                 </a>
               </div>
               <div className="hero-signals" aria-label={t.focusAreas}>
-                <span>JavaScript / TypeScript</span>
+                <span>React / TypeScript</span>
+                <span>Java / Spring Boot</span>
                 <span>Python</span>
-                <span>LangChain</span>
-                <span>LangGraph</span>
+                <span>Mobile product</span>
               </div>
             </div>
             <div className="hero-art">
@@ -372,6 +427,12 @@ export function App() {
               </div>
               <div className="portrait-frame">
                 <img src="/media/portrait-head.png" alt={t.portraitAlt} fetchPriority="high" />
+              </div>
+              <div className="hero-case-panel">
+                <span>{t.heroCaseLabel}</span>
+                <strong>{t.heroCaseTitle}</strong>
+                <p>{t.heroCaseBody}</p>
+                <small>{t.heroCaseStack}</small>
               </div>
               <div className="art-note art-note-left" aria-hidden="true">
                 {t.artLeft} <i /> {t.artRight}
@@ -397,8 +458,14 @@ export function App() {
             <div className="project-list">
               <ProjectCard project={projects[0]} index={0} locale={locale} featured />
               <div className="project-grid">
-                <ProjectCard project={projects[1]} index={1} locale={locale} />
-                <ProjectCard project={projects[2]} index={2} locale={locale} />
+                {projects.slice(1).map((project, index) => (
+                  <ProjectCard
+                    key={project.title}
+                    project={project}
+                    index={index + 1}
+                    locale={locale}
+                  />
+                ))}
               </div>
             </div>
             <div className="work-footer">
@@ -560,9 +627,9 @@ export function App() {
               <p>{t.aboutInfraSecurity}</p>
               <div className="about-tags" aria-label={t.practiceAreas}>
                 <span>{t.practiceWeb}</span>
-                <span>{t.practiceAi}</span>
-                <span>{t.practiceAutomation}</span>
-                <span>{t.practiceArchitecture}</span>
+                <span>{t.practiceApi}</span>
+                <span>{t.practiceMobile}</span>
+                <span>{t.practiceData}</span>
               </div>
             </div>
           </div>

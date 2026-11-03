@@ -25,31 +25,37 @@ describe('portfolio presentation', () => {
   it('links only reviewed public projects and labels their limits', () => {
     render(<App />)
     expect(projects.map((project) => project.href)).toEqual([
+      'https://github.com/rodrigolima-dev/orpheuswim-frontend',
       'https://github.com/rodrigolima-dev/opportunus-dashboard',
+      undefined,
+      'https://github.com/rodrigolima-dev/vector-chunk-kit',
       'https://github.com/rodrigolima-dev/guarded-langgraph-demo',
       'https://github.com/rodrigolima-dev/n8n-patterns',
     ])
     const links = screen.getAllByRole('link', { name: /source code on GitHub/i })
-    expect(links).toHaveLength(3)
+    expect(links).toHaveLength(5)
     for (const link of links) {
       expect(link.getAttribute('rel')).toContain('noopener')
       expect(link.getAttribute('target')).toBe('_blank')
     }
     expect(screen.getByText(/runnable public V1 dashboard/i)).toBeTruthy()
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('to production')
-    expect(screen.getByRole('heading', { name: /Have an engineering challenge/i })).toBeTruthy()
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('Web applications')
+    expect(screen.getByRole('heading', { name: /Open to full stack/i })).toBeTruthy()
     const emailContact = screen.getByRole('link', {
       name: /Email: rodrigolima\.developer@gmail\.com/i,
     })
     expect(emailContact.getAttribute('href')).toBe('mailto:rodrigolima.developer@gmail.com')
     expect(screen.getAllByText(/no LLM call/i).length).toBeGreaterThan(0)
-    expect(screen.getByText(/no Agent node or credentials/i)).toBeTruthy()
+    expect(screen.getByText(/NO CREDENTIALS/i)).toBeTruthy()
     expect(screen.queryByText(/SCROLL TO EXPLORE/i)).toBeNull()
-    const heroFocus = screen.getByText('JavaScript / TypeScript').parentElement
+    const heroFocus = screen.getByText('React / TypeScript').parentElement
+    expect(heroFocus?.textContent).toContain('Java / Spring Boot')
     expect(heroFocus?.textContent).toContain('Python')
-    expect(heroFocus?.textContent).toContain('LangChain')
-    expect(heroFocus?.textContent).toContain('LangGraph')
-    expect(heroFocus?.textContent).not.toContain('n8n')
+    expect(heroFocus?.textContent).toContain('Mobile product')
+    expect(screen.getByText('HIT')).toBeTruthy()
+    expect(screen.getByText(/fitness app in development/i)).toBeTruthy()
+    expect(screen.getByRole('img', { name: /HIT fitness app wordmark/i })).toBeTruthy()
+    expect(screen.getByText(/Private project · no public repository/i)).toBeTruthy()
   })
 
   it('switches all primary copy and visual assets to Brazilian Portuguese', async () => {
@@ -59,16 +65,16 @@ describe('portfolio presentation', () => {
     await user.click(screen.getByRole('button', { name: 'Português do Brasil' }))
     expect(document.documentElement.lang).toBe('pt-BR')
     expect(localStorage.getItem('portfolio-locale')).toBe('pt-BR')
-    expect(document.title).toContain('Engenheiro de Software')
+    expect(document.title).toContain('Full Stack Developer')
     expect(screen.getByRole('link', { name: 'Ir para o conteúdo' })).toBeTruthy()
     const emailContact = screen.getByRole('link', {
       name: /E-mail: rodrigolima\.developer@gmail\.com/i,
     })
     expect(emailContact.getAttribute('href')).toBe('mailto:rodrigolima.developer@gmail.com')
-    expect(screen.getByRole('link', { name: 'Abordagem' })).toBeTruthy()
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('à operação')
-    expect(screen.getByRole('heading', { name: /Veja como eu/i })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: /Tem um desafio técnico/i })).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Como trabalho' })).toBeTruthy()
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('Aplicações web')
+    expect(screen.getByRole('heading', { name: /Projetos que você pode/i })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: /Aberto a vagas de/i })).toBeTruthy()
     expect(screen.queryByRole('region', { name: 'Como trabalho' })).toBeNull()
     expect(screen.getByRole('button', { name: 'Ativar modo escuro' })).toBeTruthy()
     expect(screen.getByRole('img', { name: /Retrato de Rodrigo Lima/i })).toBeTruthy()
@@ -104,12 +110,12 @@ describe('portfolio presentation', () => {
     expect(menu.getAttribute('aria-expanded')).toBe('false')
     await user.click(menu)
     expect(menu.getAttribute('aria-expanded')).toBe('true')
-    await user.click(screen.getByRole('link', { name: 'Approach' }))
+    await user.click(screen.getByRole('link', { name: 'How I work' }))
     expect(menu.getAttribute('aria-expanded')).toBe('false')
 
     expect(screen.getByText('1 of 3')).toBeTruthy()
     expect(screen.getByRole('img', { name: /V2 overview interface with navigation/i })).toBeTruthy()
-    expect(screen.getByRole('link', { name: 'View full image' }).getAttribute('href')).toBe(
+    expect(screen.getByRole('link', { name: 'Open image' }).getAttribute('href')).toBe(
       '/media/v2-overview-rich-sanitized.jpg',
     )
     await user.click(screen.getByRole('button', { name: 'Next example' }))

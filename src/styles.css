@@ -896,3 +896,87 @@ footer {
     font-size: 30px;
   }
 }
+
+/* Scroll behavior and layout details matched to the reference composition. */
+.topbar {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 22px auto 0;
+}
+.layout {
+  padding-top: 86px;
+}
+.profile-column {
+  top: 40px;
+}
+.profile-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.profile-card:hover {
+  transform: translateY(-4px);
+}
+.profile-card h2 {
+  margin-top: 34px;
+  margin-bottom: 14px;
+}
+.profile-about {
+  max-width: 235px;
+}
+.hero-block,
+.content-section,
+.profile-card {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.hero-block.is-visible,
+.content-section.is-visible,
+.profile-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+.hero-block h1,
+.section-title h2,
+.contact-section h2 {
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+@media (max-width: 900px) {
+  .topbar {
+    position: relative;
+    top: auto;
+    margin: 12px 16px 0;
+  }
+  .layout {
+    padding-top: 64px;
+  }
+  .profile-column {
+    top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-block,
+  .content-section,
+  .profile-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.topbar {
+  width: max-content;
+}
+@media (max-width: 900px) {
+  .topbar {
+    width: calc(100% - 32px);
+  }
+}

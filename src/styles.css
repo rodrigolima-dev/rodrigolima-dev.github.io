@@ -980,3 +980,23 @@ footer {
     width: calc(100% - 32px);
   }
 }
+
+.topbar {
+  background: rgba(255, 253, 248, 0.96);
+  border-color: #d8d5ca;
+  box-shadow: 0 8px 24px rgba(29, 42, 37, 0.08);
+}
+.topbar nav a,
+.top-actions a,
+.lang {
+  color: #68716b;
+}
+.topbar nav a:hover,
+.top-actions a:hover,
+.lang:hover {
+  color: #1d2a25;
+  background: #e9e5dc;
+}
+.contact-section {
+  margin-top: 220px;
+}

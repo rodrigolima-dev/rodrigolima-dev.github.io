@@ -1000,3 +1000,33 @@ footer {
 .contact-section {
   margin-top: 220px;
 }
+
+html {
+  background: var(--bg);
+}
+.hero-block h1 {
+  font-size: clamp(50px, 5vw, 78px);
+}
+.section-title h2,
+.contact-section h2 {
+  font-size: clamp(50px, 5vw, 78px);
+}
+@media (max-width: 520px) {
+  .hero-block h1 {
+    font-size: clamp(42px, 12vw, 64px);
+  }
+  .section-title h2,
+  .contact-section h2 {
+    font-size: clamp(42px, 12vw, 64px);
+  }
+}
+
+html {
+  background: #f4f1eb !important;
+}
+.contact-section {
+  padding-top: 40px;
+}
+.contact-section {
+  margin-bottom: 260px;
+}

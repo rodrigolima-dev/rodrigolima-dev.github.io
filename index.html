@@ -1,50 +1,31 @@
-<!doctype html>
-<html lang="en" data-theme="light">
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f1eb" />
-    <script>
-      ;(() => {
-        let theme = 'light'
-        let locale = 'en'
-        try {
-          const savedTheme = localStorage.getItem('portfolio-theme')
-          theme =
-            savedTheme === 'light' || savedTheme === 'dark'
-              ? savedTheme
-              : window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light'
-          locale = localStorage.getItem('portfolio-locale') === 'pt-BR' ? 'pt-BR' : 'en'
-        } catch {
-          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        }
-        document.documentElement.dataset.theme = theme
-        document.documentElement.lang = locale
-        document.querySelector('meta[name="theme-color"]').content =
-          theme === 'dark' ? '#111d1a' : '#f4f1eb'
-      })()
-    </script>
     <meta
       name="description"
-      content="Software engineer dedicated to learning, building, and turning business problems into web products, APIs, and applied AI automation."
+      content="Portfólio de Rodrigo Lima, desenvolvedor full stack no Rio de Janeiro."
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python &amp; Docker"
-    />
+    <meta property="og:title" content="Rodrigo Lima | Desenvolvedor Full Stack" />
     <meta
       property="og:description"
-      content="Web products, REST APIs, modular architecture, and applied AI automation by Rodrigo Lima."
+      content="Projetos, experiência e tecnologias de Rodrigo Lima."
     />
-    <meta property="og:image" content="/social-card.svg" />
+    <meta property="og:url" content="https://rodrigolima-dev.github.io/" />
+    <meta property="og:image" content="https://rodrigolima-dev.github.io/social-card.svg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://rodrigolima-dev.github.io/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>
-      Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python &amp; Docker
-    </title>
+    <title>Rodrigo Lima | Desenvolvedor Full Stack</title>
+    <script>
+      try {
+        const l = localStorage.getItem('portfolio-locale')
+        if (l === 'pt-BR' || l === 'en') document.documentElement.lang = l
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

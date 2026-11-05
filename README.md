@@ -1,47 +1,32 @@
-# Rodrigo Lima — personal site
+﻿# Rodrigo Lima — portfólio local
 
-A static portfolio built with React, TypeScript, and Vite. It presents web products, APIs, applied AI work, and the engineering practices behind them.
+Portfólio estático em React, TypeScript e Vite. A página apresenta dois projetos principais (loja de crochê e painel OpportunusAI), dois projetos secundários, currículo em PDF, alternância PT/EN e tema claro/escuro.
 
-## Run locally
+## Executar
 
-Requires Node.js 24 and npm 11. No account, API key, database, or environment file is needed.
+Requer Node.js 24 e npm 11.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Run the release checks with:
+Para conferir a versão de produção local:
 
 ```bash
-npm run lint
-npm run format:check
-npm run typecheck
-npm test
 npm run build
+npm run preview -- --port 4173 --strictPort
 ```
 
-The static output is written to `dist/`.
+Checks disponíveis: `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm test` e `npm run build`.
 
-## What is shown
+## Estrutura
 
-- The project cards cover a renamed e-commerce product backed by the `orpheuswim-frontend` and `orpheuswim-api` repositories, the OpportunusAI dashboard, HIT, and Vector Chunk Kit.
-- The OpportunusAI carousel shows product interfaces. Its engineering context is explained through organization permissions, AI-assisted conversations, and knowledge review.
-- The visual language names Clean Architecture, modularization, Docker, CI/CD, code review, agents, LangChain, LangGraph, and MCP exploration as engineering practices. Public evidence is documented in `03-provas-e-aplicacao.md`.
-- The hero portrait was derived from a photo supplied by the site owner. Other site graphics were made for this site.
+- `src/content.ts`: copy e fallback de idioma.
+- `src/projects.ts`: identificadores, tecnologias e links dos projetos.
+- `src/App.tsx` e `src/styles.css`: composição, acessibilidade e layout responsivo.
+- `public/media/`: retrato e imagens liberadas dos projetos.
+- `public/cv/rodrigo-lima-full-stack.pdf`: currículo fornecido pelo autor.
+- `src/App.test.tsx`: testes de idioma, tema, storage, links e HIT.
 
-Content is available in English and Brazilian Portuguese. The language and light/dark theme controls remember the visitor's choice locally. The site has no backend, analytics, third-party scripts, remote fonts, or visitor data collection.
-
-## Structure
-
-- `src/content.ts` — interface copy in both languages.
-- `src/projects.ts` — selected projects and their evidence-backed claims.
-- `src/App.tsx` and `src/styles.css` — page structure, controls, and responsive design.
-- `public/media/` — the portrait, dashboard captures, fictional product image, and HIT screens.
-- `src/App.test.tsx` — interaction and disclosure checks.
-
-## Publishing
-
-The GitHub Pages workflow runs only when manually started on `main`. It installs dependencies and runs lint, formatting, type checks, tests, and build before deployment. The site needs no runtime secrets. Review the final images, links, and repository visibility before each release.
-
-No license is included because reuse rights have not been specified.
+O site não usa backend, analytics, fontes externas ou chamadas de serviços em tempo de execução. O workflow de publicação existente não foi alterado.

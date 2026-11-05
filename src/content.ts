@@ -1,240 +1,141 @@
-export type Locale = 'en' | 'pt-BR'
-export type Theme = 'light' | 'dark'
-
+﻿export type Locale = 'pt-BR' | 'en'
+export type Theme = 'dark'
 export const content = {
-  en: {
-    metaTitle: 'Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python & Docker',
-    metaDescription:
-      'Software engineer dedicated to learning, building, and moving businesses forward through code.',
-    skip: 'Skip to content',
-    backToTop: 'Rodrigo Lima, back to top',
-    footerBackToTop: 'Back to top',
-    navigation: 'Primary navigation',
-    openMenu: 'Open navigation',
-    closeMenu: 'Close navigation',
-    menuWork: 'Projects',
-    menuCompany: 'OpportunusAI',
-    menuApproach: 'How I work',
-    menuAbout: 'About',
-    menuContact: 'Contact',
-    languageControl: 'Language',
-    english: 'English',
-    portuguese: 'Português do Brasil',
-    themeControl: 'Theme',
-    darkMode: 'Switch to dark mode',
-    lightMode: 'Switch to light mode',
-    dark: 'Dark',
-    light: 'Light',
-    heroRole: 'FULL STACK DEVELOPER',
-    heroAi: 'APPLIED AI',
-    heroTitleStart: 'From code',
-    heroTitleEmphasis: 'to production',
-    heroLead:
-      'Software engineer dedicated to learning, building, and turning business problems into web products, APIs, and applied AI automation.',
-    heroAction: 'Explore my work',
-    githubProfile: 'View code on GitHub',
-    focusAreas: 'Current stack',
-    portraitAlt: 'Portrait of Rodrigo Lima',
-    artTop: 'ENGINEERING / 001',
-    artLeft: 'interface',
-    artRight: 'logic',
-    artNote: 'idea → system',
-    workKicker: '01 / PROJECTS',
-    workTitleStart: 'Projects with',
-    workTitleEnd: 'code you can open.',
-    workIntro:
-      'Start with the storefront to follow a complete product flow. Then inspect the dashboard and the chunking tool to see authorization and AI context handled in code.',
-    selectedWork: 'PROJECT',
-    engineeringDecision: 'A decision visible in the code',
-    technologies: 'technologies',
-    repositoryAction: 'View repository',
-    repositoryAria: (title: string) => `View ${title} source code on GitHub (opens in a new tab)`,
-    workFooter: 'Open a project to see the product, the code, or the current status.',
-    allRepositories: 'See all repositories',
-    companyKicker: '02 / OPPORTUNUSAI',
-    companyTitleStart: 'Product engineering',
-    companyTitleEnd: 'at OpportunusAI.',
-    companyIntro:
-      'At OpportunusAI, I work on the product behind the operation: dashboards, organization permissions, AI-assisted conversations, knowledge review, and campaigns.',
-    companySiteLink: 'Visit OpportunusAI',
-    companyViewImage: 'Open image',
-    companySlideLabel: 'OPPORTUNUSAI / PRODUCT WORK',
-    companySlideTitles: [
-      'Operations overview',
-      'AI assistance with human control',
-      'Knowledge reviewed by the team',
-    ],
-    companySlideBodies: [
-      'Sales, conversations needing attention, and AI activity in one place.',
-      'The team can reply, request a suggestion, or pause AI in the same conversation.',
-      'The team can review suggested knowledge before using it in future replies.',
-    ],
-    companySlideAlt: [
-      'OpportunusAI operations interface with navigation, sales chart, and activity data',
-      'OpportunusAI conversation interface with AI assistance and human controls',
-      'OpportunusAI knowledge review interface for team approval',
-    ],
-    companyCarousel: 'OpportunusAI product interfaces',
-    previousSlide: 'Previous example',
-    nextSlide: 'Next example',
-    slideOf: (current: number, total: number) => `${current} of ${total}`,
-    approachKicker: '03 / HOW I WORK',
-    approachTitleStart: 'How I build',
-    approachTitleEnd: 'systems teams can evolve.',
-    approachIntro:
-      'I define the problem boundary, separate what changes from what should stay stable, automate the path to delivery, and review the code before calling it ready.',
-    principleOneTitle: 'Keep domain separate from infrastructure',
-    principleOneBody:
-      'I use Clean Architecture and modular boundaries when they reduce coupling: product rules stay separate from the database, framework, and integrations.',
-    principleTwoTitle: 'Make delivery repeatable',
-    principleTwoBody:
-      'Docker, CI/CD, and automated tests turn build, validation, and deployment into repeatable steps. The goal is to know what changed before it reaches the next environment.',
-    principleThreeTitle: 'Give agents context and limits',
-    principleThreeBody:
-      'In applied AI, I explore LangChain, LangGraph, and MCPs. Tools, permissions, and reviewable output stay explicit so code review can follow the behavior.',
-    aboutKicker: '04 / ABOUT',
-    aboutTitleStart: 'Products that work',
-    aboutTitleEnd: 'need a foundation.',
-    aboutOne:
-      'I build across product and platform: a React storefront connected to a Java/Spring Boot API, a multi-tenant dashboard, a Python tool for RAG context, and a mobile sports product in development.',
-    aboutTwo:
-      'The common thread is separation that helps a team move: clear modules, explicit integrations, tests around important rules, and documentation that makes the next change easier to review.',
-    aboutInfraTitle: 'Engineering practices',
-    aboutInfraOperations:
-      'Clean Architecture, modularization, Docker, CI/CD, automated tests, and code review shape how I structure and deliver software.',
-    aboutInfraSecurity:
-      'For applied AI, I work with agents, LangChain, LangGraph, and MCPs. I keep the tools, context, permissions, and handoffs visible instead of hiding the behavior behind a prompt.',
-    practiceAreas: 'Areas of practice',
-    practiceWeb: 'Clean Architecture',
-    practiceApi: 'CI/CD',
-    practiceMobile: 'Docker',
-    practiceData: 'Agents + MCPs',
-    contactKicker: '05 / CONTACT',
-    contactTitleStart: 'Code that moves',
-    contactTitleEnd: 'businesses.',
-    contactIntro:
-      'I connect interfaces, APIs, business rules, and delivery so ideas become products teams can evolve. Explore the work and open the code where it is available.',
-    linkedinAction: 'Open LinkedIn',
-    githubAction: 'View code on GitHub',
-    emailAction: 'Email',
-    footerRole: 'Full Stack Developer',
-  },
   'pt-BR': {
-    metaTitle: 'Rodrigo Lima — Full Stack Developer | React, TypeScript, Node.js, Python e Docker',
-    metaDescription:
-      'Engenheiro de software dedicado a aprender, construir e transformar problemas de negócio em produtos web, APIs e automações de IA.',
-    skip: 'Ir para o conteúdo',
-    backToTop: 'Rodrigo Lima, voltar ao topo',
-    footerBackToTop: 'Voltar ao topo',
-    navigation: 'Navegação principal',
-    openMenu: 'Abrir navegação',
-    closeMenu: 'Fechar navegação',
-    menuWork: 'Projetos',
-    menuCompany: 'OpportunusAI',
-    menuApproach: 'Como trabalho',
-    menuAbout: 'Sobre',
-    menuContact: 'Contato',
-    languageControl: 'Idioma',
-    english: 'Inglês',
-    portuguese: 'Português do Brasil',
-    themeControl: 'Tema',
-    darkMode: 'Ativar modo escuro',
-    lightMode: 'Ativar modo claro',
-    dark: 'Escuro',
-    light: 'Claro',
-    heroRole: 'FULL STACK DEVELOPER',
-    heroAi: 'APPLIED AI',
-    heroTitleStart: 'Do código',
-    heroTitleEmphasis: 'à produção',
-    heroLead:
-      'Engenheiro de software dedicado a aprender, construir e transformar problemas de negócio em produtos web, APIs e automações de IA.',
-    heroAction: 'Conheça meus projetos',
-    githubProfile: 'Ver código no GitHub',
-    focusAreas: 'Stack atual',
-    portraitAlt: 'Retrato de Rodrigo Lima',
-    artTop: 'ENGENHARIA / 001',
-    artLeft: 'interface',
-    artRight: 'lógica',
-    artNote: 'ideia → sistema',
-    workKicker: '01 / PROJETOS',
-    workTitleStart: 'Projetos com',
-    workTitleEnd: 'código para abrir.',
-    workIntro:
-      'Comece pela loja para acompanhar um fluxo completo. Depois confira no dashboard e na ferramenta de chunks como autorização e contexto de IA entram no código.',
-    selectedWork: 'PROJETO',
-    engineeringDecision: 'Uma decisão visível no código',
-    technologies: 'tecnologias',
-    repositoryAction: 'Ver repositório',
-    repositoryAria: (title: string) =>
-      `Ver o código-fonte de ${title} no GitHub (abre em nova aba)`,
-    workFooter: 'Abra um projeto para ver o produto, o código ou o status atual.',
-    allRepositories: 'Ver todos os repositórios',
-    companyKicker: '02 / OPPORTUNUSAI',
-    companyTitleStart: 'Engenharia de produto',
-    companyTitleEnd: 'na OpportunusAI.',
-    companyIntro:
-      'Na OpportunusAI, trabalho no produto por trás da operação: dashboards, permissões entre organizações, conversas com IA, revisão de conhecimento e campanhas.',
-    companySiteLink: 'Visitar a OpportunusAI',
-    companyViewImage: 'Abrir imagem',
-    companySlideLabel: 'OPPORTUNUSAI / TRABALHO DE PRODUTO',
-    companySlideTitles: [
-      'Visão da operação',
-      'IA com controle humano',
-      'Conhecimento revisado pela equipe',
+    nav: ['Início', 'Projetos', 'Experiência', 'Stack', 'Contato'],
+    heroKicker: 'DESENVOLVEDOR FULL STACK',
+    profileBio: 'Dev e empresário, transformando problemas reais em produtos digitais.',
+    heroTitle: 'ENGENHEIRO DE\nSOFTWARE',
+    heroBody:
+      'Engenheiro de software há mais de 2 anos, com visão de negócio para transformar problemas reais em produtos digitais claros, úteis e sustentáveis.',
+    stats: [
+      ['24+', 'PROJETOS\nPUBLICADOS'],
+      ['2', 'PRODUTOS\nEM PRODUÇÃO'],
+      ['∞', 'CURIOSIDADE\nTÉCNICA'],
     ],
-    companySlideBodies: [
-      'Vendas, conversas que pedem atenção e atuação da IA em um só lugar.',
-      'A equipe responde, pede sugestões ou pausa a IA na mesma conversa.',
-      'A equipe pode revisar conhecimentos sugeridos antes de usá-los em novas respostas.',
+    orbit: 'INTERFACE, PRODUTO, CÓDIGO',
+    projectsKicker: 'PROJETOS RECENTES',
+    reposKicker: 'OUTROS REPOSITÓRIOS',
+    reposTitle: 'MAIS\nPROJETOS',
+    projectsTitle: 'PROJETOS\nSELECIONADOS',
+    store: 'Loja de crochê',
+    storeBody:
+      'Um catálogo onde a cliente escolhe peças, tamanho e cor e envia o carrinho completo em uma única mensagem. A lojista gerencia os produtos pelo painel.',
+    dashboard: 'Painel de vendas',
+    dashboardBody:
+      'Dashboard para duas lojas acompanharem vendas, estoque e campanhas, com atendimento conectado às APIs das lojas.',
+    fictional: 'DEMONSTRAÇÃO / DADOS FICTÍCIOS',
+    open: 'ABRIR PROJETO',
+    experienceKicker: 'EXPERIÊNCIA',
+    experienceTitle: 'SOFTWARE\nCOM CONTEXTO',
+    experienceBody:
+      'Curso Sistemas de Informação e conduzo atividades de lógica e programação para crianças e jovens na Nave do Conhecimento. Antes disso, trabalhei com redes e servidores como técnico de TI no Exército Brasileiro.',
+    exp1: 'Co-founder & CTO · OpportunusAI',
+    exp1Body:
+      'Liderança técnica e construção de produto, conectando estratégia, engenharia e operação.',
+    exp1Date: 'EXPERIÊNCIA ATUAL',
+    exp2: 'Nave do Conhecimento',
+    exp2Body: 'Atividades de lógica e programação para crianças e jovens.',
+    exp2Date: 'ATUALMENTE',
+    exp3: 'Exército Brasileiro',
+    exp3Body: 'Redes, servidores e suporte como técnico de TI.',
+    exp3Date: 'EXPERIÊNCIA ANTERIOR',
+    toolsKicker: 'STACK PRINCIPAL',
+    toolsTitle: 'FERRAMENTAS\nQUE USO',
+    tools: [
+      ['React', 'Interfaces'],
+      ['Node.js', 'APIs e integrações'],
+      ['Java', 'Spring Boot'],
+      ['TypeScript', 'Código seguro'],
+      ['Python', 'Dados e automação'],
+      ['PostgreSQL', 'Persistência'],
     ],
-    companySlideAlt: [
-      'Interface da operação da OpportunusAI com navegação, gráfico e atividade',
-      'Interface de conversa da OpportunusAI com assistência de IA e controle humano',
-      'Interface de revisão do conhecimento da OpportunusAI para aprovação da equipe',
+    contactKicker: 'VAMOS CONVERSAR',
+    contactTitle: 'TEM UM PROBLEMA\nPARA RESOLVER?',
+    contactBody:
+      'E-mail, LinkedIn e GitHub estão abertos. O currículo completo também está disponível em PDF.',
+    email: 'Enviar e-mail',
+    resume: 'Baixar currículo PDF',
+    about: 'Sobre Rodrigo Lima',
+    hit: 'HIT · em desenvolvimento',
+    vector: 'Vector Chunk Kit',
+    hitBody: 'Aplicativo para encontrar pessoas com quem praticar esportes.',
+    vectorBody: 'Ferramenta Python para revisar trechos antes de gerar vetores.',
+  },
+  en: {
+    nav: ['Home', 'Projects', 'Experience', 'Stack', 'Contact'],
+    heroKicker: 'FULL-STACK DEVELOPER',
+    profileBio: 'Developer and entrepreneur, turning real problems into digital products.',
+    heroTitle: 'SOFTWARE\nENGINEER',
+    heroBody:
+      'Software engineer with 2+ years of experience and business vision to turn real problems into clear, useful, sustainable digital products.',
+    stats: [
+      ['24+', 'PUBLISHED\nPROJECTS'],
+      ['2', 'PRODUCTS\nIN PRODUCTION'],
+      ['∞', 'TECHNICAL\nCURIOSITY'],
     ],
-    companyCarousel: 'Interfaces de produto da OpportunusAI',
-    previousSlide: 'Exemplo anterior',
-    nextSlide: 'Próximo exemplo',
-    slideOf: (current: number, total: number) => `${current} de ${total}`,
-    approachKicker: '03 / COMO TRABALHO',
-    approachTitleStart: 'Como construo',
-    approachTitleEnd: 'sistemas que o time consegue evoluir.',
-    approachIntro:
-      'Defino a fronteira do problema, separo o que muda do que deve permanecer estável, automatizo a entrega e reviso o código antes de chamá-lo de pronto.',
-    principleOneTitle: 'Separar domínio de infraestrutura',
-    principleOneBody:
-      'Uso Clean Architecture e módulos bem definidos quando isso reduz acoplamento: as regras do produto ficam separadas do banco, do framework e das integrações.',
-    principleTwoTitle: 'Tornar a entrega repetível',
-    principleTwoBody:
-      'Docker, CI/CD e testes automatizados transformam build, validação e deploy em passos repetíveis. Assim, sei o que mudou antes de chegar ao ambiente seguinte.',
-    principleThreeTitle: 'Dar contexto e limites aos agentes',
-    principleThreeBody:
-      'Em IA aplicada, exploro LangChain, LangGraph e MCPs. Ferramentas, permissões e saídas revisáveis ficam explícitas para o code review acompanhar o comportamento.',
-    aboutKicker: '04 / SOBRE',
-    aboutTitleStart: 'Produtos que funcionam',
-    aboutTitleEnd: 'precisam de base.',
-    aboutOne:
-      'Construo entre produto e plataforma: uma loja React conectada a uma API Java/Spring Boot, um dashboard multi-tenant, uma ferramenta Python para contexto de RAG e um produto esportivo mobile em desenvolvimento.',
-    aboutTwo:
-      'O fio comum é separar para o time avançar: módulos claros, integrações explícitas, testes nas regras importantes e documentação que facilita revisar a próxima mudança.',
-    aboutInfraTitle: 'Práticas de engenharia',
-    aboutInfraOperations:
-      'Clean Architecture, modularização, Docker, CI/CD, testes automatizados e code review orientam como estruturo e entrego software.',
-    aboutInfraSecurity:
-      'Na IA aplicada, exploro agentes, LangChain, LangGraph e MCPs. Mantenho ferramentas, contexto, permissões e transições entre agentes visíveis em vez de esconder o comportamento em um prompt.',
-    practiceAreas: 'Áreas de atuação',
-    practiceWeb: 'Clean Architecture',
-    practiceApi: 'CI/CD',
-    practiceMobile: 'Docker',
-    practiceData: 'Agentes + MCPs',
-    contactKicker: '05 / CONTATO',
-    contactTitleStart: 'Código que move',
-    contactTitleEnd: 'negócios.',
-    contactIntro:
-      'Conecto interface, API, regra de negócio e entrega para transformar ideias em produtos que o time consegue evoluir. Explore os projetos e abra o código onde ele está disponível.',
-    linkedinAction: 'Abrir LinkedIn',
-    githubAction: 'Ver código no GitHub',
-    emailAction: 'E-mail',
-    footerRole: 'Full Stack Developer',
+    orbit: 'INTERFACE, PRODUCT, CODE',
+    projectsKicker: 'RECENT PROJECTS',
+    reposKicker: 'MORE REPOSITORIES',
+    reposTitle: 'MORE\nPROJECTS',
+    projectsTitle: 'SELECTED\nPROJECTS',
+    store: 'Storefront for a crochet shop',
+    storeBody:
+      'A catalog where customers choose items, sizes, and colors, then send the complete cart in one message. The owner manages the products from a dashboard.',
+    dashboard: 'Sales and customer support dashboard',
+    dashboardBody:
+      'A dashboard for two retailers to track sales, inventory, and campaigns, with support connected to the stores’ APIs.',
+    fictional: 'DEMO / FICTIONAL DATA',
+    open: 'OPEN PROJECT',
+    experienceKicker: 'EXPERIENCE',
+    experienceTitle: 'SOFTWARE\nWITH CONTEXT',
+    experienceBody:
+      'I study Information Systems and teach programming and logic to children and teenagers at Nave do Conhecimento. Before that, I worked on networks and servers as an IT technician in the Brazilian Army.',
+    exp1: 'Co-founder & CTO · OpportunusAI',
+    exp1Body:
+      'Technical leadership and product building across strategy, engineering, and operations.',
+    exp1Date: 'CURRENT EXPERIENCE',
+    exp2: 'Nave do Conhecimento',
+    exp2Body: 'Logic and programming activities for children and teenagers.',
+    exp2Date: 'CURRENTLY',
+    exp3: 'Brazilian Army',
+    exp3Body: 'Networks, servers, and support as an IT technician.',
+    exp3Date: 'PREVIOUS EXPERIENCE',
+    toolsKicker: 'CORE STACK',
+    toolsTitle: 'TOOLS\nI USE',
+    tools: [
+      ['React', 'Interfaces'],
+      ['Node.js', 'APIs and integrations'],
+      ['Java', 'Spring Boot'],
+      ['TypeScript', 'Safer code'],
+      ['Python', 'Data and automation'],
+      ['PostgreSQL', 'Persistence'],
+    ],
+    contactKicker: 'LET’S TALK',
+    contactTitle: 'HAVE A PROBLEM\nTO SOLVE?',
+    contactBody:
+      'Email, LinkedIn, and GitHub are open. The full résumé is also available as a PDF.',
+    email: 'Send an email',
+    resume: 'Download résumé PDF',
+    about: 'About Rodrigo Lima',
+    hit: 'HIT · in development',
+    vector: 'Vector Chunk Kit',
+    hitBody: 'An app for finding people to play sports with.',
+    vectorBody: 'A Python tool for reviewing passages before generating vectors.',
   },
 } as const
+export const getLocale = (): Locale => {
+  try {
+    return navigator.language.toLowerCase().startsWith('pt') ? 'pt-BR' : 'en'
+  } catch {
+    return 'en'
+  }
+}
+export const readLocale = (): Locale => {
+  try {
+    const v = localStorage.getItem('portfolio-locale')
+    return v === 'pt-BR' || v === 'en' ? v : getLocale()
+  } catch {
+    return getLocale()
+  }
+}

@@ -1,638 +1,353 @@
-import { useEffect, useState } from 'react'
-import { content, type Locale, type Theme } from './content'
-import { projectCopy, projects, type Project } from './projects'
+﻿import { useEffect, useState } from 'react'
+import { FaEnvelope, FaGithub, FaJava, FaLinkedinIn } from 'react-icons/fa'
+import { SiNodedotjs, SiPostgresql, SiPython, SiReact, SiTypescript } from 'react-icons/si'
+import { content, readLocale, type Locale } from './content'
+import { projectLinks, publicRepositories } from './projects'
 
-const links = {
-  github: 'https://github.com/rodrigolima-dev',
+const socials = {
+  email: 'mailto:rodrigolima.developer@gmail.com',
   linkedin: 'https://www.linkedin.com/in/rodrigo-lima-95a548242/',
-  company: 'https://opportunusai.com/',
-  email: 'rodrigolima.developer@gmail.com',
+  github: 'https://github.com/rodrigolima-dev',
 }
-
-function ArrowIcon({ diagonal = false }: { diagonal?: boolean }) {
+function Icon({ name }: { name: 'arrow' | 'grid' | 'code' | 'db' | 'spark' }) {
+  const paths = {
+    arrow: 'M5 12h13M13 6l6 6-6 6',
+    grid: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z',
+    code: 'm8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14',
+    db: 'M5 6c0-1.7 3.1-3 7-3s7 1.3 7 3-3.1 3-7 3-7-1.3-7-3Zm0 0v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6m-14 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6',
+    spark:
+      'M12 3v4m0 10v4M3 12h4m10 0h4M5.6 5.6l2.8 2.8m7.2 7.2 2.8 2.8m0-12.8-2.8 2.8m-7.2 7.2-2.8 2.8',
+  }
   return (
     <svg
-      aria-hidden="true"
       viewBox="0 0 24 24"
+      aria-hidden="true"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.7"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      {diagonal ? <path d="M5 19 19 5M7 5h12v12" /> : <path d="M4 12h16m-6-6 6 6-6 6" />}
+      <path d={paths[name]} />
     </svg>
   )
 }
-
-function PrincipleIcon({ variant }: { variant: 'access' | 'failure' | 'repeat' }) {
+function External({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <svg
-      aria-hidden="true"
-      focusable="false"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      {variant === 'access' ? (
-        <>
-          <path d="M12 3 19 6v5c0 4.5-2.9 8-7 10-4.1-2-7-5.5-7-10V6l7-3Z" />
-          <path d="m9 12 2 2 4-4" />
-        </>
-      ) : variant === 'failure' ? (
-        <>
-          <path d="m12 4 9 16H3L12 4Z" />
-          <path d="M12 9v4" />
-          <circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none" />
-        </>
-      ) : (
-        <>
-          <path d="M20 7v5h-5" />
-          <path d="M4.9 9A7.5 7.5 0 0 1 18.5 7L20 12" />
-          <path d="M4 17v-5h5" />
-          <path d="M19.1 15A7.5 7.5 0 0 1 5.5 17L4 12" />
-        </>
-      )}
-    </svg>
+    <a href={href} target="_blank" rel="noreferrer">
+      {children}
+      <Icon name="arrow" />
+    </a>
   )
 }
-
-function ProjectVisual({
-  kind,
-  alt,
-  caption,
-  locale,
-}: {
-  kind: Project['visual']
-  alt: string
-  caption: string
-  locale: Locale
-}) {
-  const dashboardAsset =
-    locale === 'pt-BR' ? '/media/dashboard-showcase-pt.webp' : '/media/dashboard-showcase.webp'
-  const fit =
-    locale === 'pt-BR'
-      ? { status: 'Em desenvolvimento', target: 'Dezembro 2026' }
-      : { status: 'In development', target: 'December 2026' }
-
-  const pipeline =
-    locale === 'pt-BR'
-      ? {
-          input: 'JSONL',
-          preview: 'Prévia',
-          apply: 'Apply',
-          output: 'pgvector',
-        }
-      : {
-          input: 'JSONL',
-          preview: 'Preview',
-          apply: 'Apply',
-          output: 'pgvector',
-        }
-
-  return (
-    <figure className={`project-visual ${kind}-visual visual-media`}>
-      {kind === 'store' ? (
-        <div className="store-screenshot" role="img" aria-label={alt}>
-          <img
-            src="/media/ecommerce-fictional-products.png"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      ) : kind === 'dashboard' ? (
-        <img
-          className="dashboard-screen"
-          src={dashboardAsset}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-        />
-      ) : kind === 'fit' ? (
-        <div className="fit-flow" role="img" aria-label={alt}>
-          <div className="fit-gallery" aria-hidden="true">
-            <span className="fit-thumb fit-thumb-login" />
-            <span className="fit-thumb fit-thumb-home" />
-            <span className="fit-thumb fit-thumb-feed" />
-          </div>
-          <img className="fit-logo-image" src="/media/hit-logo-creme.svg" alt="" />
-          <div className="fit-meta">
-            <span>{fit.status}</span>
-            <strong>{fit.target}</strong>
-          </div>
-        </div>
-      ) : kind === 'chunks' ? (
-        <div className="chunks-flow" role="img" aria-label={alt}>
-          <div className="chunks-row">
-            <span>{pipeline.input}</span>
-            <i>→</i>
-            <span>{pipeline.preview}</span>
-            <i>→</i>
-            <span>{pipeline.apply}</span>
-          </div>
-          <div className="chunks-output">
-            <b>{pipeline.output}</b>
-            <small>explicit write</small>
-          </div>
-        </div>
-      ) : null}
-      <figcaption className="visual-caption">{caption}</figcaption>
-    </figure>
-  )
-}
-
-function ProjectCard({
-  project,
-  index,
-  locale,
-  featured = false,
-}: {
-  project: Project
-  index: number
-  locale: Locale
-  featured?: boolean
-}) {
-  const t = content[locale]
-  const copy = projectCopy[locale][index]
-
-  return (
-    <article className={`project-card ${featured ? 'featured-card' : ''}`}>
-      <div className="project-copy">
-        <div className="project-card-top">
-          <span className="project-number">
-            {project.number} / {t.selectedWork}
-          </span>
-          <span className="project-category">{copy.category}</span>
-        </div>
-        <h3>{project.title}</h3>
-        <p className="project-description">{copy.description}</p>
-        {featured ? (
-          <div className="project-detail">
-            <span>{t.engineeringDecision}</span>
-            <p>{copy.decision}</p>
-          </div>
-        ) : (
-          <p className="project-decision">{copy.decision}</p>
-        )}
-        <div className="project-bottom">
-          <ul aria-label={`${project.title}: ${t.technologies}`}>
-            {project.technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
-          </ul>
-          {project.visibility === 'public' ? (
-            <a
-              className="project-link"
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t.repositoryAria(project.title)}
-            >
-              {t.repositoryAction} <ArrowIcon diagonal />
-            </a>
-          ) : null}
-        </div>
-      </div>
-      <ProjectVisual
-        kind={project.visual}
-        alt={copy.visualAlt}
-        caption={copy.visualCaption}
-        locale={locale}
-      />
-    </article>
-  )
-}
-
 export function App() {
-  const [locale, setLocale] = useState<Locale>(() =>
-    document.documentElement.lang === 'pt-BR' ? 'pt-BR' : 'en',
-  )
-  const [theme, setTheme] = useState<Theme>(() =>
-    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
-  )
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [slideIndex, setSlideIndex] = useState(0)
+  const [locale, setLocale] = useState<Locale>(readLocale)
+  const [activeRepoGroup, setActiveRepoGroup] = useState<'interface' | 'code' | null>(null)
   const t = content[locale]
-  const companyImages = [
-    '/media/v2-overview-rich-sanitized.jpg',
-    '/media/v2-conversation-rich-sanitized.jpg',
-    '/media/v2-learning-rich-sanitized.jpg',
-  ]
-
   useEffect(() => {
     document.documentElement.lang = locale
-    document.title = t.metaTitle
-    document.querySelector('meta[name="description"]')?.setAttribute('content', t.metaDescription)
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t.metaTitle)
-    document
-      .querySelector('meta[property="og:description"]')
-      ?.setAttribute('content', t.metaDescription)
+    document.title =
+      locale === 'pt-BR'
+        ? 'Rodrigo Lima | Desenvolvedor Full Stack'
+        : 'Rodrigo Lima | Full-Stack Developer'
     try {
       localStorage.setItem('portfolio-locale', locale)
     } catch {
-      /* Browsing can disable storage. */
+      /* storage may be unavailable */
     }
-  }, [locale, t.metaTitle, t.metaDescription])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    document
-      .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', theme === 'dark' ? '#111d1a' : '#f4f1eb')
-    try {
-      localStorage.setItem('portfolio-theme', theme)
-    } catch {
-      /* Browsing can disable storage. */
-    }
-  }, [theme])
-
-  const closeMenu = () => setMenuOpen(false)
-
+  }, [locale])
   return (
-    <>
-      <a className="skip-link" href="#main">
-        {t.skip}
-      </a>
-      <header className="site-header">
-        <div className="container header-inner">
-          <a className="brand" href="#top" aria-label={t.backToTop} onClick={closeMenu}>
-            <span className="brand-mark">
-              RL<span>.</span>
-            </span>
-            <span className="brand-name">Rodrigo Lima</span>
-          </a>
-          <nav
-            id="main-navigation"
-            className={menuOpen ? 'nav-open' : ''}
-            aria-label={t.navigation}
-          >
-            <a href="#work" onClick={closeMenu}>
-              {t.menuWork}
+    <div className="portfolio-shell">
+      <header className="topbar">
+        <a className="wordmark" href="#top">
+          RL<span>•</span>
+        </a>
+        <nav>
+          {t.nav.map((item, i) => (
+            <a key={item} href={['#top', '#projects', '#experience', '#stack', '#contact'][i]}>
+              {item}
             </a>
-            <a href="#company" onClick={closeMenu}>
-              {t.menuCompany}
-            </a>
-            <a href="#approach" onClick={closeMenu}>
-              {t.menuApproach}
-            </a>
-            <a href="#about" onClick={closeMenu}>
-              {t.menuAbout}
-            </a>
-            <a className="nav-contact" href="#contact" onClick={closeMenu}>
-              {t.menuContact} <ArrowIcon diagonal />
-            </a>
-          </nav>
-          <div className="header-controls">
-            <div className="locale-control" role="group" aria-label={t.languageControl}>
-              <button
-                type="button"
-                lang="en"
-                aria-label={t.english}
-                aria-pressed={locale === 'en'}
-                onClick={() => setLocale('en')}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                lang="pt-BR"
-                aria-label={t.portuguese}
-                aria-pressed={locale === 'pt-BR'}
-                onClick={() => setLocale('pt-BR')}
-              >
-                PT
-              </button>
-            </div>
-            <button
-              className="theme-toggle"
-              type="button"
-              aria-label={theme === 'light' ? t.darkMode : t.lightMode}
-              aria-pressed={theme === 'dark'}
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            >
-              <span aria-hidden="true">{theme === 'light' ? '◐' : '☼'}</span>
-              <span>{theme === 'light' ? t.dark : t.light}</span>
-            </button>
-          </div>
+          ))}
+        </nav>
+        <div className="top-actions">
           <button
-            className="menu-button"
             type="button"
-            aria-label={menuOpen ? t.closeMenu : t.openMenu}
-            aria-expanded={menuOpen}
-            aria-controls="main-navigation"
-            onClick={() => setMenuOpen(!menuOpen)}
+            className="lang"
+            onClick={() => setLocale(locale === 'pt-BR' ? 'en' : 'pt-BR')}
+            aria-label={locale === 'pt-BR' ? 'Switch to English' : 'Mudar para português'}
           >
-            <span />
-            <span />
+            {locale === 'pt-BR' ? 'PT' : 'EN'}
           </button>
+          <a href={socials.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <Icon name="code" />
+          </a>
         </div>
       </header>
-
-      <main id="main">
-        <section className="hero" id="top" aria-labelledby="hero-title">
-          <div className="container hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="eyebrow-line" /> {t.heroRole}{' '}
-                <span className="eyebrow-plus">+</span> {t.heroAi}
-              </p>
-              <h1 id="hero-title">
-                {t.heroTitleStart}
-                <br />
-                <em>{t.heroTitleEmphasis}</em>
-                <span className="period">.</span>
-              </h1>
-              <p className="hero-lead">{t.heroLead}</p>
-              <div className="hero-actions">
-                <a className="button button-primary" href="#work">
-                  {t.heroAction} <ArrowIcon />
-                </a>
-                <a
-                  className="text-link"
-                  href={links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t.githubProfile} <ArrowIcon diagonal />
-                </a>
-              </div>
-              <div className="hero-signals" aria-label={t.focusAreas}>
-                <span>JavaScript / TypeScript</span>
-                <span>Python</span>
-                <span>LangChain</span>
-                <span>LangGraph</span>
-              </div>
+      <main id="top" className="layout">
+        <aside className="profile-column">
+          <div className="profile-card">
+            <div className="profile-image">
+              <img src="/media/portrait-head.png" alt="Rodrigo Lima" />
+              <span className="orbit orbit-a" />
+              <span className="orbit orbit-b" />
             </div>
-            <div className="hero-art">
-              <div className="art-coordinate art-coordinate-top" aria-hidden="true">
-                {t.artTop}
-              </div>
-              <div className="art-orbit art-orbit-outer" aria-hidden="true" />
-              <div className="art-orbit art-orbit-middle" aria-hidden="true" />
-              <div className="art-orbit art-orbit-inner" aria-hidden="true" />
-              <div className="art-cross art-cross-a" aria-hidden="true">
-                +
-              </div>
-              <div className="art-cross art-cross-b" aria-hidden="true">
-                +
-              </div>
-              <div className="portrait-frame">
-                <img src="/media/portrait-head.png" alt={t.portraitAlt} fetchPriority="high" />
-              </div>
-              <div className="art-note art-note-left" aria-hidden="true">
-                {t.artLeft} <i /> {t.artRight}
-              </div>
-              <div className="art-note art-note-right" aria-hidden="true">
-                {t.artNote}
-              </div>
+            <h2>Rodrigo Lima</h2>
+            <div className="profile-mark">
+              <Icon name="spark" />
             </div>
-          </div>
-        </section>
-
-        <section className="work-section section-space" id="work" aria-labelledby="work-title">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="section-kicker">{t.workKicker}</p>
-                <h2 id="work-title">
-                  {t.workTitleStart} <em>{t.workTitleEnd}</em>
-                </h2>
-              </div>
-              <p>{t.workIntro}</p>
-            </div>
-            <div className="project-list">
-              <ProjectCard project={projects[0]} index={0} locale={locale} featured />
-              <div className="project-grid">
-                {projects.slice(1).map((project, index) => (
-                  <ProjectCard
-                    key={project.title}
-                    project={project}
-                    index={index + 1}
-                    locale={locale}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="work-footer">
-              <p>{t.workFooter}</p>
-              <a
-                className="underlined-link"
-                href={links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.allRepositories} <ArrowIcon diagonal />
+            <p className="profile-about">{t.profileBio}</p>
+            <div className="social-row">
+              <a href={socials.email} aria-label="E-mail">
+                <FaEnvelope aria-hidden="true" />
+              </a>
+              <a href={socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <FaLinkedinIn aria-hidden="true" />
+              </a>
+              <a href={socials.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <FaGithub aria-hidden="true" />
               </a>
             </div>
           </div>
-        </section>
-
-        <section
-          className="company-section section-space"
-          id="company"
-          aria-labelledby="company-title"
-        >
-          <div className="container company-layout">
-            <div className="company-intro">
-              <div className="company-heading">
-                <p className="section-kicker">{t.companyKicker}</p>
-                <h2 id="company-title">
-                  {t.companyTitleStart}
-                  <br />
-                  <em>{t.companyTitleEnd}</em>
-                </h2>
-              </div>
-              <div className="company-copy">
-                <p>{t.companyIntro}</p>
-                <a
-                  className="company-site-link"
-                  href={links.company}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t.companySiteLink} <ArrowIcon diagonal />
-                </a>
-              </div>
-            </div>
-            <div className="company-feature" aria-label={t.companyCarousel}>
-              <div className={`company-feature-image company-feature-image-${slideIndex + 1}`}>
-                <div className="mac-window">
-                  <div className="mac-toolbar" aria-hidden="true">
-                    <span className="mac-dots">
-                      <i />
-                      <i />
-                      <i />
-                    </span>
-                    <span>OpportunusAI</span>
-                  </div>
-                  <img
-                    src={companyImages[slideIndex]}
-                    alt={t.companySlideAlt[slideIndex]}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div className="company-feature-copy" aria-live="polite">
-                <span>{t.companySlideLabel}</span>
-                <h3>{t.companySlideTitles[slideIndex]}</h3>
-                <p>{t.companySlideBodies[slideIndex]}</p>
-                <a href={companyImages[slideIndex]} target="_blank" rel="noopener noreferrer">
-                  {t.companyViewImage} <ArrowIcon diagonal />
-                </a>
-              </div>
-              <div className="carousel-controls">
-                <button
-                  type="button"
-                  aria-label={t.previousSlide}
-                  onClick={() =>
-                    setSlideIndex((slideIndex + companyImages.length - 1) % companyImages.length)
-                  }
-                >
-                  ←
-                </button>
-                <span>{t.slideOf(slideIndex + 1, companyImages.length)}</span>
-                <button
-                  type="button"
-                  aria-label={t.nextSlide}
-                  onClick={() => setSlideIndex((slideIndex + 1) % companyImages.length)}
-                >
-                  →
-                </button>
-              </div>
-            </div>
+          <div className="profile-note">
+            {t.heroKicker}
+            <br />
+            <span>RIO DE JANEIRO / 2026</span>
           </div>
-        </section>
-
-        <section
-          className="approach-section section-space"
-          id="approach"
-          aria-labelledby="approach-title"
-        >
-          <div className="container">
-            <div className="section-heading approach-heading">
-              <div>
-                <p className="section-kicker">{t.approachKicker}</p>
-                <h2 id="approach-title">
-                  {t.approachTitleStart}
+        </aside>
+        <section className="content-column">
+          <section className="hero-block">
+            <p className="eyebrow">{t.heroKicker}</p>
+            <h1>
+              {t.heroTitle.split('\n').map((line) => (
+                <span key={line}>
+                  {line}
                   <br />
-                  <em>{t.approachTitleEnd}</em>
-                </h2>
-              </div>
-              <p>{t.approachIntro}</p>
+                </span>
+              ))}
+            </h1>
+            <p className="hero-body">{t.heroBody}</p>
+            <div className="stats">
+              {t.stats.map(([value, label]) => (
+                <div key={label}>
+                  <strong>{value}</strong>
+                  <span>
+                    {label.split('\n').map((x) => (
+                      <span key={x}>
+                        {x}
+                        <br />
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div className="principles">
-              <div className="principle">
-                <span className="principle-index">01</span>
-                <div className="principle-icon" aria-hidden="true">
-                  <PrincipleIcon variant="access" />
-                </div>
-                <h3>{t.principleOneTitle}</h3>
-                <p>{t.principleOneBody}</p>
-              </div>
-              <div className="principle">
-                <span className="principle-index">02</span>
-                <div className="principle-icon" aria-hidden="true">
-                  <PrincipleIcon variant="failure" />
-                </div>
-                <h3>{t.principleTwoTitle}</h3>
-                <p>{t.principleTwoBody}</p>
-              </div>
-              <div className="principle">
-                <span className="principle-index">03</span>
-                <div className="principle-icon" aria-hidden="true">
-                  <PrincipleIcon variant="repeat" />
-                </div>
-                <h3>{t.principleThreeTitle}</h3>
-                <p>{t.principleThreeBody}</p>
-              </div>
+            <div className="hero-cards">
+              <button
+                type="button"
+                className={`color-card orange ${activeRepoGroup === 'interface' ? 'is-active' : ''}`}
+                onClick={() =>
+                  setActiveRepoGroup(activeRepoGroup === 'interface' ? null : 'interface')
+                }
+              >
+                <Icon name="spark" />
+                <strong>{t.orbit}</strong>
+                <span>↗</span>
+              </button>
+              <button
+                type="button"
+                className={`color-card lime ${activeRepoGroup === 'code' ? 'is-active' : ''}`}
+                onClick={() => setActiveRepoGroup(activeRepoGroup === 'code' ? null : 'code')}
+              >
+                <Icon name="grid" />
+                <strong>
+                  REACT, NODE.JS,
+                  <br />
+                  JAVA, PYTHON
+                </strong>
+                <span>↗</span>
+              </button>
             </div>
-          </div>
-        </section>
-
-        <section className="about-section section-space" id="about" aria-labelledby="about-title">
-          <div className="container about-grid">
-            <div>
-              <p className="section-kicker">{t.aboutKicker}</p>
-              <h2 id="about-title">
-                {t.aboutTitleStart}
-                <br />
-                <em>{t.aboutTitleEnd}</em>
+            {activeRepoGroup ? (
+              <div className="related-repositories">
+                <p className="eyebrow">{t.reposKicker}</p>
+                <div className="related-repo-list">
+                  {publicRepositories
+                    .filter(([, , language]) =>
+                      activeRepoGroup === 'interface'
+                        ? ['TypeScript', 'JavaScript', 'CSS', 'HTML'].includes(language)
+                        : ['Java', 'Python', 'PHP', 'AI'].includes(language),
+                    )
+                    .slice(0, 8)
+                    .map(([name, description, language]) => (
+                      <a
+                        key={name}
+                        href={'https://github.com/rodrigolima-dev/' + name}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>{language}</span>
+                        <strong>{name}</strong>
+                        <Icon name="arrow" />
+                        <small>{description}</small>
+                      </a>
+                    ))}
+                </div>
+              </div>
+            ) : null}
+          </section>
+          <section className="content-section" id="projects">
+            <div className="section-title">
+              <p>{t.projectsKicker}</p>
+              <h2>
+                {t.projectsTitle.split('\n').map((x) => (
+                  <span key={x}>
+                    {x}
+                    <br />
+                  </span>
+                ))}
               </h2>
             </div>
-            <div className="about-copy">
-              <p>{t.aboutOne}</p>
-              <p>{t.aboutTwo}</p>
-              <h3 className="about-infra-title">{t.aboutInfraTitle}</h3>
-              <p>{t.aboutInfraOperations}</p>
-              <p>{t.aboutInfraSecurity}</p>
-              <div className="about-tags" aria-label={t.practiceAreas}>
-                <span>{t.practiceWeb}</span>
-                <span>{t.practiceApi}</span>
-                <span>{t.practiceMobile}</span>
-                <span>{t.practiceData}</span>
-              </div>
+            <div className="project-list">
+              <article className="project-row">
+                <img src="/media/ecommerce-fictional-products.png" alt={t.store} />
+                <div>
+                  <h3>{t.store}</h3>
+                  <p>{t.storeBody}</p>
+                  <small>REACT · JAVA · SPRING BOOT · MYSQL</small>
+                  <External href={projectLinks.storefront}>{t.open}</External>
+                  <External href={projectLinks.api}>JAVA API</External>
+                </div>
+              </article>
+              <article className="project-row">
+                <img src="/media/dashboard-showcase-pt.webp" alt={t.dashboard} />
+                <div>
+                  <h3>{t.dashboard}</h3>
+                  <p>{t.dashboardBody}</p>
+                  <small>NEXT.JS · TYPESCRIPT · NODE.JS</small>
+                  <em>{t.fictional}</em>
+                  <External href={projectLinks.demo}>{t.open}</External>
+                  <External href={projectLinks.tests}>ACCESS TESTS</External>
+                </div>
+              </article>
             </div>
-          </div>
-        </section>
-
-        <section
-          className="contact-section section-space"
-          id="contact"
-          aria-labelledby="contact-title"
-        >
-          <div className="container contact-inner">
-            <p className="section-kicker">{t.contactKicker}</p>
-            <h2 id="contact-title">
-              {t.contactTitleStart}
-              <br />
-              <em>{t.contactTitleEnd}</em>
+            <div className="project-list selected-secondary">
+              <article className="project-row">
+                <img src="/media/hit-screens.png" alt={t.hit} loading="lazy" />
+                <div>
+                  <h3>{t.hit}</h3>
+                  <p>{t.hitBody}</p>
+                  <small>REACT NATIVE · MOBILE PRODUCT</small>
+                  <a href="#stack">
+                    VIEW APP SCREENS <Icon name="arrow" />
+                  </a>
+                </div>
+              </article>
+              <article className="project-row">
+                <div className="vector-thumb" aria-label={t.vector}>
+                  <FaGithub aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>{t.vector}</h3>
+                  <p>{t.vectorBody}</p>
+                  <small>PYTHON · POSTGRESQL · PGVECTOR</small>
+                  <External href={projectLinks.vector}>TRY LOCAL EXAMPLE</External>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section className="content-section" id="experience">
+            <div className="section-title">
+              <p>{t.experienceKicker}</p>
+              <h2>
+                {t.experienceTitle.split('\n').map((x) => (
+                  <span key={x}>
+                    {x}
+                    <br />
+                  </span>
+                ))}
+              </h2>
+            </div>
+            <p className="section-lead">{t.experienceBody}</p>
+            <div className="timeline">
+              <article>
+                <span>{t.exp1Date}</span>
+                <h3>{t.exp1}</h3>
+                <p>{t.exp1Body}</p>
+              </article>
+              <article>
+                <span>{t.exp2Date}</span>
+                <h3>{t.exp2}</h3>
+                <p>{t.exp2Body}</p>
+              </article>
+              <article>
+                <span>{t.exp3Date}</span>
+                <h3>{t.exp3}</h3>
+                <p>{t.exp3Body}</p>
+              </article>
+            </div>
+          </section>
+          <section className="content-section tools-section" id="stack">
+            <div className="section-title">
+              <p>{t.toolsKicker}</p>
+              <h2>
+                {t.toolsTitle.split('\n').map((x) => (
+                  <span key={x}>
+                    {x}
+                    <br />
+                  </span>
+                ))}
+              </h2>
+            </div>
+            <div className="tools-grid">
+              {t.tools.map(([name, desc], i) => (
+                <div key={name}>
+                  <span className="tool-icon">
+                    {i === 0 ? (
+                      <SiReact />
+                    ) : i === 1 ? (
+                      <SiNodedotjs />
+                    ) : i === 2 ? (
+                      <FaJava />
+                    ) : i === 3 ? (
+                      <SiTypescript />
+                    ) : i === 4 ? (
+                      <SiPython />
+                    ) : (
+                      <SiPostgresql />
+                    )}
+                  </span>
+                  <strong>{name}</strong>
+                  <small>{desc}</small>
+                </div>
+              ))}
+            </div>
+          </section>
+          <section className="content-section contact-section" id="contact">
+            <p className="eyebrow">{t.contactKicker}</p>
+            <h2>
+              {t.contactTitle.split('\n').map((x) => (
+                <span key={x}>
+                  {x}
+                  <br />
+                </span>
+              ))}
             </h2>
-            <p>{t.contactIntro}</p>
+            <p className="section-lead">{t.contactBody}</p>
             <div className="contact-actions">
-              <a
-                className="button button-light"
-                href={links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.linkedinAction} <ArrowIcon diagonal />
+              <a className="primary-button" href={socials.email}>
+                {t.email} <Icon name="arrow" />
               </a>
-              <a
-                className="contact-github"
-                href={links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.githubAction} <ArrowIcon diagonal />
-              </a>
-              <a className="contact-email" href={`mailto:${links.email}`}>
-                {t.emailAction}: {links.email}
+              <a href="/cv/rodrigo-lima-full-stack.pdf" target="_blank" rel="noreferrer">
+                {t.resume} <Icon name="arrow" />
               </a>
             </div>
-          </div>
+          </section>
         </section>
       </main>
-
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <a className="footer-brand" href="#top" aria-label={t.footerBackToTop}>
-            RL<span>.</span>
-          </a>
-          <span>Rodrigo Lima · {t.footerRole}</span>
-          <div>
-            <a href={links.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-            <a href={links.linkedin} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-          </div>
-        </div>
+      <footer>
+        © Rodrigo Lima · React · Node.js · Java · Spring Boot · TypeScript · Python · PostgreSQL
       </footer>
-    </>
+    </div>
   )
 }
+export default App

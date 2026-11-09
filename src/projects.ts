@@ -1,6 +1,7 @@
 ﻿export const projectLinks = {
   storefront: 'https://github.com/rodrigolima-dev/orpheuswim-frontend',
   api: 'https://github.com/rodrigolima-dev/orpheuswim-api',
+  opportunus: 'https://opportunusai.com/',
   demo: 'https://github.com/rodrigolima-dev/opportunus-dashboard/blob/main/docs/DEMO_WALKTHROUGH.md',
   tests: 'https://github.com/rodrigolima-dev/opportunus-dashboard/blob/main/tests/http-smoke.mjs',
   vector: 'https://github.com/rodrigolima-dev/vector-chunk-kit#run-the-offline-path',

@@ -1,41 +1,150 @@
-﻿export type Locale = 'pt-BR' | 'en'
-export type Theme = 'dark'
+export type Locale = 'pt-BR' | 'en'
+export type Theme = 'light' | 'dark'
+
 export const content = {
   'pt-BR': {
-    nav: ['Início', 'Projetos', 'Experiência', 'Stack', 'Contato'],
-    heroKicker: 'DESENVOLVEDOR FULL STACK',
-    profileBio: 'Dev e empresário, transformando problemas reais em produtos digitais.',
-    heroTitle: 'ENGENHEIRO DE\nSOFTWARE',
+    nav: ['Início', 'Projetos', 'IA aplicada', 'Experiência', 'Stack', 'Contato'],
+    heroKicker: 'AI ENGINEERING · FULL STACK · RIO DE JANEIRO',
+    profileBio:
+      'Desenvolvedor full stack e cofundador da OpportunusAI. Trabalho entre produto, código e operação.',
+    heroTitle: 'FULL STACK DEVELOPER\nCOM IA APLICADA',
     heroBody:
-      'Engenheiro de software há mais de 2 anos, com visão de negócio para transformar problemas reais em produtos digitais claros, úteis e sustentáveis.',
+      'Construo aplicações web e APIs. Uso IA para pesquisar, implementar e revisar com mais precisão, do primeiro fluxo ao deploy.',
     stats: [
       ['24+', 'PROJETOS\nPUBLICADOS'],
-      ['2', 'PRODUTOS\nEM PRODUÇÃO'],
-      ['∞', 'CURIOSIDADE\nTÉCNICA'],
+      ['18+', 'REPOSITÓRIOS\nPÚBLICOS'],
+      ['3', 'FRENTES: PRODUTO,\nPLATAFORMA E IA'],
     ],
-    orbit: 'INTERFACE, PRODUTO, CÓDIGO',
-    projectsKicker: 'PROJETOS RECENTES',
-    reposKicker: 'OUTROS REPOSITÓRIOS',
-    reposTitle: 'MAIS\nPROJETOS',
+    orbit: 'AGENTES · RAG · MCP · PRODUTO',
+    orbitBody:
+      'A IA entra no ciclo inteiro: descoberta, arquitetura, implementação, validação, operação e aprendizado.',
+    build: 'WEB, API, DADOS',
+    buildBody: 'React, TypeScript, Java, Python e PostgreSQL em produtos que precisam funcionar.',
+    projectsKicker: 'CASES E PROVAS',
     projectsTitle: 'PROJETOS\nSELECIONADOS',
+    projectsLead: 'O problema, a decisão técnica e o que ficou de pé.',
+    opportunus: 'OpportunusAI · atendimento e vendas no WhatsApp',
+    opportunusMeta: 'PROJETO PÚBLICO · DASHBOARD V1',
+    opportunusBody:
+      'Desenvolvi o dashboard público da primeira versão e coordenei a evolução do produto até a operação atual. Acompanhei integrações, regras, acesso e os sinais que a equipe precisa para intervir.',
     store: 'Loja de crochê',
     storeBody:
-      'Um catálogo onde a cliente escolhe peças, tamanho e cor e envia o carrinho completo em uma única mensagem. A lojista gerencia os produtos pelo painel.',
-    dashboard: 'Painel de vendas',
-    dashboardBody:
-      'Dashboard para duas lojas acompanharem vendas, estoque e campanhas, com atendimento conectado às APIs das lojas.',
-    fictional: 'DEMONSTRAÇÃO / DADOS FICTÍCIOS',
-    open: 'ABRIR PROJETO',
+      'Catálogo com seleção de peça, tamanho e cor. O carrinho chega completo em uma única mensagem e a lojista gerencia os produtos pelo painel.',
+    storeMeta: 'REACT · JAVA · SPRING BOOT · MYSQL',
+    vector: 'Vector Chunk Kit',
+    vectorBody:
+      'Ferramenta Python que prepara e revisa trechos antes de gerar embeddings, com metadados explícitos para um pipeline de RAG mais previsível.',
+    vectorMeta: 'PYTHON · POSTGRESQL · PGVECTOR · OFFLINE',
+    hit: 'HIT · produto mobile',
+    hitBody:
+      'Aplicativo para encontrar pessoas com quem praticar esportes e transformar treino em rotina compartilhada.',
+    hitMeta: 'REACT NATIVE · MOBILE PRODUCT',
+    open: 'ABRIR CASE',
+    visitSite: 'VISITAR OPPORTUNUSAI.COM',
+    viewScreens: 'VER TELAS',
+    sourceCode: 'VER CÓDIGO',
+    fictional: 'DEMONSTRAÇÃO · DADOS SINTÉTICOS',
+    aiKicker: 'COMO EU USO IA',
+    aiTitle: 'IA NO CICLO\nINTEIRO',
+    aiLead:
+      'Uso IA para reduzir trabalho repetitivo e melhorar decisões. Cada ferramenta tem um limite claro.',
+    aiCards: [
+      [
+        '01',
+        'Orquestro agentes',
+        'Divido tarefas por contexto, contrato e critério de saída. Agentes pesquisam, implementam, revisam e registram decisões.',
+      ],
+      [
+        '02',
+        'Conecto ferramentas com MCP',
+        'Uso ferramentas e servidores como interfaces explícitas para arquivos, repositórios, dados e automações, com permissões visíveis.',
+      ],
+      [
+        '03',
+        'Recupero contexto com RAG',
+        'Preparo documentos, metadados e filtros antes da geração. O contexto precisa ser rastreável e relevante para a tarefa.',
+      ],
+      [
+        '04',
+        'Observo e governo',
+        'Defino handoff, logs, testes, aprovação humana e métricas para saber quando a IA ajudou e quando precisa parar.',
+      ],
+    ],
+    governanceKicker: 'GOVERNANÇA APLICADA',
+    governanceTitle: 'A IA PROPÕE\nAS REGRAS DECIDEM',
+    governanceBody:
+      'No produto, o modelo não inventa preço, estoque ou permissão. A fonte de dados é consultada, a regra valida a ação e a equipe assume quando o caso sai do escopo.',
+    governanceItems: [
+      ['Fonte antes da resposta', 'Catálogo, preço, estoque e status vêm da plataforma conectada.'],
+      [
+        'Ação só depois do consentimento',
+        'Checkout e mensagens sensíveis respeitam confirmação e janela autorizada.',
+      ],
+      [
+        'Handoff com contexto',
+        'Quando a pessoa entra, a IA pausa e entrega histórico, intenção e próximos passos.',
+      ],
+      [
+        'Métrica com regra',
+        'Resultado só entra no relatório quando a atribuição e a janela estão definidas.',
+      ],
+    ],
+    opportunusKicker: 'CASE · OPPORTUNUSAI',
+    opportunusTitle: 'DA CONVERSA\nAO RESULTADO',
+    opportunusLead:
+      'Na OpportunusAI, coordenei e acompanhei a evolução do produto: da V1 pública ao dashboard da operação, passando por integrações, regras, acesso e acompanhamento.',
+    opportunusSteps: [
+      [
+        '01',
+        'Entender',
+        'A IA interpreta texto, áudio ou foto e espera o cliente concluir a intenção.',
+      ],
+      [
+        '02',
+        'Consultar',
+        'Busca catálogo, variação, preço, estoque e frete diretamente nas integrações.',
+      ],
+      [
+        '03',
+        'Confirmar',
+        'Resume itens, frete e total; só cria o checkout depois do “sim” do cliente.',
+      ],
+      [
+        '04',
+        'Acompanhar',
+        'Atualiza pagamento, envio e entrega e passa para uma pessoa quando necessário.',
+      ],
+    ],
+    publicMetrics: [
+      ['+270', 'pedidos pagos com participação da IA', 'métrica pública na landing page'],
+      ['~20 s', 'mediana para responder', 'inclui a espera para o cliente terminar de digitar'],
+      ['48 h', 'janela de atribuição', 'regra pública para relacionar conversa e pagamento'],
+    ],
+    screensKicker: 'TELAS DO PRODUTO',
+    screensTitle: 'V1 E V2\nDO PRODUTO',
+    screensBody:
+      'A V1 mostra o dashboard público. A V2 organiza a operação. Abra uma tela para navegar pelos prints.',
+    v1ScreensTitle: 'Dashboard público',
+    v1ScreensBody:
+      'Leads, vendas por canal e atribuição em uma demonstração pública com dados sintéticos.',
+    v2ScreensTitle: 'Dashboard de operação',
+    v2ScreensBody:
+      'Visão geral de vendas, conversas, carrinhos em atenção e indicadores de IA para a equipe.',
+    v2ConversationBody:
+      'Conversa assistida, pausa da IA, resumo, handoff para o Chatwoot e memória sob revisão.',
+    screenOverview: 'Visão geral do dashboard',
+    screenConversation: 'Conversa com assistência de IA',
+    screenPublicDemo: 'Demonstração pública do painel',
     experienceKicker: 'EXPERIÊNCIA',
     experienceTitle: 'SOFTWARE\nCOM CONTEXTO',
     experienceBody:
-      'Curso Sistemas de Informação e conduzo atividades de lógica e programação para crianças e jovens na Nave do Conhecimento. Antes disso, trabalhei com redes e servidores como técnico de TI no Exército Brasileiro.',
+      'Estudo Sistemas de Informação e ensino lógica e programação. Antes disso, trabalhei com redes e servidores no Exército Brasileiro.',
     exp1: 'Co-founder & CTO · OpportunusAI',
     exp1Body:
-      'Liderança técnica e construção de produto, conectando estratégia, engenharia e operação.',
-    exp1Date: 'EXPERIÊNCIA ATUAL',
+      'Produto, arquitetura e operação de uma IA que atende, vende e entrega contexto para equipes.',
+    exp1Date: 'ATUALMENTE',
     exp2: 'Nave do Conhecimento',
-    exp2Body: 'Atividades de lógica e programação para crianças e jovens.',
+    exp2Body: 'Atividades de lógica, programação e aprendizagem prática para crianças e jovens.',
     exp2Date: 'ATUALMENTE',
     exp3: 'Exército Brasileiro',
     exp3Body: 'Redes, servidores e suporte como técnico de TI.',
@@ -43,60 +152,183 @@ export const content = {
     toolsKicker: 'STACK PRINCIPAL',
     toolsTitle: 'FERRAMENTAS\nQUE USO',
     tools: [
-      ['React', 'Interfaces'],
-      ['Node.js', 'APIs e integrações'],
-      ['Java', 'Spring Boot'],
-      ['TypeScript', 'Código seguro'],
-      ['Python', 'Dados e automação'],
-      ['PostgreSQL', 'Persistência'],
+      ['React', 'Interfaces e produto'],
+      ['TypeScript', 'Contratos e segurança'],
+      ['Java / Spring', 'APIs e domínio'],
+      ['Python', 'RAG e automação'],
+      ['PostgreSQL', 'Dados e pgvector'],
+      ['Agentes / MCP', 'Orquestração e ferramentas'],
+    ],
+    deliveryKicker: 'ENTREGA E OPERAÇÃO',
+    deliveryTitle: 'ENTREGA\nREPRODUTÍVEL',
+    deliveryBody:
+      'Uso práticas de plataforma para repetir build, validação e entrega com menos surpresa. No dashboard, usei Cloudflare Tunnel e Zero Trust no acesso; o Kong organizou a entrada das APIs.',
+    deliveryTags: [
+      'Docker',
+      'CI/CD',
+      'GitHub Actions',
+      'Kong API Gateway',
+      'Cloudflare Tunnel',
+      'Cloudflare Zero Trust',
+      'REST + JWT',
+      'PostgreSQL / pgvector',
+      'n8n workflows',
+      'Testes automatizados',
+      'Code review',
     ],
     contactKicker: 'VAMOS CONVERSAR',
     contactTitle: 'TEM UM PROBLEMA\nPARA RESOLVER?',
     contactBody:
-      'E-mail, LinkedIn e GitHub estão abertos. O currículo completo também está disponível em PDF.',
-    email: 'Enviar e-mail',
-    resume: 'Baixar currículo PDF',
-    about: 'Sobre Rodrigo Lima',
-    hit: 'HIT · em desenvolvimento',
-    vector: 'Vector Chunk Kit',
-    hitBody: 'Aplicativo para encontrar pessoas com quem praticar esportes.',
-    vectorBody: 'Ferramenta Python para revisar trechos antes de gerar vetores.',
+      'Procuro estágio em GenAI para trabalhar perto do produto, do código e da operação.',
+    email: 'ENVIAR E-MAIL',
+    resume: 'BAIXAR CURRÍCULO PDF',
   },
   en: {
-    nav: ['Home', 'Projects', 'Experience', 'Stack', 'Contact'],
-    heroKicker: 'FULL-STACK DEVELOPER',
-    profileBio: 'Developer and entrepreneur, turning real problems into digital products.',
-    heroTitle: 'SOFTWARE\nENGINEER',
+    nav: ['Home', 'Projects', 'Applied AI', 'Experience', 'Stack', 'Contact'],
+    heroKicker: 'AI ENGINEERING · FULL STACK · RIO DE JANEIRO',
+    profileBio:
+      'Full-stack developer and OpportunusAI co-founder. I work across product, code, and operations.',
+    heroTitle: 'FULL STACK DEVELOPER\nWITH APPLIED AI',
     heroBody:
-      'Software engineer with 2+ years of experience and business vision to turn real problems into clear, useful, sustainable digital products.',
+      'I build web applications and APIs. I use AI to research, implement, and review with more precision, from the first flow to deployment.',
     stats: [
       ['24+', 'PUBLISHED\nPROJECTS'],
-      ['2', 'PRODUCTS\nIN PRODUCTION'],
-      ['∞', 'TECHNICAL\nCURIOSITY'],
+      ['18+', 'PUBLIC\nREPOSITORIES'],
+      ['3', 'PRODUCT, PLATFORM,\nAND AI'],
     ],
-    orbit: 'INTERFACE, PRODUCT, CODE',
-    projectsKicker: 'RECENT PROJECTS',
-    reposKicker: 'MORE REPOSITORIES',
-    reposTitle: 'MORE\nPROJECTS',
+    orbit: 'AGENTS · RAG · MCP · PRODUCT',
+    orbitBody:
+      'AI enters the full loop: discovery, architecture, implementation, validation, operations, and learning.',
+    build: 'WEB, API, DATA',
+    buildBody: 'React, TypeScript, Java, Python, and PostgreSQL for products that need to work.',
+    projectsKicker: 'CASES AND PROOF',
     projectsTitle: 'SELECTED\nPROJECTS',
-    store: 'Storefront for a crochet shop',
+    projectsLead: 'The problem, the technical decision, and what shipped.',
+    opportunus: 'OpportunusAI · WhatsApp support and sales',
+    opportunusMeta: 'PUBLIC PROJECT · DASHBOARD V1',
+    opportunusBody:
+      'I built the public dashboard for the first version and coordinated the product evolution into its current operation. I followed integrations, rules, access, and the signals the team needs to step in.',
+    store: 'Crochet storefront',
     storeBody:
-      'A catalog where customers choose items, sizes, and colors, then send the complete cart in one message. The owner manages the products from a dashboard.',
-    dashboard: 'Sales and customer support dashboard',
-    dashboardBody:
-      'A dashboard for two retailers to track sales, inventory, and campaigns, with support connected to the stores’ APIs.',
-    fictional: 'DEMO / FICTIONAL DATA',
-    open: 'OPEN PROJECT',
+      'A catalog where customers choose item, size, and color. The full cart arrives in one message and the owner manages products from a dashboard.',
+    storeMeta: 'REACT · JAVA · SPRING BOOT · MYSQL',
+    vector: 'Vector Chunk Kit',
+    vectorBody:
+      'A Python tool that prepares and reviews passages before embeddings, with explicit metadata for a more predictable RAG pipeline.',
+    vectorMeta: 'PYTHON · POSTGRESQL · PGVECTOR · OFFLINE',
+    hit: 'HIT · mobile product',
+    hitBody:
+      'An app for finding people to play sports with and turning training into a shared routine.',
+    hitMeta: 'REACT NATIVE · MOBILE PRODUCT',
+    open: 'OPEN CASE',
+    visitSite: 'VISIT OPPORTUNUSAI.COM',
+    viewScreens: 'VIEW SCREENS',
+    sourceCode: 'VIEW CODE',
+    fictional: 'DEMO · SYNTHETIC DATA',
+    aiKicker: 'HOW I USE AI',
+    aiTitle: 'AI THROUGH\nTHE WHOLE LOOP',
+    aiLead:
+      'I use AI to cut repetitive work and improve decisions. Each tool has a clear boundary.',
+    aiCards: [
+      [
+        '01',
+        'I orchestrate agents',
+        'I split work by context, contract, and exit criteria. Agents research, implement, review, and record decisions.',
+      ],
+      [
+        '02',
+        'I connect tools with MCP',
+        'I use tools and servers as explicit interfaces for files, repositories, data, and automations, with visible permissions.',
+      ],
+      [
+        '03',
+        'I retrieve context with RAG',
+        'I prepare documents, metadata, and filters before generation. Context must be traceable and relevant to the task.',
+      ],
+      [
+        '04',
+        'I observe and govern',
+        'I define handoff, logs, tests, human approval, and metrics to know when AI helped and when it must stop.',
+      ],
+    ],
+    governanceKicker: 'APPLIED GOVERNANCE',
+    governanceTitle: 'AI SUGGESTS\nRULES DECIDE',
+    governanceBody:
+      'In the product, the model does not invent price, inventory, or permission. The source is checked, a rule validates the action, and the team takes over when the case is out of scope.',
+    governanceItems: [
+      [
+        'Source before answer',
+        'Catalog, price, inventory, and status come from the connected platform.',
+      ],
+      [
+        'Action after consent',
+        'Checkout and sensitive messages respect confirmation and an allowed window.',
+      ],
+      [
+        'Handoff with context',
+        'When a person joins, AI pauses and delivers history, intent, and next steps.',
+      ],
+      [
+        'Metrics with rules',
+        'A result enters the report only when attribution and the time window are defined.',
+      ],
+    ],
+    opportunusKicker: 'CASE · OPPORTUNUSAI',
+    opportunusTitle: 'FROM CONVERSATION\nTO OUTCOME',
+    opportunusLead:
+      'At OpportunusAI, I coordinated and followed the product evolution from the public V1 to the production dashboard, across integrations, rules, access, and follow-up.',
+    opportunusSteps: [
+      [
+        '01',
+        'Understand',
+        'AI interprets text, audio, or images and waits for the customer to finish their intent.',
+      ],
+      [
+        '02',
+        'Check',
+        'It looks up catalog, variation, price, inventory, and shipping through integrations.',
+      ],
+      [
+        '03',
+        'Confirm',
+        'It summarizes items, shipping, and total; checkout is created only after a “yes”.',
+      ],
+      [
+        '04',
+        'Follow through',
+        'It updates payment, shipping, and delivery and hands off to a person when needed.',
+      ],
+    ],
+    publicMetrics: [
+      ['+270', 'paid orders with AI participation', 'public metric on the landing page'],
+      ['~20 s', 'median response time', 'includes wait time while the customer finishes typing'],
+      ['48 h', 'attribution window', 'public rule connecting conversation and payment'],
+    ],
+    screensKicker: 'PRODUCT SCREENS',
+    screensTitle: 'PRODUCT\nVERSIONS',
+    screensBody:
+      'The V1 is the public dashboard. The V2 organizes operations. Open a screen to browse the prints.',
+    v1ScreensTitle: 'Public dashboard',
+    v1ScreensBody:
+      'Leads, sales by channel, and attribution in a public demonstration with synthetic data.',
+    v2ScreensTitle: 'Operations dashboard',
+    v2ScreensBody:
+      'Sales overview, conversations, carts that need attention, and AI indicators for the team.',
+    v2ConversationBody:
+      'Assisted conversation, AI pause, summary, Chatwoot handoff, and memory under review.',
+    screenOverview: 'Dashboard overview',
+    screenConversation: 'Conversation with AI assistance',
+    screenPublicDemo: 'Public panel demo',
     experienceKicker: 'EXPERIENCE',
     experienceTitle: 'SOFTWARE\nWITH CONTEXT',
     experienceBody:
-      'I study Information Systems and teach programming and logic to children and teenagers at Nave do Conhecimento. Before that, I worked on networks and servers as an IT technician in the Brazilian Army.',
+      'I study Information Systems and teach logic and programming. Before that, I worked on networks and servers in the Brazilian Army.',
     exp1: 'Co-founder & CTO · OpportunusAI',
     exp1Body:
-      'Technical leadership and product building across strategy, engineering, and operations.',
-    exp1Date: 'CURRENT EXPERIENCE',
+      'Product, architecture, and operations for an AI that supports, sells, and delivers context to teams.',
+    exp1Date: 'CURRENTLY',
     exp2: 'Nave do Conhecimento',
-    exp2Body: 'Logic and programming activities for children and teenagers.',
+    exp2Body: 'Logic, programming, and hands-on learning activities for children and teenagers.',
     exp2Date: 'CURRENTLY',
     exp3: 'Brazilian Army',
     exp3Body: 'Networks, servers, and support as an IT technician.',
@@ -104,26 +336,38 @@ export const content = {
     toolsKicker: 'CORE STACK',
     toolsTitle: 'TOOLS\nI USE',
     tools: [
-      ['React', 'Interfaces'],
-      ['Node.js', 'APIs and integrations'],
-      ['Java', 'Spring Boot'],
-      ['TypeScript', 'Safer code'],
-      ['Python', 'Data and automation'],
-      ['PostgreSQL', 'Persistence'],
+      ['React', 'Interfaces and product'],
+      ['TypeScript', 'Contracts and safety'],
+      ['Java / Spring', 'APIs and domain'],
+      ['Python', 'RAG and automation'],
+      ['PostgreSQL', 'Data and pgvector'],
+      ['Agents / MCP', 'Orchestration and tools'],
+    ],
+    deliveryKicker: 'DELIVERY AND OPERATIONS',
+    deliveryTitle: 'REPEATABLE\nDELIVERY',
+    deliveryBody:
+      'I use platform practices to repeat build, validation, and delivery with fewer surprises. The dashboard used Cloudflare Tunnel and Zero Trust for access; Kong organized the API entry point.',
+    deliveryTags: [
+      'Docker',
+      'CI/CD',
+      'GitHub Actions',
+      'Kong API Gateway',
+      'Cloudflare Tunnel',
+      'Cloudflare Zero Trust',
+      'REST + JWT',
+      'PostgreSQL / pgvector',
+      'n8n workflows',
+      'Automated tests',
+      'Code review',
     ],
     contactKicker: 'LET’S TALK',
     contactTitle: 'HAVE A PROBLEM\nTO SOLVE?',
-    contactBody:
-      'Email, LinkedIn, and GitHub are open. The full résumé is also available as a PDF.',
-    email: 'Send an email',
-    resume: 'Download résumé PDF',
-    about: 'About Rodrigo Lima',
-    hit: 'HIT · in development',
-    vector: 'Vector Chunk Kit',
-    hitBody: 'An app for finding people to play sports with.',
-    vectorBody: 'A Python tool for reviewing passages before generating vectors.',
+    contactBody: 'I am looking for a GenAI internship close to product, code, and operations.',
+    email: 'SEND AN EMAIL',
+    resume: 'DOWNLOAD RESUME PDF',
   },
 } as const
+
 export const getLocale = (): Locale => {
   try {
     return navigator.language.toLowerCase().startsWith('pt') ? 'pt-BR' : 'en'
@@ -131,11 +375,21 @@ export const getLocale = (): Locale => {
     return 'en'
   }
 }
+
 export const readLocale = (): Locale => {
   try {
-    const v = localStorage.getItem('portfolio-locale')
-    return v === 'pt-BR' || v === 'en' ? v : getLocale()
+    const value = localStorage.getItem('portfolio-locale')
+    return value === 'pt-BR' || value === 'en' ? value : getLocale()
   } catch {
     return getLocale()
+  }
+}
+
+export const readTheme = (): Theme => {
+  try {
+    const value = localStorage.getItem('portfolio-theme')
+    return value === 'dark' || value === 'light' ? value : 'light'
+  } catch {
+    return 'light'
   }
 }

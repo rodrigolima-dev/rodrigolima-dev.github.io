@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f1eb" />
+    <meta name="theme-color" content="#121619" />
     <meta
       name="description"
-      content="Portfólio de Rodrigo Lima, desenvolvedor full stack no Rio de Janeiro."
+      content="Rodrigo Lima — AI engineer e desenvolvedor full stack. Agentes, RAG, MCP e produtos com governança e resultado."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Rodrigo Lima | Desenvolvedor Full Stack" />
+    <meta property="og:title" content="Rodrigo Lima | AI Engineer" />
     <meta
       property="og:description"
-      content="Projetos, experiência e tecnologias de Rodrigo Lima."
+      content="Projetos, experiência e cases de IA aplicada de Rodrigo Lima."
     />
     <meta property="og:url" content="https://rodrigolima-dev.github.io/" />
     <meta property="og:image" content="https://rodrigolima-dev.github.io/social-card.svg" />
@@ -24,6 +24,8 @@
       try {
         const l = localStorage.getItem('portfolio-locale')
         if (l === 'pt-BR' || l === 'en') document.documentElement.lang = l
+        const t = localStorage.getItem('portfolio-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
       } catch {}
     </script>
   </head>

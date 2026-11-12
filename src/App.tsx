@@ -526,7 +526,7 @@ export function App() {
                 <h3>{t.exp2}</h3>
                 <p>{t.exp2Body}</p>
               </article>
-              <article>
+              <article className="timeline-army">
                 <span>{t.exp3Date}</span>
                 <h3>{t.exp3}</h3>
                 <p>{t.exp3Body}</p>

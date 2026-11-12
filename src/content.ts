@@ -118,13 +118,14 @@ export const content = {
     experienceKicker: 'EXPERIÊNCIA',
     experienceTitle: 'SOFTWARE\nCOM CONTEXTO',
     experienceBody:
-      'Estudo Sistemas de Informação e ensino lógica e programação. Antes disso, trabalhei com redes e servidores no Exército Brasileiro.',
+      'Estudante de Sistemas de Informação na Universidade Federal de Ciência e Inovação do Rio de Janeiro.',
     exp1: 'Co-founder & CTO · OpportunusAI',
     exp1Body:
       'Produto, arquitetura e operação de uma IA que atende, vende e entrega contexto para equipes.',
     exp1Date: 'ATUALMENTE',
     exp2: 'Nave do Conhecimento',
-    exp2Body: 'Atividades de lógica, programação e aprendizagem prática para crianças e jovens.',
+    exp2Body:
+      'Ministro aulas de programação, informática e tecnologia para jovens da comunidade na Nave do Conhecimento.',
     exp2Date: 'ATUALMENTE',
     exp3: 'Exército Brasileiro',
     exp3Body: 'Redes, servidores e suporte como técnico de TI.',
@@ -279,13 +280,14 @@ export const content = {
     experienceKicker: 'EXPERIENCE',
     experienceTitle: 'SOFTWARE\nWITH CONTEXT',
     experienceBody:
-      'I study Information Systems and teach logic and programming. Before that, I worked on networks and servers in the Brazilian Army.',
+      'Information Systems student at the Federal University of Science and Innovation of Rio de Janeiro.',
     exp1: 'Co-founder & CTO · OpportunusAI',
     exp1Body:
       'Product, architecture, and operations for an AI that supports, sells, and delivers context to teams.',
     exp1Date: 'CURRENTLY',
     exp2: 'Nave do Conhecimento',
-    exp2Body: 'Logic, programming, and hands-on learning activities for children and teenagers.',
+    exp2Body:
+      'I teach programming, computer literacy, and technology to young people from the community at Nave do Conhecimento.',
     exp2Date: 'CURRENTLY',
     exp3: 'Brazilian Army',
     exp3Body: 'Networks, servers, and support as an IT technician.',

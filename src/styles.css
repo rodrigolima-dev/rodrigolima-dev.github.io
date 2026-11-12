@@ -846,6 +846,43 @@ svg {
   font-size: 14px;
   line-height: 1.45;
 }
+.timeline-army {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 20px 20px !important;
+  border: 0 !important;
+  border-radius: 10px;
+  color: #f2f0dc;
+  background:
+    radial-gradient(ellipse at 14% 22%, #8e9561 0 9%, transparent 10%),
+    radial-gradient(ellipse at 78% 16%, #3f4930 0 13%, transparent 14%),
+    radial-gradient(ellipse at 54% 76%, #89905b 0 12%, transparent 13%),
+    radial-gradient(ellipse at 92% 82%, #3c462d 0 10%, transparent 11%), #626b43;
+}
+.timeline-army::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: '';
+  background:
+    radial-gradient(ellipse at 32% 54%, #4c5634 0 8%, transparent 9%),
+    radial-gradient(ellipse at 68% 42%, #a1a66f 0 7%, transparent 8%),
+    radial-gradient(ellipse at 44% 8%, #3b452c 0 5%, transparent 6%);
+  opacity: 0.72;
+}
+.timeline-army > * {
+  position: relative;
+  z-index: 1;
+}
+.timeline-army > span {
+  color: #d5d8ae;
+}
+.timeline-army h3 {
+  color: #fffde8;
+}
+.timeline-army p {
+  color: #e4e5c9;
+}
 .tools-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1036,6 +1073,9 @@ footer {
 }
 .portfolio-shell[data-theme='light'] .timeline article {
   border-color: var(--line);
+}
+.portfolio-shell[data-theme='light'] .timeline-army p {
+  color: #e4e5c9;
 }
 .portfolio-shell[data-theme='light'] .delivery-tags span {
   border-color: #bdd0cc;

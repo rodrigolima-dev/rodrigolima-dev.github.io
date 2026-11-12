@@ -70,25 +70,6 @@ export const content = {
         'Defino handoff, logs, testes, aprovação humana e métricas para saber quando a IA ajudou e quando precisa parar.',
       ],
     ],
-    governanceKicker: 'GOVERNANÇA APLICADA',
-    governanceTitle: 'A IA PROPÕE\nAS REGRAS DECIDEM',
-    governanceBody:
-      'No produto, o modelo não inventa preço, estoque ou permissão. A fonte de dados é consultada, a regra valida a ação e a equipe assume quando o caso sai do escopo.',
-    governanceItems: [
-      ['Fonte antes da resposta', 'Catálogo, preço, estoque e status vêm da plataforma conectada.'],
-      [
-        'Ação só depois do consentimento',
-        'Checkout e mensagens sensíveis respeitam confirmação e janela autorizada.',
-      ],
-      [
-        'Handoff com contexto',
-        'Quando a pessoa entra, a IA pausa e entrega histórico, intenção e próximos passos.',
-      ],
-      [
-        'Métrica com regra',
-        'Resultado só entra no relatório quando a atribuição e a janela estão definidas.',
-      ],
-    ],
     opportunusKicker: 'CASE · OPPORTUNUSAI',
     opportunusTitle: 'DA CONVERSA\nAO RESULTADO',
     opportunusLead:
@@ -118,7 +99,6 @@ export const content = {
     publicMetrics: [
       ['+270', 'pedidos pagos com participação da IA', 'métrica pública na landing page'],
       ['~20 s', 'mediana para responder', 'inclui a espera para o cliente terminar de digitar'],
-      ['48 h', 'janela de atribuição', 'regra pública para relacionar conversa e pagamento'],
     ],
     screensKicker: 'TELAS DO PRODUTO',
     screensTitle: 'V1 E V2\nDO PRODUTO',
@@ -251,28 +231,6 @@ export const content = {
         'I define handoff, logs, tests, human approval, and metrics to know when AI helped and when it must stop.',
       ],
     ],
-    governanceKicker: 'APPLIED GOVERNANCE',
-    governanceTitle: 'AI SUGGESTS\nRULES DECIDE',
-    governanceBody:
-      'In the product, the model does not invent price, inventory, or permission. The source is checked, a rule validates the action, and the team takes over when the case is out of scope.',
-    governanceItems: [
-      [
-        'Source before answer',
-        'Catalog, price, inventory, and status come from the connected platform.',
-      ],
-      [
-        'Action after consent',
-        'Checkout and sensitive messages respect confirmation and an allowed window.',
-      ],
-      [
-        'Handoff with context',
-        'When a person joins, AI pauses and delivers history, intent, and next steps.',
-      ],
-      [
-        'Metrics with rules',
-        'A result enters the report only when attribution and the time window are defined.',
-      ],
-    ],
     opportunusKicker: 'CASE · OPPORTUNUSAI',
     opportunusTitle: 'FROM CONVERSATION\nTO OUTCOME',
     opportunusLead:
@@ -302,7 +260,6 @@ export const content = {
     publicMetrics: [
       ['+270', 'paid orders with AI participation', 'public metric on the landing page'],
       ['~20 s', 'median response time', 'includes wait time while the customer finishes typing'],
-      ['48 h', 'attribution window', 'public rule connecting conversation and payment'],
     ],
     screensKicker: 'PRODUCT SCREENS',
     screensTitle: 'PRODUCT\nVERSIONS',

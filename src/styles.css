@@ -11,8 +11,8 @@
   --muted: #5e7171;
   --faint: #718381;
   --line: #d5e2df;
-  --orange: #ee6540;
-  --lime: #b8ed3b;
+  --purple: #6410c8;
+  --purple-soft: #b895f0;
   --teal: #79d5c8;
   --navy: #143b61;
   --mono: 'DM Mono', monospace;
@@ -68,7 +68,7 @@ svg {
   letter-spacing: -0.1em;
 }
 .wordmark span {
-  color: var(--orange);
+  color: var(--purple);
 }
 .topbar nav {
   display: flex;
@@ -161,7 +161,7 @@ svg {
   height: 292px;
   overflow: hidden;
   border-radius: 14px;
-  background: #224c58;
+  background: var(--purple);
 }
 .profile-image img {
   width: 100%;
@@ -171,7 +171,7 @@ svg {
 }
 .orbit {
   position: absolute;
-  border: 2px dashed #f4b49b;
+  border: 2px dashed var(--purple-soft);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -216,7 +216,7 @@ svg {
   margin-bottom: 20px;
   border-radius: 50%;
   color: #fff;
-  background: var(--orange);
+  background: var(--purple);
 }
 .profile-card p {
   max-width: 260px;
@@ -229,7 +229,7 @@ svg {
   display: flex;
   gap: 26px;
   margin-top: auto;
-  color: #e46640;
+  color: var(--purple);
   align-items: center;
 }
 .social-row a {
@@ -265,9 +265,9 @@ svg {
   min-height: 655px;
 }
 .eyebrow,
-.section-title > p {
+.section-title > p:not(.section-lead) {
   margin: 0 0 17px;
-  color: var(--orange);
+  color: var(--purple);
   font: 500 10px var(--mono);
   letter-spacing: 0.14em;
 }
@@ -287,7 +287,6 @@ svg {
 .hero-block h1 span,
 .section-title h2 span,
 .contact-section h2 span,
-.governance-panel h3 span,
 .delivery-panel h3 span {
   display: inline;
   white-space: nowrap;
@@ -388,11 +387,13 @@ svg {
   border-radius: 7px;
   font-size: 19px;
 }
-.orange {
-  background: var(--orange);
+.purple {
+  color: #fff;
+  background: var(--purple);
 }
-.lime {
-  background: var(--lime);
+.purple-light {
+  color: var(--ink);
+  background: var(--purple-soft);
 }
 .repo-toggle-row {
   display: flex;
@@ -408,10 +409,10 @@ svg {
   font: 500 10px var(--mono);
 }
 .text-button:hover {
-  color: var(--orange);
+  color: var(--purple);
 }
 .text-button span {
-  color: var(--orange);
+  color: var(--purple);
   font-size: 16px;
   vertical-align: -1px;
 }
@@ -452,7 +453,7 @@ svg {
   grid-column: 2;
   grid-row: 1 / span 3;
   align-self: center;
-  color: var(--orange);
+  color: var(--purple);
 }
 .content-section {
   padding-top: 112px;
@@ -471,7 +472,7 @@ svg {
 }
 .project-meta {
   margin: 0 0 12px;
-  color: #e97855;
+  color: var(--purple);
   font: 500 10px var(--mono);
   letter-spacing: 0.08em;
 }
@@ -511,14 +512,14 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--orange);
+  color: var(--purple);
   font: 500 10px var(--mono);
   letter-spacing: 0.04em;
 }
 .project-links a:hover,
 .case-links a:hover,
 .contact-actions a:hover {
-  color: #ffae93;
+  color: #8f55e8;
 }
 .project-links svg,
 .case-links svg,
@@ -531,8 +532,8 @@ svg {
 .primary-button {
   padding: 12px 13px;
   border-radius: 6px;
-  color: #172027 !important;
-  background: var(--orange);
+  color: #fff !important;
+  background: var(--purple);
 }
 .project-list {
   display: grid;
@@ -577,7 +578,7 @@ svg {
   background: #172023;
 }
 .card-index {
-  color: var(--orange);
+  color: var(--purple);
   font: 500 10px var(--mono);
 }
 .ai-grid h3 {
@@ -591,54 +592,6 @@ svg {
   font-size: 14px;
   line-height: 1.5;
 }
-.governance-panel {
-  display: block;
-  margin-top: 54px;
-  padding: 28px;
-  border-radius: 14px;
-  color: var(--ink);
-  background: var(--teal);
-}
-.governance-panel .eyebrow {
-  color: #21635e;
-}
-.governance-panel h3 {
-  margin: 0;
-  font-size: clamp(34px, 4vw, 54px);
-  line-height: 0.92;
-  letter-spacing: -0.08em;
-}
-.governance-panel > div > p:last-child {
-  max-width: 620px;
-  margin: 24px 0 0;
-  color: #285451;
-  font-size: 16px;
-  line-height: 1.5;
-}
-.governance-list {
-  display: grid;
-  gap: 15px;
-  margin-top: 30px;
-}
-.governance-list > div {
-  display: grid;
-  grid-template-columns: 30px 1fr;
-  gap: 13px;
-  padding-top: 13px;
-  border-top: 1px solid #2f716c55;
-}
-.governance-icon {
-  color: #21635e;
-}
-.governance-list strong {
-  font-size: 14px;
-}
-.governance-list p {
-  margin: 4px 0 0;
-  color: #285451;
-  font-size: 12px;
-  line-height: 1.4;
-}
 .case-study {
   padding-top: 146px;
 }
@@ -651,11 +604,11 @@ svg {
 .case-flow > div {
   min-height: 194px;
   padding: 17px;
-  border-top: 2px solid var(--orange);
+  border-top: 2px solid var(--purple);
   background: #172023;
 }
 .case-flow span {
-  color: var(--orange);
+  color: var(--purple);
   font: 500 10px var(--mono);
 }
 .case-flow strong {
@@ -671,7 +624,7 @@ svg {
 }
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   margin-top: 35px;
   background: var(--line);
@@ -684,7 +637,7 @@ svg {
 }
 .metrics-grid strong {
   display: block;
-  color: var(--lime);
+  color: var(--purple-soft);
   font-size: 35px;
   letter-spacing: -0.08em;
 }
@@ -1054,9 +1007,6 @@ footer {
 .portfolio-shell[data-theme='light'] .metrics-grid {
   background: var(--line);
 }
-.portfolio-shell[data-theme='light'] .governance-list > div {
-  border-color: #2f716c33;
-}
 .portfolio-shell[data-theme='light'] .screen-grid a {
   border-color: #c9dad6;
   background: #ffffff;
@@ -1102,8 +1052,8 @@ footer {
   --muted: #96a0a3;
   --faint: #687378;
   --line: #2b3438;
-  --orange: #ff7044;
-  --lime: #c9ff46;
+  --purple: #9c66ee;
+  --purple-soft: #c9adff;
   background: radial-gradient(circle at 80% -10%, #193239 0, transparent 34%), var(--bg);
   color: var(--text);
 }
@@ -1190,7 +1140,6 @@ footer {
   .hero-block h1 span,
   .section-title h2 span,
   .contact-section h2 span,
-  .governance-panel h3 span,
   .delivery-panel h3 span {
     white-space: normal;
   }
@@ -1210,7 +1159,6 @@ footer {
   .hero-cards,
   .related-repo-list,
   .ai-grid,
-  .governance-panel,
   .case-flow,
   .metrics-grid,
   .screen-grid,
@@ -1244,11 +1192,9 @@ footer {
   .section-lead {
     font-size: 15px;
   }
-  .governance-panel,
   .delivery-panel {
     padding: 22px;
   }
-  .governance-panel h3,
   .delivery-panel h3 {
     font-size: 40px;
   }

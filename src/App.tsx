@@ -298,13 +298,13 @@ export function App() {
               ))}
             </div>
             <div className="hero-cards">
-              <a className="color-card orange" href="#ai-work">
+              <a className="color-card purple" href="#ai-work">
                 <Icon name="spark" />
                 <strong>{t.orbit}</strong>
                 <small>{t.orbitBody}</small>
                 <span>↗</span>
               </a>
-              <a className="color-card lime" href="#projects">
+              <a className="color-card purple-light" href="#projects">
                 <Icon name="grid" />
                 <strong>{t.build}</strong>
                 <small>{t.buildBody}</small>
@@ -430,28 +430,6 @@ export function App() {
                   <p>{body}</p>
                 </article>
               ))}
-            </div>
-            <div className="governance-panel">
-              <div>
-                <p className="eyebrow">{t.governanceKicker}</p>
-                <h3>
-                  <HeadingLines text={t.governanceTitle} />
-                </h3>
-                <p>{t.governanceBody}</p>
-              </div>
-              <div className="governance-list">
-                {t.governanceItems.map(([title, body]) => (
-                  <div key={title}>
-                    <span className="governance-icon">
-                      <Icon name="shield" />
-                    </span>
-                    <div>
-                      <strong>{title}</strong>
-                      <p>{body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </section>
 

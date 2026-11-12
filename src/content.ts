@@ -118,7 +118,7 @@ export const content = {
     experienceKicker: 'EXPERIÊNCIA',
     experienceTitle: 'SOFTWARE\nCOM CONTEXTO',
     experienceBody:
-      'Estudante de Sistemas de Informação na Universidade Federal de Ciência e Inovação do Rio de Janeiro.',
+      'Estudante de Sistemas de Informação na Universidade Federal de Ciência e Inovação do Rio de Janeiro. Ministro aulas de programação, informática e tecnologia para jovens da comunidade na Nave do Conhecimento. Antes disso, trabalhei com redes e servidores no Exército Brasileiro.',
     exp1: 'Co-founder & CTO · OpportunusAI',
     exp1Body:
       'Produto, arquitetura e operação de uma IA que atende, vende e entrega contexto para equipes.',
@@ -280,7 +280,7 @@ export const content = {
     experienceKicker: 'EXPERIENCE',
     experienceTitle: 'SOFTWARE\nWITH CONTEXT',
     experienceBody:
-      'Information Systems student at the Federal University of Science and Innovation of Rio de Janeiro.',
+      'Information Systems student at the Federal University of Science and Innovation of Rio de Janeiro. I teach programming, computer literacy, and technology to young people from the community at Nave do Conhecimento. Before that, I worked with networks and servers in the Brazilian Army.',
     exp1: 'Co-founder & CTO · OpportunusAI',
     exp1Body:
       'Product, architecture, and operations for an AI that supports, sells, and delivers context to teams.',

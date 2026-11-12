@@ -187,22 +187,6 @@ svg {
   left: -80px;
   bottom: -118px;
 }
-.profile-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin: 18px 0 3px;
-  color: #3e706b;
-  font: 500 9px var(--mono);
-  letter-spacing: 0.04em;
-}
-.profile-status span {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #36a878;
-  box-shadow: 0 0 0 4px #d9f2e6;
-}
 .profile-card h2 {
   margin: 8px 0 8px;
   font-size: 30px;
@@ -846,42 +830,17 @@ svg {
   font-size: 14px;
   line-height: 1.45;
 }
-.timeline-army {
-  position: relative;
-  overflow: hidden;
-  padding: 22px 20px 20px !important;
-  border: 0 !important;
-  border-radius: 10px;
-  color: #f2f0dc;
+.olive-highlight {
+  display: inline;
+  color: transparent;
+  font-weight: 700;
   background:
-    radial-gradient(ellipse at 14% 22%, #8e9561 0 9%, transparent 10%),
-    radial-gradient(ellipse at 78% 16%, #3f4930 0 13%, transparent 14%),
-    radial-gradient(ellipse at 54% 76%, #89905b 0 12%, transparent 13%),
-    radial-gradient(ellipse at 92% 82%, #3c462d 0 10%, transparent 11%), #626b43;
-}
-.timeline-army::after {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  content: '';
-  background:
-    radial-gradient(ellipse at 32% 54%, #4c5634 0 8%, transparent 9%),
-    radial-gradient(ellipse at 68% 42%, #a1a66f 0 7%, transparent 8%),
-    radial-gradient(ellipse at 44% 8%, #3b452c 0 5%, transparent 6%);
-  opacity: 0.72;
-}
-.timeline-army > * {
-  position: relative;
-  z-index: 1;
-}
-.timeline-army > span {
-  color: #d5d8ae;
-}
-.timeline-army h3 {
-  color: #fffde8;
-}
-.timeline-army p {
-  color: #e4e5c9;
+    radial-gradient(circle at 14% 28%, #8e9561 0 18%, transparent 19%),
+    radial-gradient(circle at 78% 22%, #3f4930 0 24%, transparent 25%),
+    radial-gradient(circle at 54% 78%, #89905b 0 22%, transparent 23%), #626b43;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .tools-grid {
   display: grid;
@@ -1073,9 +1032,6 @@ footer {
 }
 .portfolio-shell[data-theme='light'] .timeline article {
   border-color: var(--line);
-}
-.portfolio-shell[data-theme='light'] .timeline-army p {
-  color: #e4e5c9;
 }
 .portfolio-shell[data-theme='light'] .delivery-tags span {
   border-color: #bdd0cc;

@@ -93,6 +93,20 @@ function HeadingLines({ text }: { text: string }) {
   )
 }
 
+function HighlightedPhrase({ text, phrase }: { text: string; phrase: string }) {
+  return text.split(phrase).reduce<ReactNode[]>((parts, part, index) => {
+    if (index > 0) {
+      parts.push(
+        <span className="olive-highlight" key={`olive-highlight-${index}`}>
+          {phrase}
+        </span>,
+      )
+    }
+    parts.push(part)
+    return parts
+  }, [])
+}
+
 function TechIcon({ name }: { name: string }) {
   const icons: Record<string, ReactNode> = {
     React: <SiReact />,
@@ -247,9 +261,6 @@ export function App() {
               <img src="/media/portrait-head.png" alt="Rodrigo Lima" />
               <span className="orbit orbit-a" />
               <span className="orbit orbit-b" />
-            </div>
-            <div className="profile-status">
-              <span /> OPEN TO GENAI INTERNSHIPS
             </div>
             <h2>Rodrigo Lima</h2>
             <div className="profile-mark">
@@ -514,7 +525,9 @@ export function App() {
 
           <section className="content-section" id="experience">
             <SectionTitle kicker={t.experienceKicker} title={t.experienceTitle} />
-            <p className="section-lead">{t.experienceBody}</p>
+            <p className="section-lead">
+              <HighlightedPhrase text={t.experienceBody} phrase={t.exp3} />
+            </p>
             <div className="timeline">
               <article>
                 <span>{t.exp1Date}</span>
@@ -526,7 +539,7 @@ export function App() {
                 <h3>{t.exp2}</h3>
                 <p>{t.exp2Body}</p>
               </article>
-              <article className="timeline-army">
+              <article>
                 <span>{t.exp3Date}</span>
                 <h3>{t.exp3}</h3>
                 <p>{t.exp3Body}</p>
